@@ -1,0 +1,25 @@
+*.o
+*.a
+*.pyc
+#*#
+*~
+*.swp
+.*
+*.tmp
+*.old
+*.profile
+*.bkp
+*.bak
+[Tt]humbs.db
+*.DS_Store
+*.log
+*.db
+/data/
+test-coverage.out
+.DS_Store
+.idea/
+.vscode/
+
+# Don't ignore this file itself, or other specific dotfiles
+!.gitignore
+!.github/
