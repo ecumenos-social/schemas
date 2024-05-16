@@ -1,0 +1,253 @@
+syntax = "proto3";
+
+package networkwarden.v1;
+
+option go_package = "networkwarden/v1;v1pb";
+
+import "common/v1/geolocation.proto";
+import "networkwarden/v1/holder.proto";
+import "networkwarden/v1/network_node.proto";
+import "networkwarden/v1/personal_data_node.proto";
+
+message NetworkWarden {
+  string id = 1;
+  string created_at = 2;
+  string last_modified_at = 3;
+  int64 id_gen_node = 4;
+  string name = 5;
+  string description = 6;
+  string address_suffix = 7;
+  uint64 pdn_capacity = 8;
+  uint64 nn_capacity = 9;
+  string url = 10;
+  bool alive = 11;
+  string last_pinged_at = 12;
+  string version = 13;
+  double rate_limit = 14;
+}
+
+message RegisterHolderRequest {
+  repeated string emails = 1;
+  repeated string phone_numbers = 2;
+  string avatar_image_url = 3;
+  repeated string countries = 4;
+  repeated string languages = 5;
+  string password = 6;
+}
+
+enum ConfirmationApproach {
+  CONFIRMATION_APPROACH_UNKNOWN_UNSPECIFIED = 0;
+  CONFIRMATION_APPROACH_PHONE_NUMBER = 1;
+  CONFIRMATION_APPROACH_EMAIL = 2;
+}
+
+message RegisterHolderResponse {
+  string token = 1;
+  string refresh_token = 2;
+  ConfirmationApproach confirmation_approach = 3;
+}
+
+message ConfirmHolderRegistrationRequest {
+  string token = 1;
+  string confirmation_code = 2;
+}
+
+message ConfirmHolderRegistrationResponse {
+  bool success = 1;
+}
+
+message ResendConfirmationCodeRequest {
+  string token = 1;
+  ConfirmationApproach confirmation_approach = 2;
+
+}
+
+message ResendConfirmationCodeResponse {
+  bool success = 1;
+}
+
+message LoginHolderRequest {
+  string email = 1;
+  string phone_number = 2;
+  string password = 3;
+}
+
+message LoginHolderResponse {
+  string token = 1;
+  string refresh_token = 2;
+}
+
+message LogoutHolderRequest {
+  string token = 1;
+}
+
+message LogoutHolderResponse {
+  bool success = 1;
+}
+
+message RefreshHolderTokenRequest {
+  string refresh_token = 1;
+}
+
+message RefreshHolderTokenResponse {
+  string token = 1;
+  string refresh_token = 2;
+}
+
+message ChangeHolderPasswordRequest {
+  string token = 1;
+  string password = 2;
+  string new_password = 3;
+}
+
+message ChangeHolderPasswordResponse {
+  bool success = 1;
+}
+
+message ModifyHolderRequest {
+  string token = 1;
+  string avatar_image_url = 2;
+  repeated string countries = 3;
+  repeated string languages = 4;
+}
+
+message ModifyHolderResponse {
+  bool success = 1;
+}
+
+message GetHolderRequest {
+  string token = 1;
+  string holder_id = 2;
+}
+
+message GetHolderResponse {
+  networkwarden.v1.Holder data = 1;
+}
+
+message DeleteHolderRequest {
+  string token = 1;
+  string password = 2;
+}
+
+message DeleteHolderResponse {
+  bool success = 1;
+}
+
+message GetPersonalDataNodesListRequest {
+  string token = 1;
+  bool only_my = 2;
+  int64 offset = 3;
+  int64 limit = 4;
+}
+
+message GetPersonalDataNodesListResponse {
+  repeated networkwarden.v1.PersonalDataNode data = 1;
+}
+
+message JoinPersonalDataNodeRegistrationWaitlistRequest {
+  string token = 1;
+  string url = 2;
+  string name = 3;
+  string description = 4;
+  common.v1.Geolocation location = 5;
+}
+
+message JoinPersonalDataNodeRegistrationWaitlistResponse {
+  bool success = 1;
+  string id = 2;
+}
+
+message RegisterPersonalDataNodeRequest {
+  string token = 1;
+  string id = 2;
+  string code = 3;
+}
+
+message RegisterPersonalDataNodeResponse {
+  bool success = 1;
+  string api_key = 2;
+}
+
+message GetNetworkNodesListRequest {
+  string token = 1;
+  bool only_my = 2;
+  int64 offset = 3;
+  int64 limit = 4;
+}
+
+message GetNetworkNodesListResponse {
+  repeated networkwarden.v1.NetworkNode data = 1;
+}
+
+message JoinNetworkNodeRegistrationWaitlistRequest {
+  string token = 1;
+  string url = 2;
+  string name = 3;
+  string description = 4;
+  common.v1.Geolocation location = 5;
+  string domain_name = 6;
+}
+
+message JoinNetworkNodeRegistrationWaitlistResponse {
+  bool success = 1;
+  string id = 2;
+}
+
+message RegisterNetworkNodeRequest {
+  string token = 1;
+  string id = 2;
+  string code = 3;
+}
+
+message RegisterNetworkNodeResponse {
+  bool success = 1;
+  string api_key = 2;
+}
+
+message GetNetworkWardensListRequest {
+  string token = 1;
+  bool only_my = 2;
+  int64 offset = 3;
+  int64 limit = 4;
+}
+
+message GetNetworkWardensListResponse {
+  repeated NetworkWarden data = 1;
+}
+
+message RegisterNetworkWardenRequest {
+  string id = 1;
+  string name = 5;
+  string description = 6;
+  string address_suffix = 7;
+  uint64 pdn_capacity = 8;
+  uint64 nn_capacity = 9;
+  string url = 10;
+  string version = 13;
+  double rate_limit = 14;
+}
+
+message RegisterNetworkWardenResponse {
+  bool success = 1;
+}
+
+service NetworkWardenService {
+  rpc RegisterHolder(RegisterHolderRequest) returns (RegisterHolderResponse);
+  rpc ConfirmHolderRegistration(ConfirmHolderRegistrationRequest) returns (ConfirmHolderRegistrationResponse);
+  rpc ResendConfirmationCode(ResendConfirmationCodeRequest) returns (ResendConfirmationCodeResponse);
+  rpc LoginHolder(LoginHolderRequest) returns (LoginHolderResponse);
+  rpc LogoutHolder(LogoutHolderRequest) returns (LogoutHolderResponse);
+  rpc RefreshHolderToken(RefreshHolderTokenRequest) returns (RefreshHolderTokenResponse);
+  rpc ChangeHolderPassword(ChangeHolderPasswordRequest) returns (ChangeHolderPasswordResponse);
+  rpc ModifyHolder(ModifyHolderRequest) returns (ModifyHolderResponse);
+  rpc GetHolder(GetHolderRequest) returns (GetHolderResponse);
+  rpc DeleteHolder(DeleteHolderRequest) returns (DeleteHolderResponse);
+  rpc GetPersonalDataNodesList(GetPersonalDataNodesListRequest) returns (GetPersonalDataNodesListResponse);
+  rpc JoinPersonalDataNodeRegistrationWaitlist(JoinPersonalDataNodeRegistrationWaitlistRequest) returns (JoinPersonalDataNodeRegistrationWaitlistResponse);
+  rpc RegisterPersonalDataNode(RegisterPersonalDataNodeRequest) returns (RegisterPersonalDataNodeResponse);
+  rpc GetNetworkNodesList(GetNetworkNodesListRequest) returns (GetNetworkNodesListResponse);
+  rpc JoinNetworkNodeRegistrationWaitlist(JoinNetworkNodeRegistrationWaitlistRequest) returns (JoinNetworkNodeRegistrationWaitlistResponse);
+  rpc RegisterNetworkNode(RegisterNetworkNodeRequest) returns (RegisterNetworkNodeResponse);
+  rpc GetNetworkWardensList(GetNetworkWardensListRequest) returns (GetNetworkWardensListResponse);
+  rpc RegisterNetworkWarden(RegisterNetworkWardenRequest) returns (RegisterNetworkWardenResponse);
+}

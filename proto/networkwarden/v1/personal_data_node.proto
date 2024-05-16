@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package networkwarden.v1;
+
+option go_package = "networkwarden/v1;v1pb";
+
+import "common/v1/geolocation.proto";
+
+message PersonalDataNode {
+  enum Status {
+    STATUS_UNKNOWN_UNSPECIFIED = 0;
+    STATUS_APPROVED = 1;
+    STATUS_PENDING = 2;
+    STATUS_REJECTED = 3;
+  }
+
+  string id = 1;
+  string created_at = 2;
+  string last_modified_at = 3;
+  string nw_id = 4;
+  string name = 5;
+  string description = 6;
+  common.v1.Geolocation location = 7;
+  int64 accounts_capacity = 8;
+  bool alive = 9;
+  string last_pinged_at = 10;
+  bool is_open = 11;
+  string owner_holder_id = 12;
+  string url = 13;
+  string version = 14;
+  double rate_limit = 15;
+  double crawl_rate_limit = 16;
+  int64 id_gen_node = 17;
+  Status status = 18;
+}
