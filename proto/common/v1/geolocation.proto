@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package common.v1;
+
+option go_package = "common/v1;v1pb";
+
+message Geolocation {
+  double latitude = 1;
+  double longitude = 2;
+}

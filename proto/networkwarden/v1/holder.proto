@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package networkwarden.v1;
+
+option go_package = "networkwarden/v1;v1pb";
+
+message Holder {
+  string id = 1;
+  repeated string emails = 2;
+  repeated string phone_numbers = 3;
+  string avatar_image_url = 4;
+  repeated string countries = 5;
+  repeated string languages = 6;
+}
