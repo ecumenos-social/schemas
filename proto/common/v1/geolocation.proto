@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package common.v1;
 
-option go_package = "common/v1;v1pb";
+option go_package = "github.com/ecumenos-social/schemas/proto/gen/common/v1";
 
 message Geolocation {
   double latitude = 1;

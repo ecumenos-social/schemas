@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package networkwarden.v1;
 
-option go_package = "networkwarden/v1;v1pb";
+option go_package = "github.com/ecumenos-social/schemas/proto/gen/networkwarden/v1";
 
 import "common/v1/geolocation.proto";
 import "networkwarden/v1/holder.proto";
