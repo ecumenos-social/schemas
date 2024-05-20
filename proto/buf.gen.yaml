@@ -6,6 +6,7 @@ plugins:
     out: gen
     opt:
       - paths=source_relative
+      - generate_unbound_methods=true
   - remote: buf.build/bufbuild/validate-go:v1.0.4
     out: gen
     opt:
