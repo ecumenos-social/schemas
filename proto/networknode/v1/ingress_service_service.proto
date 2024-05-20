@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package networknode.v1;
+
+option go_package = "github.com/ecumenos-social/schemas/proto/gen/networknode/v1";
+
+service IngressService {}
