@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.3.0
 // - protoc             (unknown)
-// source: networkwarden/v1/network_warden.proto
+// source: networkwarden/v1/network_warden_service.proto
 
 package v1
 
@@ -734,5 +734,5 @@ var NetworkWardenService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "networkwarden/v1/network_warden.proto",
+	Metadata: "networkwarden/v1/network_warden_service.proto",
 }
