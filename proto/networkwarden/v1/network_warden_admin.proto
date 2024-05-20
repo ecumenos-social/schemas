@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package networkwarden.v1;
+
+option go_package = "github.com/ecumenos-social/schemas/proto/gen/networkwarden/v1";
+
+service NetworkWardenAdminService {}
