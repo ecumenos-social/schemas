@@ -33,6 +33,8 @@ message RegisterHolderRequest {
   repeated string countries = 4;
   repeated string languages = 5;
   string password = 6;
+  string ip_address = 7;
+  string mac_address = 8;
 }
 
 enum ConfirmationApproach {
@@ -50,6 +52,8 @@ message RegisterHolderResponse {
 message ConfirmHolderRegistrationRequest {
   string token = 1;
   string confirmation_code = 2;
+  string ip_address = 3;
+  string mac_address = 4;
 }
 
 message ConfirmHolderRegistrationResponse {
@@ -59,6 +63,8 @@ message ConfirmHolderRegistrationResponse {
 message ResendConfirmationCodeRequest {
   string token = 1;
   ConfirmationApproach confirmation_approach = 2;
+  string ip_address = 3;
+  string mac_address = 4;
 
 }
 
@@ -70,6 +76,8 @@ message LoginHolderRequest {
   string email = 1;
   string phone_number = 2;
   string password = 3;
+  string ip_address = 4;
+  string mac_address = 5;
 }
 
 message LoginHolderResponse {
@@ -79,6 +87,8 @@ message LoginHolderResponse {
 
 message LogoutHolderRequest {
   string token = 1;
+  string ip_address = 2;
+  string mac_address = 3;
 }
 
 message LogoutHolderResponse {
@@ -87,6 +97,8 @@ message LogoutHolderResponse {
 
 message RefreshHolderTokenRequest {
   string refresh_token = 1;
+  string ip_address = 2;
+  string mac_address = 3;
 }
 
 message RefreshHolderTokenResponse {
@@ -98,6 +110,8 @@ message ChangeHolderPasswordRequest {
   string token = 1;
   string password = 2;
   string new_password = 3;
+  string ip_address = 4;
+  string mac_address = 5;
 }
 
 message ChangeHolderPasswordResponse {
@@ -109,6 +123,8 @@ message ModifyHolderRequest {
   string avatar_image_url = 2;
   repeated string countries = 3;
   repeated string languages = 4;
+  string ip_address = 5;
+  string mac_address = 6;
 }
 
 message ModifyHolderResponse {
@@ -118,6 +134,8 @@ message ModifyHolderResponse {
 message GetHolderRequest {
   string token = 1;
   string holder_id = 2;
+  string ip_address = 3;
+  string mac_address = 4;
 }
 
 message GetHolderResponse {
@@ -127,6 +145,8 @@ message GetHolderResponse {
 message DeleteHolderRequest {
   string token = 1;
   string password = 2;
+  string ip_address = 3;
+  string mac_address = 4;
 }
 
 message DeleteHolderResponse {
@@ -138,6 +158,8 @@ message GetPersonalDataNodesListRequest {
   bool only_my = 2;
   int64 offset = 3;
   int64 limit = 4;
+  string ip_address = 5;
+  string mac_address = 6;
 }
 
 message GetPersonalDataNodesListResponse {
@@ -150,6 +172,8 @@ message JoinPersonalDataNodeRegistrationWaitlistRequest {
   string name = 3;
   string description = 4;
   common.v1.Geolocation location = 5;
+  string ip_address = 6;
+  string mac_address = 7;
 }
 
 message JoinPersonalDataNodeRegistrationWaitlistResponse {
@@ -161,6 +185,8 @@ message RegisterPersonalDataNodeRequest {
   string token = 1;
   string id = 2;
   string code = 3;
+  string ip_address = 4;
+  string mac_address = 5;
 }
 
 message RegisterPersonalDataNodeResponse {
@@ -173,6 +199,8 @@ message GetNetworkNodesListRequest {
   bool only_my = 2;
   int64 offset = 3;
   int64 limit = 4;
+  string ip_address = 5;
+  string mac_address = 6;
 }
 
 message GetNetworkNodesListResponse {
@@ -186,6 +214,8 @@ message JoinNetworkNodeRegistrationWaitlistRequest {
   string description = 4;
   common.v1.Geolocation location = 5;
   string domain_name = 6;
+  string ip_address = 7;
+  string mac_address = 8;
 }
 
 message JoinNetworkNodeRegistrationWaitlistResponse {
@@ -197,6 +227,8 @@ message RegisterNetworkNodeRequest {
   string token = 1;
   string id = 2;
   string code = 3;
+  string ip_address = 4;
+  string mac_address = 5;
 }
 
 message RegisterNetworkNodeResponse {
@@ -209,6 +241,8 @@ message GetNetworkWardensListRequest {
   bool only_my = 2;
   int64 offset = 3;
   int64 limit = 4;
+  string ip_address = 5;
+  string mac_address = 6;
 }
 
 message GetNetworkWardensListResponse {
