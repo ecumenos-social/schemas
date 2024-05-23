@@ -189,9 +189,7 @@ func (m *RegisterHolderRequest) validate(all bool) error {
 
 	// no validation rules for Password
 
-	// no validation rules for IpAddress
-
-	// no validation rules for MacAddress
+	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
 		return RegisterHolderRequestMultiError(errors)
@@ -408,9 +406,7 @@ func (m *ConfirmHolderRegistrationRequest) validate(all bool) error {
 
 	// no validation rules for ConfirmationCode
 
-	// no validation rules for IpAddress
-
-	// no validation rules for MacAddress
+	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
 		return ConfirmHolderRegistrationRequestMultiError(errors)
@@ -627,9 +623,7 @@ func (m *ResendConfirmationCodeRequest) validate(all bool) error {
 
 	// no validation rules for ConfirmationApproach
 
-	// no validation rules for IpAddress
-
-	// no validation rules for MacAddress
+	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
 		return ResendConfirmationCodeRequestMultiError(errors)
@@ -845,9 +839,7 @@ func (m *LoginHolderRequest) validate(all bool) error {
 
 	// no validation rules for Password
 
-	// no validation rules for IpAddress
-
-	// no validation rules for MacAddress
+	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
 		return LoginHolderRequestMultiError(errors)
@@ -1059,9 +1051,7 @@ func (m *LogoutHolderRequest) validate(all bool) error {
 
 	// no validation rules for Token
 
-	// no validation rules for IpAddress
-
-	// no validation rules for MacAddress
+	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
 		return LogoutHolderRequestMultiError(errors)
@@ -1271,9 +1261,7 @@ func (m *RefreshHolderTokenRequest) validate(all bool) error {
 
 	// no validation rules for RefreshToken
 
-	// no validation rules for IpAddress
-
-	// no validation rules for MacAddress
+	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
 		return RefreshHolderTokenRequestMultiError(errors)
@@ -1489,9 +1477,7 @@ func (m *ChangeHolderPasswordRequest) validate(all bool) error {
 
 	// no validation rules for NewPassword
 
-	// no validation rules for IpAddress
-
-	// no validation rules for MacAddress
+	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
 		return ChangeHolderPasswordRequestMultiError(errors)
@@ -1705,9 +1691,7 @@ func (m *ModifyHolderRequest) validate(all bool) error {
 
 	// no validation rules for AvatarImageUrl
 
-	// no validation rules for IpAddress
-
-	// no validation rules for MacAddress
+	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
 		return ModifyHolderRequestMultiError(errors)
@@ -1919,9 +1903,7 @@ func (m *GetHolderRequest) validate(all bool) error {
 
 	// no validation rules for HolderId
 
-	// no validation rules for IpAddress
-
-	// no validation rules for MacAddress
+	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
 		return GetHolderRequestMultiError(errors)
@@ -2158,9 +2140,7 @@ func (m *DeleteHolderRequest) validate(all bool) error {
 
 	// no validation rules for Password
 
-	// no validation rules for IpAddress
-
-	// no validation rules for MacAddress
+	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
 		return DeleteHolderRequestMultiError(errors)
@@ -2376,9 +2356,7 @@ func (m *GetPersonalDataNodesListRequest) validate(all bool) error {
 
 	// no validation rules for Limit
 
-	// no validation rules for IpAddress
-
-	// no validation rules for MacAddress
+	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
 		return GetPersonalDataNodesListRequestMultiError(errors)
@@ -2661,9 +2639,7 @@ func (m *JoinPersonalDataNodeRegistrationWaitlistRequest) validate(all bool) err
 		}
 	}
 
-	// no validation rules for IpAddress
-
-	// no validation rules for MacAddress
+	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
 		return JoinPersonalDataNodeRegistrationWaitlistRequestMultiError(errors)
@@ -2897,9 +2873,7 @@ func (m *RegisterPersonalDataNodeRequest) validate(all bool) error {
 
 	// no validation rules for Code
 
-	// no validation rules for IpAddress
-
-	// no validation rules for MacAddress
+	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
 		return RegisterPersonalDataNodeRequestMultiError(errors)
@@ -3121,9 +3095,7 @@ func (m *GetNetworkNodesListRequest) validate(all bool) error {
 
 	// no validation rules for Limit
 
-	// no validation rules for IpAddress
-
-	// no validation rules for MacAddress
+	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
 		return GetNetworkNodesListRequestMultiError(errors)
@@ -3405,9 +3377,7 @@ func (m *JoinNetworkNodeRegistrationWaitlistRequest) validate(all bool) error {
 
 	// no validation rules for DomainName
 
-	// no validation rules for IpAddress
-
-	// no validation rules for MacAddress
+	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
 		return JoinNetworkNodeRegistrationWaitlistRequestMultiError(errors)
@@ -3629,9 +3599,7 @@ func (m *RegisterNetworkNodeRequest) validate(all bool) error {
 
 	// no validation rules for Code
 
-	// no validation rules for IpAddress
-
-	// no validation rules for MacAddress
+	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
 		return RegisterNetworkNodeRequestMultiError(errors)
@@ -3850,9 +3818,7 @@ func (m *GetNetworkWardensListRequest) validate(all bool) error {
 
 	// no validation rules for Limit
 
-	// no validation rules for IpAddress
-
-	// no validation rules for MacAddress
+	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
 		return GetNetworkWardensListRequestMultiError(errors)
