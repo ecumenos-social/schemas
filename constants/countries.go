@@ -1,8 +1,10 @@
-package formats
+package constants
 
 import (
 	"context"
 	"os"
+	"path"
+	"runtime"
 
 	"gopkg.in/yaml.v3"
 )
@@ -21,7 +23,9 @@ type Country struct {
 }
 
 func LoadCountries(ctx context.Context) ([]*Country, error) {
-	yamlFile, err := os.ReadFile("countries.yaml")
+	_, filename, _, _ := runtime.Caller(1)
+	currentDirname := preparePath(path.Dir(filename), "constants")
+	yamlFile, err := os.ReadFile(currentDirname + "countries.yaml")
 	if err != nil {
 		return nil, err
 	}
