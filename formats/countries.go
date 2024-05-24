@@ -21,7 +21,7 @@ type Country struct {
 }
 
 func LoadCountries(ctx context.Context) ([]*Country, error) {
-	yamlFile, err := os.ReadFile("formats/countries.yaml")
+	yamlFile, err := os.ReadFile("countries.yaml")
 	if err != nil {
 		return nil, err
 	}
