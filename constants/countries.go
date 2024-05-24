@@ -2,9 +2,7 @@ package constants
 
 import (
 	"context"
-	"os"
-	"path"
-	"runtime"
+	_ "embed"
 
 	"gopkg.in/yaml.v3"
 )
@@ -22,16 +20,12 @@ type Country struct {
 	Numeric CountryNumericCode `json:"numeric" yaml:"numeric"`
 }
 
-func LoadCountries(ctx context.Context) ([]*Country, error) {
-	_, filename, _, _ := runtime.Caller(1)
-	currentDirname := preparePath(path.Dir(filename), "constants")
-	yamlFile, err := os.ReadFile(currentDirname + "countries.yaml")
-	if err != nil {
-		return nil, err
-	}
+//go:embed countries.yaml
+var countriesFile []byte
 
+func LoadCountries(ctx context.Context) ([]*Country, error) {
 	var out []*Country
-	if err := yaml.Unmarshal(yamlFile, &out); err != nil {
+	if err := yaml.Unmarshal(countriesFile, &out); err != nil {
 		return nil, err
 	}
 
