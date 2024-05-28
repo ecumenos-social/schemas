@@ -31,7 +31,17 @@ message CheckEmailsRequest {
 }
 
 message CheckEmailsResponse {
-  string result = 1;
+  bool valid = 1;
+  repeated string results = 2;
+}
+
+message CheckPhoneNumbersRequest {
+  repeated string phone_numbers = 1;
+}
+
+message CheckPhoneNumbersResponse {
+  bool valid = 1;
+  repeated string results = 2;
 }
 
 message RegisterHolderRequest {
@@ -258,6 +268,7 @@ message RegisterNetworkWardenResponse {
 
 service NetworkWardenService {
   rpc CheckEmails(CheckEmailsRequest) returns (CheckEmailsResponse);
+  rpc CheckPhoneNumbers(CheckPhoneNumbersRequest) returns (CheckPhoneNumbersResponse);
   rpc RegisterHolder(RegisterHolderRequest) returns (RegisterHolderResponse);
   rpc ConfirmHolderRegistration(ConfirmHolderRegistrationRequest) returns (ConfirmHolderRegistrationResponse);
   rpc ResendConfirmationCode(ResendConfirmationCodeRequest) returns (ResendConfirmationCodeResponse);

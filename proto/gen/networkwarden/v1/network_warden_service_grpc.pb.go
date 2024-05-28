@@ -20,6 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 
 const (
 	NetworkWardenService_CheckEmails_FullMethodName                              = "/networkwarden.v1.NetworkWardenService/CheckEmails"
+	NetworkWardenService_CheckPhoneNumbers_FullMethodName                        = "/networkwarden.v1.NetworkWardenService/CheckPhoneNumbers"
 	NetworkWardenService_RegisterHolder_FullMethodName                           = "/networkwarden.v1.NetworkWardenService/RegisterHolder"
 	NetworkWardenService_ConfirmHolderRegistration_FullMethodName                = "/networkwarden.v1.NetworkWardenService/ConfirmHolderRegistration"
 	NetworkWardenService_ResendConfirmationCode_FullMethodName                   = "/networkwarden.v1.NetworkWardenService/ResendConfirmationCode"
@@ -45,6 +46,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type NetworkWardenServiceClient interface {
 	CheckEmails(ctx context.Context, in *CheckEmailsRequest, opts ...grpc.CallOption) (*CheckEmailsResponse, error)
+	CheckPhoneNumbers(ctx context.Context, in *CheckPhoneNumbersRequest, opts ...grpc.CallOption) (*CheckPhoneNumbersResponse, error)
 	RegisterHolder(ctx context.Context, in *RegisterHolderRequest, opts ...grpc.CallOption) (*RegisterHolderResponse, error)
 	ConfirmHolderRegistration(ctx context.Context, in *ConfirmHolderRegistrationRequest, opts ...grpc.CallOption) (*ConfirmHolderRegistrationResponse, error)
 	ResendConfirmationCode(ctx context.Context, in *ResendConfirmationCodeRequest, opts ...grpc.CallOption) (*ResendConfirmationCodeResponse, error)
@@ -76,6 +78,15 @@ func NewNetworkWardenServiceClient(cc grpc.ClientConnInterface) NetworkWardenSer
 func (c *networkWardenServiceClient) CheckEmails(ctx context.Context, in *CheckEmailsRequest, opts ...grpc.CallOption) (*CheckEmailsResponse, error) {
 	out := new(CheckEmailsResponse)
 	err := c.cc.Invoke(ctx, NetworkWardenService_CheckEmails_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *networkWardenServiceClient) CheckPhoneNumbers(ctx context.Context, in *CheckPhoneNumbersRequest, opts ...grpc.CallOption) (*CheckPhoneNumbersResponse, error) {
+	out := new(CheckPhoneNumbersResponse)
+	err := c.cc.Invoke(ctx, NetworkWardenService_CheckPhoneNumbers_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -249,6 +260,7 @@ func (c *networkWardenServiceClient) RegisterNetworkWarden(ctx context.Context, 
 // for forward compatibility
 type NetworkWardenServiceServer interface {
 	CheckEmails(context.Context, *CheckEmailsRequest) (*CheckEmailsResponse, error)
+	CheckPhoneNumbers(context.Context, *CheckPhoneNumbersRequest) (*CheckPhoneNumbersResponse, error)
 	RegisterHolder(context.Context, *RegisterHolderRequest) (*RegisterHolderResponse, error)
 	ConfirmHolderRegistration(context.Context, *ConfirmHolderRegistrationRequest) (*ConfirmHolderRegistrationResponse, error)
 	ResendConfirmationCode(context.Context, *ResendConfirmationCodeRequest) (*ResendConfirmationCodeResponse, error)
@@ -276,6 +288,9 @@ type UnimplementedNetworkWardenServiceServer struct {
 
 func (UnimplementedNetworkWardenServiceServer) CheckEmails(context.Context, *CheckEmailsRequest) (*CheckEmailsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CheckEmails not implemented")
+}
+func (UnimplementedNetworkWardenServiceServer) CheckPhoneNumbers(context.Context, *CheckPhoneNumbersRequest) (*CheckPhoneNumbersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckPhoneNumbers not implemented")
 }
 func (UnimplementedNetworkWardenServiceServer) RegisterHolder(context.Context, *RegisterHolderRequest) (*RegisterHolderResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterHolder not implemented")
@@ -358,6 +373,24 @@ func _NetworkWardenService_CheckEmails_Handler(srv interface{}, ctx context.Cont
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NetworkWardenServiceServer).CheckEmails(ctx, req.(*CheckEmailsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _NetworkWardenService_CheckPhoneNumbers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckPhoneNumbersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkWardenServiceServer).CheckPhoneNumbers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkWardenService_CheckPhoneNumbers_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkWardenServiceServer).CheckPhoneNumbers(ctx, req.(*CheckPhoneNumbersRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -696,6 +729,10 @@ var NetworkWardenService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CheckEmails",
 			Handler:    _NetworkWardenService_CheckEmails_Handler,
+		},
+		{
+			MethodName: "CheckPhoneNumbers",
+			Handler:    _NetworkWardenService_CheckPhoneNumbers_Handler,
 		},
 		{
 			MethodName: "RegisterHolder",

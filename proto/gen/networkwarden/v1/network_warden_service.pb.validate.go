@@ -287,7 +287,7 @@ func (m *CheckEmailsResponse) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for Result
+	// no validation rules for Valid
 
 	if len(errors) > 0 {
 		return CheckEmailsResponseMultiError(errors)
@@ -368,6 +368,212 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CheckEmailsResponseValidationError{}
+
+// Validate checks the field values on CheckPhoneNumbersRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CheckPhoneNumbersRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CheckPhoneNumbersRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CheckPhoneNumbersRequestMultiError, or nil if none found.
+func (m *CheckPhoneNumbersRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CheckPhoneNumbersRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return CheckPhoneNumbersRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// CheckPhoneNumbersRequestMultiError is an error wrapping multiple validation
+// errors returned by CheckPhoneNumbersRequest.ValidateAll() if the designated
+// constraints aren't met.
+type CheckPhoneNumbersRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CheckPhoneNumbersRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CheckPhoneNumbersRequestMultiError) AllErrors() []error { return m }
+
+// CheckPhoneNumbersRequestValidationError is the validation error returned by
+// CheckPhoneNumbersRequest.Validate if the designated constraints aren't met.
+type CheckPhoneNumbersRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CheckPhoneNumbersRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CheckPhoneNumbersRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CheckPhoneNumbersRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CheckPhoneNumbersRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CheckPhoneNumbersRequestValidationError) ErrorName() string {
+	return "CheckPhoneNumbersRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CheckPhoneNumbersRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCheckPhoneNumbersRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CheckPhoneNumbersRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CheckPhoneNumbersRequestValidationError{}
+
+// Validate checks the field values on CheckPhoneNumbersResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CheckPhoneNumbersResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CheckPhoneNumbersResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CheckPhoneNumbersResponseMultiError, or nil if none found.
+func (m *CheckPhoneNumbersResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CheckPhoneNumbersResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Valid
+
+	if len(errors) > 0 {
+		return CheckPhoneNumbersResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// CheckPhoneNumbersResponseMultiError is an error wrapping multiple validation
+// errors returned by CheckPhoneNumbersResponse.ValidateAll() if the
+// designated constraints aren't met.
+type CheckPhoneNumbersResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CheckPhoneNumbersResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CheckPhoneNumbersResponseMultiError) AllErrors() []error { return m }
+
+// CheckPhoneNumbersResponseValidationError is the validation error returned by
+// CheckPhoneNumbersResponse.Validate if the designated constraints aren't met.
+type CheckPhoneNumbersResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CheckPhoneNumbersResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CheckPhoneNumbersResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CheckPhoneNumbersResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CheckPhoneNumbersResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CheckPhoneNumbersResponseValidationError) ErrorName() string {
+	return "CheckPhoneNumbersResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CheckPhoneNumbersResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCheckPhoneNumbersResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CheckPhoneNumbersResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CheckPhoneNumbersResponseValidationError{}
 
 // Validate checks the field values on RegisterHolderRequest with the rules
 // defined in the proto definition for this message. If any rules are
