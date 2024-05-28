@@ -163,6 +163,212 @@ var _ interface {
 	ErrorName() string
 } = NetworkWardenValidationError{}
 
+// Validate checks the field values on CheckEmailsRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CheckEmailsRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CheckEmailsRequest with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CheckEmailsRequestMultiError, or nil if none found.
+func (m *CheckEmailsRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CheckEmailsRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return CheckEmailsRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// CheckEmailsRequestMultiError is an error wrapping multiple validation errors
+// returned by CheckEmailsRequest.ValidateAll() if the designated constraints
+// aren't met.
+type CheckEmailsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CheckEmailsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CheckEmailsRequestMultiError) AllErrors() []error { return m }
+
+// CheckEmailsRequestValidationError is the validation error returned by
+// CheckEmailsRequest.Validate if the designated constraints aren't met.
+type CheckEmailsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CheckEmailsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CheckEmailsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CheckEmailsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CheckEmailsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CheckEmailsRequestValidationError) ErrorName() string {
+	return "CheckEmailsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CheckEmailsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCheckEmailsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CheckEmailsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CheckEmailsRequestValidationError{}
+
+// Validate checks the field values on CheckEmailsResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CheckEmailsResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CheckEmailsResponse with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CheckEmailsResponseMultiError, or nil if none found.
+func (m *CheckEmailsResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CheckEmailsResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Result
+
+	if len(errors) > 0 {
+		return CheckEmailsResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// CheckEmailsResponseMultiError is an error wrapping multiple validation
+// errors returned by CheckEmailsResponse.ValidateAll() if the designated
+// constraints aren't met.
+type CheckEmailsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CheckEmailsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CheckEmailsResponseMultiError) AllErrors() []error { return m }
+
+// CheckEmailsResponseValidationError is the validation error returned by
+// CheckEmailsResponse.Validate if the designated constraints aren't met.
+type CheckEmailsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CheckEmailsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CheckEmailsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CheckEmailsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CheckEmailsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CheckEmailsResponseValidationError) ErrorName() string {
+	return "CheckEmailsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CheckEmailsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCheckEmailsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CheckEmailsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CheckEmailsResponseValidationError{}
+
 // Validate checks the field values on RegisterHolderRequest with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
