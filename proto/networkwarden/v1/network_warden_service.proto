@@ -26,6 +26,14 @@ message NetworkWarden {
   double rate_limit = 14;
 }
 
+message CheckEmailsRequest {
+  repeated string emails = 1;
+}
+
+message CheckEmailsResponse {
+  string result = 1;
+}
+
 message RegisterHolderRequest {
   repeated string emails = 1;
   repeated string phone_numbers = 2;
@@ -249,6 +257,7 @@ message RegisterNetworkWardenResponse {
 }
 
 service NetworkWardenService {
+  rpc CheckEmails(CheckEmailsRequest) returns (CheckEmailsResponse);
   rpc RegisterHolder(RegisterHolderRequest) returns (RegisterHolderResponse);
   rpc ConfirmHolderRegistration(ConfirmHolderRegistrationRequest) returns (ConfirmHolderRegistrationResponse);
   rpc ResendConfirmationCode(ResendConfirmationCodeRequest) returns (ResendConfirmationCodeResponse);
