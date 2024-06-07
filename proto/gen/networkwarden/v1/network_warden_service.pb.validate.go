@@ -79,8 +79,6 @@ func (m *NetworkWarden) validate(all bool) error {
 
 	// no validation rules for Alive
 
-	// no validation rules for LastPingedAt
-
 	// no validation rules for Version
 
 	if all {
@@ -110,6 +108,10 @@ func (m *NetworkWarden) validate(all bool) error {
 				cause:  err,
 			}
 		}
+	}
+
+	if m.LastPingedAt != nil {
+		// no validation rules for LastPingedAt
 	}
 
 	if len(errors) > 0 {
@@ -624,11 +626,13 @@ func (m *RegisterHolderRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for AvatarImageUrl
-
 	// no validation rules for Password
 
 	// no validation rules for RemoteMacAddress
+
+	if m.AvatarImageUrl != nil {
+		// no validation rules for AvatarImageUrl
+	}
 
 	if len(errors) > 0 {
 		return RegisterHolderRequestMultiError(errors)
@@ -2128,9 +2132,11 @@ func (m *ModifyHolderRequest) validate(all bool) error {
 
 	// no validation rules for Token
 
-	// no validation rules for AvatarImageUrl
-
 	// no validation rules for RemoteMacAddress
+
+	if m.AvatarImageUrl != nil {
+		// no validation rules for AvatarImageUrl
+	}
 
 	if len(errors) > 0 {
 		return ModifyHolderRequestMultiError(errors)
@@ -2787,15 +2793,48 @@ func (m *GetPersonalDataNodesListRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for Token
-
-	// no validation rules for OnlyMy
-
-	// no validation rules for Offset
-
-	// no validation rules for Limit
-
 	// no validation rules for RemoteMacAddress
+
+	if m.Token != nil {
+		// no validation rules for Token
+	}
+
+	if m.OnlyMy != nil {
+		// no validation rules for OnlyMy
+	}
+
+	if m.Pagination != nil {
+
+		if all {
+			switch v := interface{}(m.GetPagination()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, GetPersonalDataNodesListRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, GetPersonalDataNodesListRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetPagination()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return GetPersonalDataNodesListRequestValidationError{
+					field:  "Pagination",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
 
 	if len(errors) > 0 {
 		return GetPersonalDataNodesListRequestMultiError(errors)
@@ -3284,22 +3323,22 @@ var _ interface {
 	ErrorName() string
 } = JoinPersonalDataNodeRegistrationWaitlistResponseValidationError{}
 
-// Validate checks the field values on RegisterPersonalDataNodeRequest with the
+// Validate checks the field values on ActivatePersonalDataNodeRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
-func (m *RegisterPersonalDataNodeRequest) Validate() error {
+func (m *ActivatePersonalDataNodeRequest) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on RegisterPersonalDataNodeRequest with
+// ValidateAll checks the field values on ActivatePersonalDataNodeRequest with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, the result is a list of violation errors wrapped in
-// RegisterPersonalDataNodeRequestMultiError, or nil if none found.
-func (m *RegisterPersonalDataNodeRequest) ValidateAll() error {
+// ActivatePersonalDataNodeRequestMultiError, or nil if none found.
+func (m *ActivatePersonalDataNodeRequest) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *RegisterPersonalDataNodeRequest) validate(all bool) error {
+func (m *ActivatePersonalDataNodeRequest) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -3310,24 +3349,22 @@ func (m *RegisterPersonalDataNodeRequest) validate(all bool) error {
 
 	// no validation rules for Id
 
-	// no validation rules for Code
-
 	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
-		return RegisterPersonalDataNodeRequestMultiError(errors)
+		return ActivatePersonalDataNodeRequestMultiError(errors)
 	}
 
 	return nil
 }
 
-// RegisterPersonalDataNodeRequestMultiError is an error wrapping multiple
-// validation errors returned by RegisterPersonalDataNodeRequest.ValidateAll()
+// ActivatePersonalDataNodeRequestMultiError is an error wrapping multiple
+// validation errors returned by ActivatePersonalDataNodeRequest.ValidateAll()
 // if the designated constraints aren't met.
-type RegisterPersonalDataNodeRequestMultiError []error
+type ActivatePersonalDataNodeRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m RegisterPersonalDataNodeRequestMultiError) Error() string {
+func (m ActivatePersonalDataNodeRequestMultiError) Error() string {
 	var msgs []string
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -3336,12 +3373,12 @@ func (m RegisterPersonalDataNodeRequestMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m RegisterPersonalDataNodeRequestMultiError) AllErrors() []error { return m }
+func (m ActivatePersonalDataNodeRequestMultiError) AllErrors() []error { return m }
 
-// RegisterPersonalDataNodeRequestValidationError is the validation error
-// returned by RegisterPersonalDataNodeRequest.Validate if the designated
+// ActivatePersonalDataNodeRequestValidationError is the validation error
+// returned by ActivatePersonalDataNodeRequest.Validate if the designated
 // constraints aren't met.
-type RegisterPersonalDataNodeRequestValidationError struct {
+type ActivatePersonalDataNodeRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -3349,24 +3386,24 @@ type RegisterPersonalDataNodeRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e RegisterPersonalDataNodeRequestValidationError) Field() string { return e.field }
+func (e ActivatePersonalDataNodeRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e RegisterPersonalDataNodeRequestValidationError) Reason() string { return e.reason }
+func (e ActivatePersonalDataNodeRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e RegisterPersonalDataNodeRequestValidationError) Cause() error { return e.cause }
+func (e ActivatePersonalDataNodeRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e RegisterPersonalDataNodeRequestValidationError) Key() bool { return e.key }
+func (e ActivatePersonalDataNodeRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e RegisterPersonalDataNodeRequestValidationError) ErrorName() string {
-	return "RegisterPersonalDataNodeRequestValidationError"
+func (e ActivatePersonalDataNodeRequestValidationError) ErrorName() string {
+	return "ActivatePersonalDataNodeRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e RegisterPersonalDataNodeRequestValidationError) Error() string {
+func (e ActivatePersonalDataNodeRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -3378,14 +3415,14 @@ func (e RegisterPersonalDataNodeRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sRegisterPersonalDataNodeRequest.%s: %s%s",
+		"invalid %sActivatePersonalDataNodeRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = RegisterPersonalDataNodeRequestValidationError{}
+var _ error = ActivatePersonalDataNodeRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -3393,25 +3430,25 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = RegisterPersonalDataNodeRequestValidationError{}
+} = ActivatePersonalDataNodeRequestValidationError{}
 
-// Validate checks the field values on RegisterPersonalDataNodeResponse with
+// Validate checks the field values on ActivatePersonalDataNodeResponse with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, the first error encountered is returned, or nil if there are
 // no violations.
-func (m *RegisterPersonalDataNodeResponse) Validate() error {
+func (m *ActivatePersonalDataNodeResponse) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on RegisterPersonalDataNodeResponse with
+// ValidateAll checks the field values on ActivatePersonalDataNodeResponse with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, the result is a list of violation errors wrapped in
-// RegisterPersonalDataNodeResponseMultiError, or nil if none found.
-func (m *RegisterPersonalDataNodeResponse) ValidateAll() error {
+// ActivatePersonalDataNodeResponseMultiError, or nil if none found.
+func (m *ActivatePersonalDataNodeResponse) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *RegisterPersonalDataNodeResponse) validate(all bool) error {
+func (m *ActivatePersonalDataNodeResponse) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -3423,20 +3460,20 @@ func (m *RegisterPersonalDataNodeResponse) validate(all bool) error {
 	// no validation rules for ApiKey
 
 	if len(errors) > 0 {
-		return RegisterPersonalDataNodeResponseMultiError(errors)
+		return ActivatePersonalDataNodeResponseMultiError(errors)
 	}
 
 	return nil
 }
 
-// RegisterPersonalDataNodeResponseMultiError is an error wrapping multiple
+// ActivatePersonalDataNodeResponseMultiError is an error wrapping multiple
 // validation errors returned by
-// RegisterPersonalDataNodeResponse.ValidateAll() if the designated
+// ActivatePersonalDataNodeResponse.ValidateAll() if the designated
 // constraints aren't met.
-type RegisterPersonalDataNodeResponseMultiError []error
+type ActivatePersonalDataNodeResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m RegisterPersonalDataNodeResponseMultiError) Error() string {
+func (m ActivatePersonalDataNodeResponseMultiError) Error() string {
 	var msgs []string
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -3445,12 +3482,12 @@ func (m RegisterPersonalDataNodeResponseMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m RegisterPersonalDataNodeResponseMultiError) AllErrors() []error { return m }
+func (m ActivatePersonalDataNodeResponseMultiError) AllErrors() []error { return m }
 
-// RegisterPersonalDataNodeResponseValidationError is the validation error
-// returned by RegisterPersonalDataNodeResponse.Validate if the designated
+// ActivatePersonalDataNodeResponseValidationError is the validation error
+// returned by ActivatePersonalDataNodeResponse.Validate if the designated
 // constraints aren't met.
-type RegisterPersonalDataNodeResponseValidationError struct {
+type ActivatePersonalDataNodeResponseValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -3458,24 +3495,24 @@ type RegisterPersonalDataNodeResponseValidationError struct {
 }
 
 // Field function returns field value.
-func (e RegisterPersonalDataNodeResponseValidationError) Field() string { return e.field }
+func (e ActivatePersonalDataNodeResponseValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e RegisterPersonalDataNodeResponseValidationError) Reason() string { return e.reason }
+func (e ActivatePersonalDataNodeResponseValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e RegisterPersonalDataNodeResponseValidationError) Cause() error { return e.cause }
+func (e ActivatePersonalDataNodeResponseValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e RegisterPersonalDataNodeResponseValidationError) Key() bool { return e.key }
+func (e ActivatePersonalDataNodeResponseValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e RegisterPersonalDataNodeResponseValidationError) ErrorName() string {
-	return "RegisterPersonalDataNodeResponseValidationError"
+func (e ActivatePersonalDataNodeResponseValidationError) ErrorName() string {
+	return "ActivatePersonalDataNodeResponseValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e RegisterPersonalDataNodeResponseValidationError) Error() string {
+func (e ActivatePersonalDataNodeResponseValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -3487,14 +3524,14 @@ func (e RegisterPersonalDataNodeResponseValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sRegisterPersonalDataNodeResponse.%s: %s%s",
+		"invalid %sActivatePersonalDataNodeResponse.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = RegisterPersonalDataNodeResponseValidationError{}
+var _ error = ActivatePersonalDataNodeResponseValidationError{}
 
 var _ interface {
 	Field() string
@@ -3502,7 +3539,7 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = RegisterPersonalDataNodeResponseValidationError{}
+} = ActivatePersonalDataNodeResponseValidationError{}
 
 // Validate checks the field values on GetNetworkNodesListRequest with the
 // rules defined in the proto definition for this message. If any rules are
@@ -3526,15 +3563,50 @@ func (m *GetNetworkNodesListRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for Token
+	if m.Token != nil {
+		// no validation rules for Token
+	}
 
-	// no validation rules for OnlyMy
+	if m.OnlyMy != nil {
+		// no validation rules for OnlyMy
+	}
 
-	// no validation rules for Offset
+	if m.Pagination != nil {
 
-	// no validation rules for Limit
+		if all {
+			switch v := interface{}(m.GetPagination()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, GetNetworkNodesListRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, GetNetworkNodesListRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetPagination()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return GetNetworkNodesListRequestValidationError{
+					field:  "Pagination",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
 
-	// no validation rules for RemoteMacAddress
+	}
+
+	if m.RemoteMacAddress != nil {
+		// no validation rules for RemoteMacAddress
+	}
 
 	if len(errors) > 0 {
 		return GetNetworkNodesListRequestMultiError(errors)
@@ -4010,22 +4082,22 @@ var _ interface {
 	ErrorName() string
 } = JoinNetworkNodeRegistrationWaitlistResponseValidationError{}
 
-// Validate checks the field values on RegisterNetworkNodeRequest with the
+// Validate checks the field values on ActivateNetworkNodeRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
-func (m *RegisterNetworkNodeRequest) Validate() error {
+func (m *ActivateNetworkNodeRequest) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on RegisterNetworkNodeRequest with the
+// ValidateAll checks the field values on ActivateNetworkNodeRequest with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the result is a list of violation errors wrapped in
-// RegisterNetworkNodeRequestMultiError, or nil if none found.
-func (m *RegisterNetworkNodeRequest) ValidateAll() error {
+// ActivateNetworkNodeRequestMultiError, or nil if none found.
+func (m *ActivateNetworkNodeRequest) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *RegisterNetworkNodeRequest) validate(all bool) error {
+func (m *ActivateNetworkNodeRequest) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -4036,24 +4108,22 @@ func (m *RegisterNetworkNodeRequest) validate(all bool) error {
 
 	// no validation rules for Id
 
-	// no validation rules for Code
-
 	// no validation rules for RemoteMacAddress
 
 	if len(errors) > 0 {
-		return RegisterNetworkNodeRequestMultiError(errors)
+		return ActivateNetworkNodeRequestMultiError(errors)
 	}
 
 	return nil
 }
 
-// RegisterNetworkNodeRequestMultiError is an error wrapping multiple
-// validation errors returned by RegisterNetworkNodeRequest.ValidateAll() if
+// ActivateNetworkNodeRequestMultiError is an error wrapping multiple
+// validation errors returned by ActivateNetworkNodeRequest.ValidateAll() if
 // the designated constraints aren't met.
-type RegisterNetworkNodeRequestMultiError []error
+type ActivateNetworkNodeRequestMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m RegisterNetworkNodeRequestMultiError) Error() string {
+func (m ActivateNetworkNodeRequestMultiError) Error() string {
 	var msgs []string
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -4062,11 +4132,11 @@ func (m RegisterNetworkNodeRequestMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m RegisterNetworkNodeRequestMultiError) AllErrors() []error { return m }
+func (m ActivateNetworkNodeRequestMultiError) AllErrors() []error { return m }
 
-// RegisterNetworkNodeRequestValidationError is the validation error returned
-// by RegisterNetworkNodeRequest.Validate if the designated constraints aren't met.
-type RegisterNetworkNodeRequestValidationError struct {
+// ActivateNetworkNodeRequestValidationError is the validation error returned
+// by ActivateNetworkNodeRequest.Validate if the designated constraints aren't met.
+type ActivateNetworkNodeRequestValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -4074,24 +4144,24 @@ type RegisterNetworkNodeRequestValidationError struct {
 }
 
 // Field function returns field value.
-func (e RegisterNetworkNodeRequestValidationError) Field() string { return e.field }
+func (e ActivateNetworkNodeRequestValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e RegisterNetworkNodeRequestValidationError) Reason() string { return e.reason }
+func (e ActivateNetworkNodeRequestValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e RegisterNetworkNodeRequestValidationError) Cause() error { return e.cause }
+func (e ActivateNetworkNodeRequestValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e RegisterNetworkNodeRequestValidationError) Key() bool { return e.key }
+func (e ActivateNetworkNodeRequestValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e RegisterNetworkNodeRequestValidationError) ErrorName() string {
-	return "RegisterNetworkNodeRequestValidationError"
+func (e ActivateNetworkNodeRequestValidationError) ErrorName() string {
+	return "ActivateNetworkNodeRequestValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e RegisterNetworkNodeRequestValidationError) Error() string {
+func (e ActivateNetworkNodeRequestValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -4103,14 +4173,14 @@ func (e RegisterNetworkNodeRequestValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sRegisterNetworkNodeRequest.%s: %s%s",
+		"invalid %sActivateNetworkNodeRequest.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = RegisterNetworkNodeRequestValidationError{}
+var _ error = ActivateNetworkNodeRequestValidationError{}
 
 var _ interface {
 	Field() string
@@ -4118,24 +4188,24 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = RegisterNetworkNodeRequestValidationError{}
+} = ActivateNetworkNodeRequestValidationError{}
 
-// Validate checks the field values on RegisterNetworkNodeResponse with the
+// Validate checks the field values on ActivateNetworkNodeResponse with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.
-func (m *RegisterNetworkNodeResponse) Validate() error {
+func (m *ActivateNetworkNodeResponse) Validate() error {
 	return m.validate(false)
 }
 
-// ValidateAll checks the field values on RegisterNetworkNodeResponse with the
+// ValidateAll checks the field values on ActivateNetworkNodeResponse with the
 // rules defined in the proto definition for this message. If any rules are
 // violated, the result is a list of violation errors wrapped in
-// RegisterNetworkNodeResponseMultiError, or nil if none found.
-func (m *RegisterNetworkNodeResponse) ValidateAll() error {
+// ActivateNetworkNodeResponseMultiError, or nil if none found.
+func (m *ActivateNetworkNodeResponse) ValidateAll() error {
 	return m.validate(true)
 }
 
-func (m *RegisterNetworkNodeResponse) validate(all bool) error {
+func (m *ActivateNetworkNodeResponse) validate(all bool) error {
 	if m == nil {
 		return nil
 	}
@@ -4147,19 +4217,19 @@ func (m *RegisterNetworkNodeResponse) validate(all bool) error {
 	// no validation rules for ApiKey
 
 	if len(errors) > 0 {
-		return RegisterNetworkNodeResponseMultiError(errors)
+		return ActivateNetworkNodeResponseMultiError(errors)
 	}
 
 	return nil
 }
 
-// RegisterNetworkNodeResponseMultiError is an error wrapping multiple
-// validation errors returned by RegisterNetworkNodeResponse.ValidateAll() if
+// ActivateNetworkNodeResponseMultiError is an error wrapping multiple
+// validation errors returned by ActivateNetworkNodeResponse.ValidateAll() if
 // the designated constraints aren't met.
-type RegisterNetworkNodeResponseMultiError []error
+type ActivateNetworkNodeResponseMultiError []error
 
 // Error returns a concatenation of all the error messages it wraps.
-func (m RegisterNetworkNodeResponseMultiError) Error() string {
+func (m ActivateNetworkNodeResponseMultiError) Error() string {
 	var msgs []string
 	for _, err := range m {
 		msgs = append(msgs, err.Error())
@@ -4168,12 +4238,12 @@ func (m RegisterNetworkNodeResponseMultiError) Error() string {
 }
 
 // AllErrors returns a list of validation violation errors.
-func (m RegisterNetworkNodeResponseMultiError) AllErrors() []error { return m }
+func (m ActivateNetworkNodeResponseMultiError) AllErrors() []error { return m }
 
-// RegisterNetworkNodeResponseValidationError is the validation error returned
-// by RegisterNetworkNodeResponse.Validate if the designated constraints
+// ActivateNetworkNodeResponseValidationError is the validation error returned
+// by ActivateNetworkNodeResponse.Validate if the designated constraints
 // aren't met.
-type RegisterNetworkNodeResponseValidationError struct {
+type ActivateNetworkNodeResponseValidationError struct {
 	field  string
 	reason string
 	cause  error
@@ -4181,24 +4251,24 @@ type RegisterNetworkNodeResponseValidationError struct {
 }
 
 // Field function returns field value.
-func (e RegisterNetworkNodeResponseValidationError) Field() string { return e.field }
+func (e ActivateNetworkNodeResponseValidationError) Field() string { return e.field }
 
 // Reason function returns reason value.
-func (e RegisterNetworkNodeResponseValidationError) Reason() string { return e.reason }
+func (e ActivateNetworkNodeResponseValidationError) Reason() string { return e.reason }
 
 // Cause function returns cause value.
-func (e RegisterNetworkNodeResponseValidationError) Cause() error { return e.cause }
+func (e ActivateNetworkNodeResponseValidationError) Cause() error { return e.cause }
 
 // Key function returns key value.
-func (e RegisterNetworkNodeResponseValidationError) Key() bool { return e.key }
+func (e ActivateNetworkNodeResponseValidationError) Key() bool { return e.key }
 
 // ErrorName returns error name.
-func (e RegisterNetworkNodeResponseValidationError) ErrorName() string {
-	return "RegisterNetworkNodeResponseValidationError"
+func (e ActivateNetworkNodeResponseValidationError) ErrorName() string {
+	return "ActivateNetworkNodeResponseValidationError"
 }
 
 // Error satisfies the builtin error interface
-func (e RegisterNetworkNodeResponseValidationError) Error() string {
+func (e ActivateNetworkNodeResponseValidationError) Error() string {
 	cause := ""
 	if e.cause != nil {
 		cause = fmt.Sprintf(" | caused by: %v", e.cause)
@@ -4210,14 +4280,14 @@ func (e RegisterNetworkNodeResponseValidationError) Error() string {
 	}
 
 	return fmt.Sprintf(
-		"invalid %sRegisterNetworkNodeResponse.%s: %s%s",
+		"invalid %sActivateNetworkNodeResponse.%s: %s%s",
 		key,
 		e.field,
 		e.reason,
 		cause)
 }
 
-var _ error = RegisterNetworkNodeResponseValidationError{}
+var _ error = ActivateNetworkNodeResponseValidationError{}
 
 var _ interface {
 	Field() string
@@ -4225,7 +4295,7 @@ var _ interface {
 	Key() bool
 	Cause() error
 	ErrorName() string
-} = RegisterNetworkNodeResponseValidationError{}
+} = ActivateNetworkNodeResponseValidationError{}
 
 // Validate checks the field values on GetNetworkWardensListRequest with the
 // rules defined in the proto definition for this message. If any rules are
@@ -4249,15 +4319,50 @@ func (m *GetNetworkWardensListRequest) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for Token
+	if m.Token != nil {
+		// no validation rules for Token
+	}
 
-	// no validation rules for OnlyMy
+	if m.OnlyMy != nil {
+		// no validation rules for OnlyMy
+	}
 
-	// no validation rules for Offset
+	if m.Pagination != nil {
 
-	// no validation rules for Limit
+		if all {
+			switch v := interface{}(m.GetPagination()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, GetNetworkWardensListRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, GetNetworkWardensListRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetPagination()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return GetNetworkWardensListRequestValidationError{
+					field:  "Pagination",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
 
-	// no validation rules for RemoteMacAddress
+	}
+
+	if m.RemoteMacAddress != nil {
+		// no validation rules for RemoteMacAddress
+	}
 
 	if len(errors) > 0 {
 		return GetNetworkWardensListRequestMultiError(errors)
@@ -4515,7 +4620,34 @@ func (m *RegisterNetworkWardenRequest) validate(all bool) error {
 
 	// no validation rules for Version
 
-	// no validation rules for RateLimit
+	if all {
+		switch v := interface{}(m.GetRateLimit()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, RegisterNetworkWardenRequestValidationError{
+					field:  "RateLimit",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, RegisterNetworkWardenRequestValidationError{
+					field:  "RateLimit",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetRateLimit()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return RegisterNetworkWardenRequestValidationError{
+				field:  "RateLimit",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
 	if len(errors) > 0 {
 		return RegisterNetworkWardenRequestMultiError(errors)

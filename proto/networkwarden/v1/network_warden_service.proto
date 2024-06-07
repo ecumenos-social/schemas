@@ -5,6 +5,7 @@ package networkwarden.v1;
 option go_package = "github.com/ecumenos-social/schemas/proto/gen/networkwarden/v1";
 
 import "common/v1/geolocation.proto";
+import "common/v1/pagination.proto";
 import "common/v1/rate_limit.proto";
 import "networkwarden/v1/holder.proto";
 import "networkwarden/v1/network_node.proto";
@@ -22,7 +23,7 @@ message NetworkWarden {
   uint64 nn_capacity = 9;
   string url = 10;
   bool alive = 11;
-  string last_pinged_at = 12;
+  optional string last_pinged_at = 12;
   string version = 13;
   common.v1.RateLimit rate_limit = 14;
 }
@@ -48,7 +49,7 @@ message CheckPhoneNumbersResponse {
 message RegisterHolderRequest {
   repeated string emails = 1;
   repeated string phone_numbers = 2;
-  string avatar_image_url = 3;
+  optional string avatar_image_url = 3;
   repeated string countries = 4;
   repeated string languages = 5;
   string password = 6;
@@ -132,7 +133,7 @@ message ChangeHolderPasswordResponse {
 
 message ModifyHolderRequest {
   string token = 1;
-  string avatar_image_url = 2;
+  optional string avatar_image_url = 2;
   repeated string countries = 3;
   repeated string languages = 4;
   string remote_mac_address = 5;
@@ -163,11 +164,10 @@ message DeleteHolderResponse {
 }
 
 message GetPersonalDataNodesListRequest {
-  string token = 1;
-  bool only_my = 2;
-  int64 offset = 3;
-  int64 limit = 4;
-  string remote_mac_address = 5;
+  optional string token = 1;
+  optional bool only_my = 2;
+  optional common.v1.Pagination pagination = 3;
+  string remote_mac_address = 4;
 }
 
 message GetPersonalDataNodesListResponse {
@@ -188,24 +188,22 @@ message JoinPersonalDataNodeRegistrationWaitlistResponse {
   string id = 2;
 }
 
-message RegisterPersonalDataNodeRequest {
+message ActivatePersonalDataNodeRequest {
   string token = 1;
   string id = 2;
-  string code = 3;
-  string remote_mac_address = 4;
+  string remote_mac_address = 3;
 }
 
-message RegisterPersonalDataNodeResponse {
+message ActivatePersonalDataNodeResponse {
   bool success = 1;
   string api_key = 2;
 }
 
 message GetNetworkNodesListRequest {
-  string token = 1;
-  bool only_my = 2;
-  int64 offset = 3;
-  int64 limit = 4;
-  string remote_mac_address = 5;
+  optional string token = 1;
+  optional bool only_my = 2;
+  optional common.v1.Pagination pagination = 3;
+  optional string remote_mac_address = 4;
 }
 
 message GetNetworkNodesListResponse {
@@ -227,24 +225,22 @@ message JoinNetworkNodeRegistrationWaitlistResponse {
   string id = 2;
 }
 
-message RegisterNetworkNodeRequest {
+message ActivateNetworkNodeRequest {
   string token = 1;
   string id = 2;
-  string code = 3;
-  string remote_mac_address = 4;
+  string remote_mac_address = 3;
 }
 
-message RegisterNetworkNodeResponse {
+message ActivateNetworkNodeResponse {
   bool success = 1;
   string api_key = 2;
 }
 
 message GetNetworkWardensListRequest {
-  string token = 1;
-  bool only_my = 2;
-  int64 offset = 3;
-  int64 limit = 4;
-  string remote_mac_address = 5;
+  optional string token = 1;
+  optional bool only_my = 2;
+  optional common.v1.Pagination pagination = 3;
+  optional string remote_mac_address = 5;
 }
 
 message GetNetworkWardensListResponse {
@@ -260,7 +256,7 @@ message RegisterNetworkWardenRequest {
   uint64 nn_capacity = 9;
   string url = 10;
   string version = 13;
-  double rate_limit = 14;
+  common.v1.RateLimit rate_limit = 14;
 }
 
 message RegisterNetworkWardenResponse {
@@ -282,10 +278,10 @@ service NetworkWardenService {
   rpc DeleteHolder(DeleteHolderRequest) returns (DeleteHolderResponse);
   rpc GetPersonalDataNodesList(GetPersonalDataNodesListRequest) returns (GetPersonalDataNodesListResponse);
   rpc JoinPersonalDataNodeRegistrationWaitlist(JoinPersonalDataNodeRegistrationWaitlistRequest) returns (JoinPersonalDataNodeRegistrationWaitlistResponse);
-  rpc RegisterPersonalDataNode(RegisterPersonalDataNodeRequest) returns (RegisterPersonalDataNodeResponse);
+  rpc ActivatePersonalDataNode(ActivatePersonalDataNodeRequest) returns (ActivatePersonalDataNodeResponse);
   rpc GetNetworkNodesList(GetNetworkNodesListRequest) returns (GetNetworkNodesListResponse);
   rpc JoinNetworkNodeRegistrationWaitlist(JoinNetworkNodeRegistrationWaitlistRequest) returns (JoinNetworkNodeRegistrationWaitlistResponse);
-  rpc RegisterNetworkNode(RegisterNetworkNodeRequest) returns (RegisterNetworkNodeResponse);
+  rpc ActivateNetworkNode(ActivateNetworkNodeRequest) returns (ActivateNetworkNodeResponse);
   rpc GetNetworkWardensList(GetNetworkWardensListRequest) returns (GetNetworkWardensListResponse);
   rpc RegisterNetworkWarden(RegisterNetworkWardenRequest) returns (RegisterNetworkWardenResponse);
 }

@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package common.v1;
+
+option go_package = "github.com/ecumenos-social/schemas/proto/gen/common/v1";
+
+message Pagination {
+  optional int64 offset = 1;
+  optional int64 limit = 2;
+}
