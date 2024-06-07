@@ -21,10 +21,10 @@ message NetworkNode {
   string nw_id = 4;
   string name = 5;
   string domain_name = 6;
-  common.v1.Geolocation location = 7;
+  optional common.v1.Geolocation location = 7;
   int64 accounts_capacity = 8;
   bool alive = 9;
-  string last_pinged_at = 10;
+  optional string last_pinged_at = 10;
   bool is_open = 11;
   string owner_holder_id = 12;
   string url = 13;
