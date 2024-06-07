@@ -112,9 +112,63 @@ func (m *NetworkNode) validate(all bool) error {
 
 	// no validation rules for Version
 
-	// no validation rules for RateLimit
+	if all {
+		switch v := interface{}(m.GetRateLimit()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, NetworkNodeValidationError{
+					field:  "RateLimit",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, NetworkNodeValidationError{
+					field:  "RateLimit",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetRateLimit()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return NetworkNodeValidationError{
+				field:  "RateLimit",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
-	// no validation rules for CrawlRateLimit
+	if all {
+		switch v := interface{}(m.GetCrawlRateLimit()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, NetworkNodeValidationError{
+					field:  "CrawlRateLimit",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, NetworkNodeValidationError{
+					field:  "CrawlRateLimit",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetCrawlRateLimit()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return NetworkNodeValidationError{
+				field:  "CrawlRateLimit",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
 	// no validation rules for Status
 
