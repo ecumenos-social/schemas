@@ -5,6 +5,7 @@ package networkwarden.v1;
 option go_package = "github.com/ecumenos-social/schemas/proto/gen/networkwarden/v1";
 
 import "common/v1/geolocation.proto";
+import "common/v1/rate_limit.proto";
 
 message NetworkNode {
   enum Status {
@@ -28,7 +29,7 @@ message NetworkNode {
   string owner_holder_id = 12;
   string url = 13;
   string version = 14;
-  double rate_limit = 15;
-  double crawl_rate_limit = 16;
+  common.v1.RateLimit rate_limit = 15;
+  common.v1.RateLimit crawl_rate_limit = 16;
   Status status = 17;
 }

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package common.v1;
+
+option go_package = "github.com/ecumenos-social/schemas/proto/gen/common/v1";
+
+import "google/protobuf/duration.proto";
+
+message RateLimit {
+  int64 max_requests = 1;
+  google.protobuf.Duration interval = 2;
+}

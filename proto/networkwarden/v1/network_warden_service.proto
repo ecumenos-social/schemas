@@ -5,6 +5,7 @@ package networkwarden.v1;
 option go_package = "github.com/ecumenos-social/schemas/proto/gen/networkwarden/v1";
 
 import "common/v1/geolocation.proto";
+import "common/v1/rate_limit.proto";
 import "networkwarden/v1/holder.proto";
 import "networkwarden/v1/network_node.proto";
 import "networkwarden/v1/personal_data_node.proto";
@@ -23,7 +24,7 @@ message NetworkWarden {
   bool alive = 11;
   string last_pinged_at = 12;
   string version = 13;
-  double rate_limit = 14;
+  common.v1.RateLimit rate_limit = 14;
 }
 
 message CheckEmailsRequest {
