@@ -499,6 +499,32 @@ func local_request_NetworkWardenService_ActivateNetworkNode_0(ctx context.Contex
 
 }
 
+func request_NetworkWardenService_InitiateNetworkNode_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq InitiateNetworkNodeRequest
+	var metadata runtime.ServerMetadata
+
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := client.InitiateNetworkNode(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func local_request_NetworkWardenService_InitiateNetworkNode_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq InitiateNetworkNodeRequest
+	var metadata runtime.ServerMetadata
+
+	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
+	}
+
+	msg, err := server.InitiateNetworkNode(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
 func request_NetworkWardenService_GetNetworkWardensList_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq GetNetworkWardensListRequest
 	var metadata runtime.ServerMetadata
@@ -1007,6 +1033,31 @@ func RegisterNetworkWardenServiceHandlerServer(ctx context.Context, mux *runtime
 
 	})
 
+	mux.Handle("POST", pattern_NetworkWardenService_InitiateNetworkNode_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		var stream runtime.ServerTransportStream
+		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/networkwarden.v1.NetworkWardenService/InitiateNetworkNode", runtime.WithHTTPPathPattern("/networkwarden.v1.NetworkWardenService/InitiateNetworkNode"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_NetworkWardenService_InitiateNetworkNode_0(annotatedContext, inboundMarshaler, server, req, pathParams)
+		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_NetworkWardenService_InitiateNetworkNode_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	mux.Handle("POST", pattern_NetworkWardenService_GetNetworkWardensList_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -1494,6 +1545,28 @@ func RegisterNetworkWardenServiceHandlerClient(ctx context.Context, mux *runtime
 
 	})
 
+	mux.Handle("POST", pattern_NetworkWardenService_InitiateNetworkNode_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		var err error
+		var annotatedContext context.Context
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/networkwarden.v1.NetworkWardenService/InitiateNetworkNode", runtime.WithHTTPPathPattern("/networkwarden.v1.NetworkWardenService/InitiateNetworkNode"))
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_NetworkWardenService_InitiateNetworkNode_0(annotatedContext, inboundMarshaler, client, req, pathParams)
+		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
+		if err != nil {
+			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_NetworkWardenService_InitiateNetworkNode_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	mux.Handle("POST", pattern_NetworkWardenService_GetNetworkWardensList_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
@@ -1578,6 +1651,8 @@ var (
 
 	pattern_NetworkWardenService_ActivateNetworkNode_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"networkwarden.v1.NetworkWardenService", "ActivateNetworkNode"}, ""))
 
+	pattern_NetworkWardenService_InitiateNetworkNode_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"networkwarden.v1.NetworkWardenService", "InitiateNetworkNode"}, ""))
+
 	pattern_NetworkWardenService_GetNetworkWardensList_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"networkwarden.v1.NetworkWardenService", "GetNetworkWardensList"}, ""))
 
 	pattern_NetworkWardenService_RegisterNetworkWarden_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"networkwarden.v1.NetworkWardenService", "RegisterNetworkWarden"}, ""))
@@ -1619,6 +1694,8 @@ var (
 	forward_NetworkWardenService_JoinNetworkNodeRegistrationWaitlist_0 = runtime.ForwardResponseMessage
 
 	forward_NetworkWardenService_ActivateNetworkNode_0 = runtime.ForwardResponseMessage
+
+	forward_NetworkWardenService_InitiateNetworkNode_0 = runtime.ForwardResponseMessage
 
 	forward_NetworkWardenService_GetNetworkWardensList_0 = runtime.ForwardResponseMessage
 
