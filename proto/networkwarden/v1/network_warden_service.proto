@@ -263,6 +263,20 @@ message RegisterNetworkWardenResponse {
   bool success = 1;
 }
 
+message InitiateNetworkNodeRequest {
+  string api_key = 1;
+  int64 accounts_capacity = 2;
+  bool is_open = 3;
+  string version = 4;
+  common.v1.RateLimit rate_limit = 5;
+  common.v1.RateLimit crawl_rate_limit = 6;
+  int64 id_gen_node = 7;
+}
+
+message InitiateNetworkNodeResponse {
+  bool success = 1; 
+}
+
 service NetworkWardenService {
   rpc CheckEmails(CheckEmailsRequest) returns (CheckEmailsResponse);
   rpc CheckPhoneNumbers(CheckPhoneNumbersRequest) returns (CheckPhoneNumbersResponse);
@@ -282,6 +296,7 @@ service NetworkWardenService {
   rpc GetNetworkNodesList(GetNetworkNodesListRequest) returns (GetNetworkNodesListResponse);
   rpc JoinNetworkNodeRegistrationWaitlist(JoinNetworkNodeRegistrationWaitlistRequest) returns (JoinNetworkNodeRegistrationWaitlistResponse);
   rpc ActivateNetworkNode(ActivateNetworkNodeRequest) returns (ActivateNetworkNodeResponse);
+  rpc InitiateNetworkNode(InitiateNetworkNodeRequest) returns (InitiateNetworkNodeResponse);
   rpc GetNetworkWardensList(GetNetworkWardensListRequest) returns (GetNetworkWardensListResponse);
   rpc RegisterNetworkWarden(RegisterNetworkWardenRequest) returns (RegisterNetworkWardenResponse);
 }

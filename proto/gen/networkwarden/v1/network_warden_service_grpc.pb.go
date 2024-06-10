@@ -37,6 +37,7 @@ const (
 	NetworkWardenService_GetNetworkNodesList_FullMethodName                      = "/networkwarden.v1.NetworkWardenService/GetNetworkNodesList"
 	NetworkWardenService_JoinNetworkNodeRegistrationWaitlist_FullMethodName      = "/networkwarden.v1.NetworkWardenService/JoinNetworkNodeRegistrationWaitlist"
 	NetworkWardenService_ActivateNetworkNode_FullMethodName                      = "/networkwarden.v1.NetworkWardenService/ActivateNetworkNode"
+	NetworkWardenService_InitiateNetworkNode_FullMethodName                      = "/networkwarden.v1.NetworkWardenService/InitiateNetworkNode"
 	NetworkWardenService_GetNetworkWardensList_FullMethodName                    = "/networkwarden.v1.NetworkWardenService/GetNetworkWardensList"
 	NetworkWardenService_RegisterNetworkWarden_FullMethodName                    = "/networkwarden.v1.NetworkWardenService/RegisterNetworkWarden"
 )
@@ -63,6 +64,7 @@ type NetworkWardenServiceClient interface {
 	GetNetworkNodesList(ctx context.Context, in *GetNetworkNodesListRequest, opts ...grpc.CallOption) (*GetNetworkNodesListResponse, error)
 	JoinNetworkNodeRegistrationWaitlist(ctx context.Context, in *JoinNetworkNodeRegistrationWaitlistRequest, opts ...grpc.CallOption) (*JoinNetworkNodeRegistrationWaitlistResponse, error)
 	ActivateNetworkNode(ctx context.Context, in *ActivateNetworkNodeRequest, opts ...grpc.CallOption) (*ActivateNetworkNodeResponse, error)
+	InitiateNetworkNode(ctx context.Context, in *InitiateNetworkNodeRequest, opts ...grpc.CallOption) (*InitiateNetworkNodeResponse, error)
 	GetNetworkWardensList(ctx context.Context, in *GetNetworkWardensListRequest, opts ...grpc.CallOption) (*GetNetworkWardensListResponse, error)
 	RegisterNetworkWarden(ctx context.Context, in *RegisterNetworkWardenRequest, opts ...grpc.CallOption) (*RegisterNetworkWardenResponse, error)
 }
@@ -255,6 +257,16 @@ func (c *networkWardenServiceClient) ActivateNetworkNode(ctx context.Context, in
 	return out, nil
 }
 
+func (c *networkWardenServiceClient) InitiateNetworkNode(ctx context.Context, in *InitiateNetworkNodeRequest, opts ...grpc.CallOption) (*InitiateNetworkNodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(InitiateNetworkNodeResponse)
+	err := c.cc.Invoke(ctx, NetworkWardenService_InitiateNetworkNode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *networkWardenServiceClient) GetNetworkWardensList(ctx context.Context, in *GetNetworkWardensListRequest, opts ...grpc.CallOption) (*GetNetworkWardensListResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetNetworkWardensListResponse)
@@ -297,6 +309,7 @@ type NetworkWardenServiceServer interface {
 	GetNetworkNodesList(context.Context, *GetNetworkNodesListRequest) (*GetNetworkNodesListResponse, error)
 	JoinNetworkNodeRegistrationWaitlist(context.Context, *JoinNetworkNodeRegistrationWaitlistRequest) (*JoinNetworkNodeRegistrationWaitlistResponse, error)
 	ActivateNetworkNode(context.Context, *ActivateNetworkNodeRequest) (*ActivateNetworkNodeResponse, error)
+	InitiateNetworkNode(context.Context, *InitiateNetworkNodeRequest) (*InitiateNetworkNodeResponse, error)
 	GetNetworkWardensList(context.Context, *GetNetworkWardensListRequest) (*GetNetworkWardensListResponse, error)
 	RegisterNetworkWarden(context.Context, *RegisterNetworkWardenRequest) (*RegisterNetworkWardenResponse, error)
 	mustEmbedUnimplementedNetworkWardenServiceServer()
@@ -359,6 +372,9 @@ func (UnimplementedNetworkWardenServiceServer) JoinNetworkNodeRegistrationWaitli
 }
 func (UnimplementedNetworkWardenServiceServer) ActivateNetworkNode(context.Context, *ActivateNetworkNodeRequest) (*ActivateNetworkNodeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ActivateNetworkNode not implemented")
+}
+func (UnimplementedNetworkWardenServiceServer) InitiateNetworkNode(context.Context, *InitiateNetworkNodeRequest) (*InitiateNetworkNodeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiateNetworkNode not implemented")
 }
 func (UnimplementedNetworkWardenServiceServer) GetNetworkWardensList(context.Context, *GetNetworkWardensListRequest) (*GetNetworkWardensListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetNetworkWardensList not implemented")
@@ -703,6 +719,24 @@ func _NetworkWardenService_ActivateNetworkNode_Handler(srv interface{}, ctx cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NetworkWardenService_InitiateNetworkNode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InitiateNetworkNodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkWardenServiceServer).InitiateNetworkNode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkWardenService_InitiateNetworkNode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkWardenServiceServer).InitiateNetworkNode(ctx, req.(*InitiateNetworkNodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NetworkWardenService_GetNetworkWardensList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetNetworkWardensListRequest)
 	if err := dec(in); err != nil {
@@ -817,6 +851,10 @@ var NetworkWardenService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ActivateNetworkNode",
 			Handler:    _NetworkWardenService_ActivateNetworkNode_Handler,
+		},
+		{
+			MethodName: "InitiateNetworkNode",
+			Handler:    _NetworkWardenService_InitiateNetworkNode_Handler,
 		},
 		{
 			MethodName: "GetNetworkWardensList",
