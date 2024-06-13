@@ -178,9 +178,10 @@ message JoinPersonalDataNodeRegistrationWaitlistRequest {
   string token = 1;
   string url = 2;
   string name = 3;
-  string description = 4;
-  common.v1.Geolocation location = 5;
-  string remote_mac_address = 6;
+  string label = 4;
+  string description = 5;
+  common.v1.Geolocation location = 6;
+  string remote_mac_address = 7;
 }
 
 message JoinPersonalDataNodeRegistrationWaitlistResponse {
@@ -197,6 +198,20 @@ message ActivatePersonalDataNodeRequest {
 message ActivatePersonalDataNodeResponse {
   bool success = 1;
   string api_key = 2;
+}
+
+message InitiatePersonalDataNodeRequest {
+  string api_key = 1;
+  int64 accounts_capacity = 2;
+  bool is_open = 3;
+  string version = 4;
+  common.v1.RateLimit rate_limit = 5;
+  common.v1.RateLimit crawl_rate_limit = 6;
+  int64 id_gen_node = 7;
+}
+
+message InitiatePersonalDataNodeResponse {
+  bool success = 1; 
 }
 
 message GetNetworkNodesListRequest {
@@ -236,6 +251,20 @@ message ActivateNetworkNodeResponse {
   string api_key = 2;
 }
 
+message InitiateNetworkNodeRequest {
+  string api_key = 1;
+  int64 accounts_capacity = 2;
+  bool is_open = 3;
+  string version = 4;
+  common.v1.RateLimit rate_limit = 5;
+  common.v1.RateLimit crawl_rate_limit = 6;
+  int64 id_gen_node = 7;
+}
+
+message InitiateNetworkNodeResponse {
+  bool success = 1; 
+}
+
 message GetNetworkWardensListRequest {
   optional string token = 1;
   optional bool only_my = 2;
@@ -263,20 +292,6 @@ message RegisterNetworkWardenResponse {
   bool success = 1;
 }
 
-message InitiateNetworkNodeRequest {
-  string api_key = 1;
-  int64 accounts_capacity = 2;
-  bool is_open = 3;
-  string version = 4;
-  common.v1.RateLimit rate_limit = 5;
-  common.v1.RateLimit crawl_rate_limit = 6;
-  int64 id_gen_node = 7;
-}
-
-message InitiateNetworkNodeResponse {
-  bool success = 1; 
-}
-
 service NetworkWardenService {
   rpc CheckEmails(CheckEmailsRequest) returns (CheckEmailsResponse);
   rpc CheckPhoneNumbers(CheckPhoneNumbersRequest) returns (CheckPhoneNumbersResponse);
@@ -293,6 +308,7 @@ service NetworkWardenService {
   rpc GetPersonalDataNodesList(GetPersonalDataNodesListRequest) returns (GetPersonalDataNodesListResponse);
   rpc JoinPersonalDataNodeRegistrationWaitlist(JoinPersonalDataNodeRegistrationWaitlistRequest) returns (JoinPersonalDataNodeRegistrationWaitlistResponse);
   rpc ActivatePersonalDataNode(ActivatePersonalDataNodeRequest) returns (ActivatePersonalDataNodeResponse);
+  rpc InitiatePersonalDataNode(InitiatePersonalDataNodeRequest) returns (InitiatePersonalDataNodeResponse);
   rpc GetNetworkNodesList(GetNetworkNodesListRequest) returns (GetNetworkNodesListResponse);
   rpc JoinNetworkNodeRegistrationWaitlist(JoinNetworkNodeRegistrationWaitlistRequest) returns (JoinNetworkNodeRegistrationWaitlistResponse);
   rpc ActivateNetworkNode(ActivateNetworkNodeRequest) returns (ActivateNetworkNodeResponse);
