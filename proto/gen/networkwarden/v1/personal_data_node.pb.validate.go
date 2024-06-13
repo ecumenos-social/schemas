@@ -65,6 +65,10 @@ func (m *PersonalDataNode) validate(all bool) error {
 
 	// no validation rules for NwId
 
+	// no validation rules for Address
+
+	// no validation rules for Label
+
 	// no validation rules for Name
 
 	// no validation rules for Description

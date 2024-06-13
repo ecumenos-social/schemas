@@ -34,6 +34,7 @@ const (
 	NetworkWardenService_GetPersonalDataNodesList_FullMethodName                 = "/networkwarden.v1.NetworkWardenService/GetPersonalDataNodesList"
 	NetworkWardenService_JoinPersonalDataNodeRegistrationWaitlist_FullMethodName = "/networkwarden.v1.NetworkWardenService/JoinPersonalDataNodeRegistrationWaitlist"
 	NetworkWardenService_ActivatePersonalDataNode_FullMethodName                 = "/networkwarden.v1.NetworkWardenService/ActivatePersonalDataNode"
+	NetworkWardenService_InitiatePersonalDataNode_FullMethodName                 = "/networkwarden.v1.NetworkWardenService/InitiatePersonalDataNode"
 	NetworkWardenService_GetNetworkNodesList_FullMethodName                      = "/networkwarden.v1.NetworkWardenService/GetNetworkNodesList"
 	NetworkWardenService_JoinNetworkNodeRegistrationWaitlist_FullMethodName      = "/networkwarden.v1.NetworkWardenService/JoinNetworkNodeRegistrationWaitlist"
 	NetworkWardenService_ActivateNetworkNode_FullMethodName                      = "/networkwarden.v1.NetworkWardenService/ActivateNetworkNode"
@@ -61,6 +62,7 @@ type NetworkWardenServiceClient interface {
 	GetPersonalDataNodesList(ctx context.Context, in *GetPersonalDataNodesListRequest, opts ...grpc.CallOption) (*GetPersonalDataNodesListResponse, error)
 	JoinPersonalDataNodeRegistrationWaitlist(ctx context.Context, in *JoinPersonalDataNodeRegistrationWaitlistRequest, opts ...grpc.CallOption) (*JoinPersonalDataNodeRegistrationWaitlistResponse, error)
 	ActivatePersonalDataNode(ctx context.Context, in *ActivatePersonalDataNodeRequest, opts ...grpc.CallOption) (*ActivatePersonalDataNodeResponse, error)
+	InitiatePersonalDataNode(ctx context.Context, in *InitiatePersonalDataNodeRequest, opts ...grpc.CallOption) (*InitiatePersonalDataNodeResponse, error)
 	GetNetworkNodesList(ctx context.Context, in *GetNetworkNodesListRequest, opts ...grpc.CallOption) (*GetNetworkNodesListResponse, error)
 	JoinNetworkNodeRegistrationWaitlist(ctx context.Context, in *JoinNetworkNodeRegistrationWaitlistRequest, opts ...grpc.CallOption) (*JoinNetworkNodeRegistrationWaitlistResponse, error)
 	ActivateNetworkNode(ctx context.Context, in *ActivateNetworkNodeRequest, opts ...grpc.CallOption) (*ActivateNetworkNodeResponse, error)
@@ -227,6 +229,16 @@ func (c *networkWardenServiceClient) ActivatePersonalDataNode(ctx context.Contex
 	return out, nil
 }
 
+func (c *networkWardenServiceClient) InitiatePersonalDataNode(ctx context.Context, in *InitiatePersonalDataNodeRequest, opts ...grpc.CallOption) (*InitiatePersonalDataNodeResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(InitiatePersonalDataNodeResponse)
+	err := c.cc.Invoke(ctx, NetworkWardenService_InitiatePersonalDataNode_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *networkWardenServiceClient) GetNetworkNodesList(ctx context.Context, in *GetNetworkNodesListRequest, opts ...grpc.CallOption) (*GetNetworkNodesListResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetNetworkNodesListResponse)
@@ -306,6 +318,7 @@ type NetworkWardenServiceServer interface {
 	GetPersonalDataNodesList(context.Context, *GetPersonalDataNodesListRequest) (*GetPersonalDataNodesListResponse, error)
 	JoinPersonalDataNodeRegistrationWaitlist(context.Context, *JoinPersonalDataNodeRegistrationWaitlistRequest) (*JoinPersonalDataNodeRegistrationWaitlistResponse, error)
 	ActivatePersonalDataNode(context.Context, *ActivatePersonalDataNodeRequest) (*ActivatePersonalDataNodeResponse, error)
+	InitiatePersonalDataNode(context.Context, *InitiatePersonalDataNodeRequest) (*InitiatePersonalDataNodeResponse, error)
 	GetNetworkNodesList(context.Context, *GetNetworkNodesListRequest) (*GetNetworkNodesListResponse, error)
 	JoinNetworkNodeRegistrationWaitlist(context.Context, *JoinNetworkNodeRegistrationWaitlistRequest) (*JoinNetworkNodeRegistrationWaitlistResponse, error)
 	ActivateNetworkNode(context.Context, *ActivateNetworkNodeRequest) (*ActivateNetworkNodeResponse, error)
@@ -363,6 +376,9 @@ func (UnimplementedNetworkWardenServiceServer) JoinPersonalDataNodeRegistrationW
 }
 func (UnimplementedNetworkWardenServiceServer) ActivatePersonalDataNode(context.Context, *ActivatePersonalDataNodeRequest) (*ActivatePersonalDataNodeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ActivatePersonalDataNode not implemented")
+}
+func (UnimplementedNetworkWardenServiceServer) InitiatePersonalDataNode(context.Context, *InitiatePersonalDataNodeRequest) (*InitiatePersonalDataNodeResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitiatePersonalDataNode not implemented")
 }
 func (UnimplementedNetworkWardenServiceServer) GetNetworkNodesList(context.Context, *GetNetworkNodesListRequest) (*GetNetworkNodesListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetNetworkNodesList not implemented")
@@ -665,6 +681,24 @@ func _NetworkWardenService_ActivatePersonalDataNode_Handler(srv interface{}, ctx
 	return interceptor(ctx, in, info, handler)
 }
 
+func _NetworkWardenService_InitiatePersonalDataNode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InitiatePersonalDataNodeRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(NetworkWardenServiceServer).InitiatePersonalDataNode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: NetworkWardenService_InitiatePersonalDataNode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(NetworkWardenServiceServer).InitiatePersonalDataNode(ctx, req.(*InitiatePersonalDataNodeRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _NetworkWardenService_GetNetworkNodesList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetNetworkNodesListRequest)
 	if err := dec(in); err != nil {
@@ -839,6 +873,10 @@ var NetworkWardenService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ActivatePersonalDataNode",
 			Handler:    _NetworkWardenService_ActivatePersonalDataNode_Handler,
+		},
+		{
+			MethodName: "InitiatePersonalDataNode",
+			Handler:    _NetworkWardenService_InitiatePersonalDataNode_Handler,
 		},
 		{
 			MethodName: "GetNetworkNodesList",
