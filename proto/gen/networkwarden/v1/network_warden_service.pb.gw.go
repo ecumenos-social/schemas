@@ -32,7 +32,7 @@ var _ = utilities.NewDoubleArray
 var _ = metadata.Join
 
 func request_NetworkWardenService_CheckEmails_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CheckEmailsRequest
+	var protoReq NetworkWardenServiceCheckEmailsRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -45,7 +45,7 @@ func request_NetworkWardenService_CheckEmails_0(ctx context.Context, marshaler r
 }
 
 func local_request_NetworkWardenService_CheckEmails_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CheckEmailsRequest
+	var protoReq NetworkWardenServiceCheckEmailsRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -58,7 +58,7 @@ func local_request_NetworkWardenService_CheckEmails_0(ctx context.Context, marsh
 }
 
 func request_NetworkWardenService_CheckPhoneNumbers_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CheckPhoneNumbersRequest
+	var protoReq NetworkWardenServiceCheckPhoneNumbersRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -71,7 +71,7 @@ func request_NetworkWardenService_CheckPhoneNumbers_0(ctx context.Context, marsh
 }
 
 func local_request_NetworkWardenService_CheckPhoneNumbers_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq CheckPhoneNumbersRequest
+	var protoReq NetworkWardenServiceCheckPhoneNumbersRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -84,7 +84,7 @@ func local_request_NetworkWardenService_CheckPhoneNumbers_0(ctx context.Context,
 }
 
 func request_NetworkWardenService_RegisterHolder_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq RegisterHolderRequest
+	var protoReq NetworkWardenServiceRegisterHolderRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -97,7 +97,7 @@ func request_NetworkWardenService_RegisterHolder_0(ctx context.Context, marshale
 }
 
 func local_request_NetworkWardenService_RegisterHolder_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq RegisterHolderRequest
+	var protoReq NetworkWardenServiceRegisterHolderRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -110,7 +110,7 @@ func local_request_NetworkWardenService_RegisterHolder_0(ctx context.Context, ma
 }
 
 func request_NetworkWardenService_ConfirmHolderRegistration_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ConfirmHolderRegistrationRequest
+	var protoReq NetworkWardenServiceConfirmHolderRegistrationRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -123,7 +123,7 @@ func request_NetworkWardenService_ConfirmHolderRegistration_0(ctx context.Contex
 }
 
 func local_request_NetworkWardenService_ConfirmHolderRegistration_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ConfirmHolderRegistrationRequest
+	var protoReq NetworkWardenServiceConfirmHolderRegistrationRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -136,7 +136,7 @@ func local_request_NetworkWardenService_ConfirmHolderRegistration_0(ctx context.
 }
 
 func request_NetworkWardenService_ResendConfirmationCode_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ResendConfirmationCodeRequest
+	var protoReq NetworkWardenServiceResendConfirmationCodeRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -149,7 +149,7 @@ func request_NetworkWardenService_ResendConfirmationCode_0(ctx context.Context, 
 }
 
 func local_request_NetworkWardenService_ResendConfirmationCode_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ResendConfirmationCodeRequest
+	var protoReq NetworkWardenServiceResendConfirmationCodeRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -162,7 +162,7 @@ func local_request_NetworkWardenService_ResendConfirmationCode_0(ctx context.Con
 }
 
 func request_NetworkWardenService_LoginHolder_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq LoginHolderRequest
+	var protoReq NetworkWardenServiceLoginHolderRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -175,7 +175,7 @@ func request_NetworkWardenService_LoginHolder_0(ctx context.Context, marshaler r
 }
 
 func local_request_NetworkWardenService_LoginHolder_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq LoginHolderRequest
+	var protoReq NetworkWardenServiceLoginHolderRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -188,7 +188,7 @@ func local_request_NetworkWardenService_LoginHolder_0(ctx context.Context, marsh
 }
 
 func request_NetworkWardenService_LogoutHolder_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq LogoutHolderRequest
+	var protoReq NetworkWardenServiceLogoutHolderRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -201,7 +201,7 @@ func request_NetworkWardenService_LogoutHolder_0(ctx context.Context, marshaler 
 }
 
 func local_request_NetworkWardenService_LogoutHolder_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq LogoutHolderRequest
+	var protoReq NetworkWardenServiceLogoutHolderRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -214,7 +214,7 @@ func local_request_NetworkWardenService_LogoutHolder_0(ctx context.Context, mars
 }
 
 func request_NetworkWardenService_RefreshHolderToken_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq RefreshHolderTokenRequest
+	var protoReq NetworkWardenServiceRefreshHolderTokenRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -227,7 +227,7 @@ func request_NetworkWardenService_RefreshHolderToken_0(ctx context.Context, mars
 }
 
 func local_request_NetworkWardenService_RefreshHolderToken_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq RefreshHolderTokenRequest
+	var protoReq NetworkWardenServiceRefreshHolderTokenRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -240,7 +240,7 @@ func local_request_NetworkWardenService_RefreshHolderToken_0(ctx context.Context
 }
 
 func request_NetworkWardenService_ChangeHolderPassword_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ChangeHolderPasswordRequest
+	var protoReq NetworkWardenServiceChangeHolderPasswordRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -253,7 +253,7 @@ func request_NetworkWardenService_ChangeHolderPassword_0(ctx context.Context, ma
 }
 
 func local_request_NetworkWardenService_ChangeHolderPassword_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ChangeHolderPasswordRequest
+	var protoReq NetworkWardenServiceChangeHolderPasswordRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -266,7 +266,7 @@ func local_request_NetworkWardenService_ChangeHolderPassword_0(ctx context.Conte
 }
 
 func request_NetworkWardenService_ModifyHolder_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ModifyHolderRequest
+	var protoReq NetworkWardenServiceModifyHolderRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -279,7 +279,7 @@ func request_NetworkWardenService_ModifyHolder_0(ctx context.Context, marshaler 
 }
 
 func local_request_NetworkWardenService_ModifyHolder_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ModifyHolderRequest
+	var protoReq NetworkWardenServiceModifyHolderRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -292,7 +292,7 @@ func local_request_NetworkWardenService_ModifyHolder_0(ctx context.Context, mars
 }
 
 func request_NetworkWardenService_GetHolder_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetHolderRequest
+	var protoReq NetworkWardenServiceGetHolderRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -305,7 +305,7 @@ func request_NetworkWardenService_GetHolder_0(ctx context.Context, marshaler run
 }
 
 func local_request_NetworkWardenService_GetHolder_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetHolderRequest
+	var protoReq NetworkWardenServiceGetHolderRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -318,7 +318,7 @@ func local_request_NetworkWardenService_GetHolder_0(ctx context.Context, marshal
 }
 
 func request_NetworkWardenService_DeleteHolder_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteHolderRequest
+	var protoReq NetworkWardenServiceDeleteHolderRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -331,7 +331,7 @@ func request_NetworkWardenService_DeleteHolder_0(ctx context.Context, marshaler 
 }
 
 func local_request_NetworkWardenService_DeleteHolder_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq DeleteHolderRequest
+	var protoReq NetworkWardenServiceDeleteHolderRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -344,7 +344,7 @@ func local_request_NetworkWardenService_DeleteHolder_0(ctx context.Context, mars
 }
 
 func request_NetworkWardenService_GetPersonalDataNodesList_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetPersonalDataNodesListRequest
+	var protoReq NetworkWardenServiceGetPersonalDataNodesListRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -357,7 +357,7 @@ func request_NetworkWardenService_GetPersonalDataNodesList_0(ctx context.Context
 }
 
 func local_request_NetworkWardenService_GetPersonalDataNodesList_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetPersonalDataNodesListRequest
+	var protoReq NetworkWardenServiceGetPersonalDataNodesListRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -370,7 +370,7 @@ func local_request_NetworkWardenService_GetPersonalDataNodesList_0(ctx context.C
 }
 
 func request_NetworkWardenService_JoinPersonalDataNodeRegistrationWaitlist_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq JoinPersonalDataNodeRegistrationWaitlistRequest
+	var protoReq NetworkWardenServiceJoinPersonalDataNodeRegistrationWaitlistRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -383,7 +383,7 @@ func request_NetworkWardenService_JoinPersonalDataNodeRegistrationWaitlist_0(ctx
 }
 
 func local_request_NetworkWardenService_JoinPersonalDataNodeRegistrationWaitlist_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq JoinPersonalDataNodeRegistrationWaitlistRequest
+	var protoReq NetworkWardenServiceJoinPersonalDataNodeRegistrationWaitlistRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -396,7 +396,7 @@ func local_request_NetworkWardenService_JoinPersonalDataNodeRegistrationWaitlist
 }
 
 func request_NetworkWardenService_ActivatePersonalDataNode_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ActivatePersonalDataNodeRequest
+	var protoReq NetworkWardenServiceActivatePersonalDataNodeRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -409,7 +409,7 @@ func request_NetworkWardenService_ActivatePersonalDataNode_0(ctx context.Context
 }
 
 func local_request_NetworkWardenService_ActivatePersonalDataNode_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ActivatePersonalDataNodeRequest
+	var protoReq NetworkWardenServiceActivatePersonalDataNodeRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -422,7 +422,7 @@ func local_request_NetworkWardenService_ActivatePersonalDataNode_0(ctx context.C
 }
 
 func request_NetworkWardenService_InitiatePersonalDataNode_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq InitiatePersonalDataNodeRequest
+	var protoReq NetworkWardenServiceInitiatePersonalDataNodeRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -435,7 +435,7 @@ func request_NetworkWardenService_InitiatePersonalDataNode_0(ctx context.Context
 }
 
 func local_request_NetworkWardenService_InitiatePersonalDataNode_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq InitiatePersonalDataNodeRequest
+	var protoReq NetworkWardenServiceInitiatePersonalDataNodeRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -448,7 +448,7 @@ func local_request_NetworkWardenService_InitiatePersonalDataNode_0(ctx context.C
 }
 
 func request_NetworkWardenService_GetNetworkNodesList_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetNetworkNodesListRequest
+	var protoReq NetworkWardenServiceGetNetworkNodesListRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -461,7 +461,7 @@ func request_NetworkWardenService_GetNetworkNodesList_0(ctx context.Context, mar
 }
 
 func local_request_NetworkWardenService_GetNetworkNodesList_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetNetworkNodesListRequest
+	var protoReq NetworkWardenServiceGetNetworkNodesListRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -474,7 +474,7 @@ func local_request_NetworkWardenService_GetNetworkNodesList_0(ctx context.Contex
 }
 
 func request_NetworkWardenService_JoinNetworkNodeRegistrationWaitlist_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq JoinNetworkNodeRegistrationWaitlistRequest
+	var protoReq NetworkWardenServiceJoinNetworkNodeRegistrationWaitlistRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -487,7 +487,7 @@ func request_NetworkWardenService_JoinNetworkNodeRegistrationWaitlist_0(ctx cont
 }
 
 func local_request_NetworkWardenService_JoinNetworkNodeRegistrationWaitlist_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq JoinNetworkNodeRegistrationWaitlistRequest
+	var protoReq NetworkWardenServiceJoinNetworkNodeRegistrationWaitlistRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -500,7 +500,7 @@ func local_request_NetworkWardenService_JoinNetworkNodeRegistrationWaitlist_0(ct
 }
 
 func request_NetworkWardenService_ActivateNetworkNode_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ActivateNetworkNodeRequest
+	var protoReq NetworkWardenServiceActivateNetworkNodeRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -513,7 +513,7 @@ func request_NetworkWardenService_ActivateNetworkNode_0(ctx context.Context, mar
 }
 
 func local_request_NetworkWardenService_ActivateNetworkNode_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq ActivateNetworkNodeRequest
+	var protoReq NetworkWardenServiceActivateNetworkNodeRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -526,7 +526,7 @@ func local_request_NetworkWardenService_ActivateNetworkNode_0(ctx context.Contex
 }
 
 func request_NetworkWardenService_InitiateNetworkNode_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq InitiateNetworkNodeRequest
+	var protoReq NetworkWardenServiceInitiateNetworkNodeRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -539,7 +539,7 @@ func request_NetworkWardenService_InitiateNetworkNode_0(ctx context.Context, mar
 }
 
 func local_request_NetworkWardenService_InitiateNetworkNode_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq InitiateNetworkNodeRequest
+	var protoReq NetworkWardenServiceInitiateNetworkNodeRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -552,7 +552,7 @@ func local_request_NetworkWardenService_InitiateNetworkNode_0(ctx context.Contex
 }
 
 func request_NetworkWardenService_GetNetworkWardensList_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetNetworkWardensListRequest
+	var protoReq NetworkWardenServiceGetNetworkWardensListRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -565,7 +565,7 @@ func request_NetworkWardenService_GetNetworkWardensList_0(ctx context.Context, m
 }
 
 func local_request_NetworkWardenService_GetNetworkWardensList_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetNetworkWardensListRequest
+	var protoReq NetworkWardenServiceGetNetworkWardensListRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -578,7 +578,7 @@ func local_request_NetworkWardenService_GetNetworkWardensList_0(ctx context.Cont
 }
 
 func request_NetworkWardenService_RegisterNetworkWarden_0(ctx context.Context, marshaler runtime.Marshaler, client NetworkWardenServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq RegisterNetworkWardenRequest
+	var protoReq NetworkWardenServiceRegisterNetworkWardenRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {
@@ -591,7 +591,7 @@ func request_NetworkWardenService_RegisterNetworkWarden_0(ctx context.Context, m
 }
 
 func local_request_NetworkWardenService_RegisterNetworkWarden_0(ctx context.Context, marshaler runtime.Marshaler, server NetworkWardenServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq RegisterNetworkWardenRequest
+	var protoReq NetworkWardenServiceRegisterNetworkWardenRequest
 	var metadata runtime.ServerMetadata
 
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && err != io.EOF {

@@ -34,3 +34,2919 @@ var (
 	_ = anypb.Any{}
 	_ = sort.Sort
 )
+
+// Validate checks the field values on AdminServiceLoginAdminRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *AdminServiceLoginAdminRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AdminServiceLoginAdminRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// AdminServiceLoginAdminRequestMultiError, or nil if none found.
+func (m *AdminServiceLoginAdminRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceLoginAdminRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Email
+
+	// no validation rules for PhoneNumber
+
+	// no validation rules for Password
+
+	if len(errors) > 0 {
+		return AdminServiceLoginAdminRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceLoginAdminRequestMultiError is an error wrapping multiple
+// validation errors returned by AdminServiceLoginAdminRequest.ValidateAll()
+// if the designated constraints aren't met.
+type AdminServiceLoginAdminRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceLoginAdminRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceLoginAdminRequestMultiError) AllErrors() []error { return m }
+
+// AdminServiceLoginAdminRequestValidationError is the validation error
+// returned by AdminServiceLoginAdminRequest.Validate if the designated
+// constraints aren't met.
+type AdminServiceLoginAdminRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceLoginAdminRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceLoginAdminRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceLoginAdminRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceLoginAdminRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceLoginAdminRequestValidationError) ErrorName() string {
+	return "AdminServiceLoginAdminRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceLoginAdminRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceLoginAdminRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceLoginAdminRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceLoginAdminRequestValidationError{}
+
+// Validate checks the field values on AdminServiceLoginAdminResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *AdminServiceLoginAdminResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AdminServiceLoginAdminResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// AdminServiceLoginAdminResponseMultiError, or nil if none found.
+func (m *AdminServiceLoginAdminResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceLoginAdminResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Token
+
+	// no validation rules for RefreshToken
+
+	if len(errors) > 0 {
+		return AdminServiceLoginAdminResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceLoginAdminResponseMultiError is an error wrapping multiple
+// validation errors returned by AdminServiceLoginAdminResponse.ValidateAll()
+// if the designated constraints aren't met.
+type AdminServiceLoginAdminResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceLoginAdminResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceLoginAdminResponseMultiError) AllErrors() []error { return m }
+
+// AdminServiceLoginAdminResponseValidationError is the validation error
+// returned by AdminServiceLoginAdminResponse.Validate if the designated
+// constraints aren't met.
+type AdminServiceLoginAdminResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceLoginAdminResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceLoginAdminResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceLoginAdminResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceLoginAdminResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceLoginAdminResponseValidationError) ErrorName() string {
+	return "AdminServiceLoginAdminResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceLoginAdminResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceLoginAdminResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceLoginAdminResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceLoginAdminResponseValidationError{}
+
+// Validate checks the field values on AdminServiceRefreshAdminTokenRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *AdminServiceRefreshAdminTokenRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AdminServiceRefreshAdminTokenRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// AdminServiceRefreshAdminTokenRequestMultiError, or nil if none found.
+func (m *AdminServiceRefreshAdminTokenRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceRefreshAdminTokenRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for RefreshToken
+
+	if len(errors) > 0 {
+		return AdminServiceRefreshAdminTokenRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceRefreshAdminTokenRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// AdminServiceRefreshAdminTokenRequest.ValidateAll() if the designated
+// constraints aren't met.
+type AdminServiceRefreshAdminTokenRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceRefreshAdminTokenRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceRefreshAdminTokenRequestMultiError) AllErrors() []error { return m }
+
+// AdminServiceRefreshAdminTokenRequestValidationError is the validation error
+// returned by AdminServiceRefreshAdminTokenRequest.Validate if the designated
+// constraints aren't met.
+type AdminServiceRefreshAdminTokenRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceRefreshAdminTokenRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceRefreshAdminTokenRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceRefreshAdminTokenRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceRefreshAdminTokenRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceRefreshAdminTokenRequestValidationError) ErrorName() string {
+	return "AdminServiceRefreshAdminTokenRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceRefreshAdminTokenRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceRefreshAdminTokenRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceRefreshAdminTokenRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceRefreshAdminTokenRequestValidationError{}
+
+// Validate checks the field values on AdminServiceRefreshAdminTokenResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *AdminServiceRefreshAdminTokenResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AdminServiceRefreshAdminTokenResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// AdminServiceRefreshAdminTokenResponseMultiError, or nil if none found.
+func (m *AdminServiceRefreshAdminTokenResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceRefreshAdminTokenResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Token
+
+	// no validation rules for RefreshToken
+
+	if len(errors) > 0 {
+		return AdminServiceRefreshAdminTokenResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceRefreshAdminTokenResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceRefreshAdminTokenResponse.ValidateAll() if the designated
+// constraints aren't met.
+type AdminServiceRefreshAdminTokenResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceRefreshAdminTokenResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceRefreshAdminTokenResponseMultiError) AllErrors() []error { return m }
+
+// AdminServiceRefreshAdminTokenResponseValidationError is the validation error
+// returned by AdminServiceRefreshAdminTokenResponse.Validate if the
+// designated constraints aren't met.
+type AdminServiceRefreshAdminTokenResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceRefreshAdminTokenResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceRefreshAdminTokenResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceRefreshAdminTokenResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceRefreshAdminTokenResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceRefreshAdminTokenResponseValidationError) ErrorName() string {
+	return "AdminServiceRefreshAdminTokenResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceRefreshAdminTokenResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceRefreshAdminTokenResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceRefreshAdminTokenResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceRefreshAdminTokenResponseValidationError{}
+
+// Validate checks the field values on AdminServiceLogoutAdminRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *AdminServiceLogoutAdminRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AdminServiceLogoutAdminRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// AdminServiceLogoutAdminRequestMultiError, or nil if none found.
+func (m *AdminServiceLogoutAdminRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceLogoutAdminRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	if len(errors) > 0 {
+		return AdminServiceLogoutAdminRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceLogoutAdminRequestMultiError is an error wrapping multiple
+// validation errors returned by AdminServiceLogoutAdminRequest.ValidateAll()
+// if the designated constraints aren't met.
+type AdminServiceLogoutAdminRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceLogoutAdminRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceLogoutAdminRequestMultiError) AllErrors() []error { return m }
+
+// AdminServiceLogoutAdminRequestValidationError is the validation error
+// returned by AdminServiceLogoutAdminRequest.Validate if the designated
+// constraints aren't met.
+type AdminServiceLogoutAdminRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceLogoutAdminRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceLogoutAdminRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceLogoutAdminRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceLogoutAdminRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceLogoutAdminRequestValidationError) ErrorName() string {
+	return "AdminServiceLogoutAdminRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceLogoutAdminRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceLogoutAdminRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceLogoutAdminRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceLogoutAdminRequestValidationError{}
+
+// Validate checks the field values on AdminServiceLogoutAdminResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *AdminServiceLogoutAdminResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AdminServiceLogoutAdminResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// AdminServiceLogoutAdminResponseMultiError, or nil if none found.
+func (m *AdminServiceLogoutAdminResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceLogoutAdminResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Success
+
+	if len(errors) > 0 {
+		return AdminServiceLogoutAdminResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceLogoutAdminResponseMultiError is an error wrapping multiple
+// validation errors returned by AdminServiceLogoutAdminResponse.ValidateAll()
+// if the designated constraints aren't met.
+type AdminServiceLogoutAdminResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceLogoutAdminResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceLogoutAdminResponseMultiError) AllErrors() []error { return m }
+
+// AdminServiceLogoutAdminResponseValidationError is the validation error
+// returned by AdminServiceLogoutAdminResponse.Validate if the designated
+// constraints aren't met.
+type AdminServiceLogoutAdminResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceLogoutAdminResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceLogoutAdminResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceLogoutAdminResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceLogoutAdminResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceLogoutAdminResponseValidationError) ErrorName() string {
+	return "AdminServiceLogoutAdminResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceLogoutAdminResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceLogoutAdminResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceLogoutAdminResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceLogoutAdminResponseValidationError{}
+
+// Validate checks the field values on AdminServiceChangeAdminPasswordRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *AdminServiceChangeAdminPasswordRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// AdminServiceChangeAdminPasswordRequest with the rules defined in the proto
+// definition for this message. If any rules are violated, the result is a
+// list of violation errors wrapped in
+// AdminServiceChangeAdminPasswordRequestMultiError, or nil if none found.
+func (m *AdminServiceChangeAdminPasswordRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceChangeAdminPasswordRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	// no validation rules for Password
+
+	// no validation rules for NewPassword
+
+	if len(errors) > 0 {
+		return AdminServiceChangeAdminPasswordRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceChangeAdminPasswordRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceChangeAdminPasswordRequest.ValidateAll() if the designated
+// constraints aren't met.
+type AdminServiceChangeAdminPasswordRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceChangeAdminPasswordRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceChangeAdminPasswordRequestMultiError) AllErrors() []error { return m }
+
+// AdminServiceChangeAdminPasswordRequestValidationError is the validation
+// error returned by AdminServiceChangeAdminPasswordRequest.Validate if the
+// designated constraints aren't met.
+type AdminServiceChangeAdminPasswordRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceChangeAdminPasswordRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceChangeAdminPasswordRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceChangeAdminPasswordRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceChangeAdminPasswordRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceChangeAdminPasswordRequestValidationError) ErrorName() string {
+	return "AdminServiceChangeAdminPasswordRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceChangeAdminPasswordRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceChangeAdminPasswordRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceChangeAdminPasswordRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceChangeAdminPasswordRequestValidationError{}
+
+// Validate checks the field values on AdminServiceChangeAdminPasswordResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *AdminServiceChangeAdminPasswordResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// AdminServiceChangeAdminPasswordResponse with the rules defined in the proto
+// definition for this message. If any rules are violated, the result is a
+// list of violation errors wrapped in
+// AdminServiceChangeAdminPasswordResponseMultiError, or nil if none found.
+func (m *AdminServiceChangeAdminPasswordResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceChangeAdminPasswordResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Success
+
+	if len(errors) > 0 {
+		return AdminServiceChangeAdminPasswordResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceChangeAdminPasswordResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceChangeAdminPasswordResponse.ValidateAll() if the designated
+// constraints aren't met.
+type AdminServiceChangeAdminPasswordResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceChangeAdminPasswordResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceChangeAdminPasswordResponseMultiError) AllErrors() []error { return m }
+
+// AdminServiceChangeAdminPasswordResponseValidationError is the validation
+// error returned by AdminServiceChangeAdminPasswordResponse.Validate if the
+// designated constraints aren't met.
+type AdminServiceChangeAdminPasswordResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceChangeAdminPasswordResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceChangeAdminPasswordResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceChangeAdminPasswordResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceChangeAdminPasswordResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceChangeAdminPasswordResponseValidationError) ErrorName() string {
+	return "AdminServiceChangeAdminPasswordResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceChangeAdminPasswordResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceChangeAdminPasswordResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceChangeAdminPasswordResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceChangeAdminPasswordResponseValidationError{}
+
+// Validate checks the field values on
+// AdminServiceGetPersonalDataNodesListRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *AdminServiceGetPersonalDataNodesListRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// AdminServiceGetPersonalDataNodesListRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// AdminServiceGetPersonalDataNodesListRequestMultiError, or nil if none found.
+func (m *AdminServiceGetPersonalDataNodesListRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceGetPersonalDataNodesListRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	if m.OnlyMy != nil {
+		// no validation rules for OnlyMy
+	}
+
+	if m.Pagination != nil {
+
+		if all {
+			switch v := interface{}(m.GetPagination()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, AdminServiceGetPersonalDataNodesListRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, AdminServiceGetPersonalDataNodesListRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetPagination()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return AdminServiceGetPersonalDataNodesListRequestValidationError{
+					field:  "Pagination",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return AdminServiceGetPersonalDataNodesListRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceGetPersonalDataNodesListRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceGetPersonalDataNodesListRequest.ValidateAll() if the designated
+// constraints aren't met.
+type AdminServiceGetPersonalDataNodesListRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceGetPersonalDataNodesListRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceGetPersonalDataNodesListRequestMultiError) AllErrors() []error { return m }
+
+// AdminServiceGetPersonalDataNodesListRequestValidationError is the validation
+// error returned by AdminServiceGetPersonalDataNodesListRequest.Validate if
+// the designated constraints aren't met.
+type AdminServiceGetPersonalDataNodesListRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceGetPersonalDataNodesListRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceGetPersonalDataNodesListRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceGetPersonalDataNodesListRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceGetPersonalDataNodesListRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceGetPersonalDataNodesListRequestValidationError) ErrorName() string {
+	return "AdminServiceGetPersonalDataNodesListRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceGetPersonalDataNodesListRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceGetPersonalDataNodesListRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceGetPersonalDataNodesListRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceGetPersonalDataNodesListRequestValidationError{}
+
+// Validate checks the field values on
+// AdminServiceGetPersonalDataNodesListResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *AdminServiceGetPersonalDataNodesListResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// AdminServiceGetPersonalDataNodesListResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// AdminServiceGetPersonalDataNodesListResponseMultiError, or nil if none found.
+func (m *AdminServiceGetPersonalDataNodesListResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceGetPersonalDataNodesListResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetData() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, AdminServiceGetPersonalDataNodesListResponseValidationError{
+						field:  fmt.Sprintf("Data[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, AdminServiceGetPersonalDataNodesListResponseValidationError{
+						field:  fmt.Sprintf("Data[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return AdminServiceGetPersonalDataNodesListResponseValidationError{
+					field:  fmt.Sprintf("Data[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return AdminServiceGetPersonalDataNodesListResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceGetPersonalDataNodesListResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceGetPersonalDataNodesListResponse.ValidateAll() if the
+// designated constraints aren't met.
+type AdminServiceGetPersonalDataNodesListResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceGetPersonalDataNodesListResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceGetPersonalDataNodesListResponseMultiError) AllErrors() []error { return m }
+
+// AdminServiceGetPersonalDataNodesListResponseValidationError is the
+// validation error returned by
+// AdminServiceGetPersonalDataNodesListResponse.Validate if the designated
+// constraints aren't met.
+type AdminServiceGetPersonalDataNodesListResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceGetPersonalDataNodesListResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceGetPersonalDataNodesListResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceGetPersonalDataNodesListResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceGetPersonalDataNodesListResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceGetPersonalDataNodesListResponseValidationError) ErrorName() string {
+	return "AdminServiceGetPersonalDataNodesListResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceGetPersonalDataNodesListResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceGetPersonalDataNodesListResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceGetPersonalDataNodesListResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceGetPersonalDataNodesListResponseValidationError{}
+
+// Validate checks the field values on
+// AdminServiceGetPersonalDataNodeByIDRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *AdminServiceGetPersonalDataNodeByIDRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// AdminServiceGetPersonalDataNodeByIDRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// AdminServiceGetPersonalDataNodeByIDRequestMultiError, or nil if none found.
+func (m *AdminServiceGetPersonalDataNodeByIDRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceGetPersonalDataNodeByIDRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	// no validation rules for Id
+
+	if len(errors) > 0 {
+		return AdminServiceGetPersonalDataNodeByIDRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceGetPersonalDataNodeByIDRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceGetPersonalDataNodeByIDRequest.ValidateAll() if the designated
+// constraints aren't met.
+type AdminServiceGetPersonalDataNodeByIDRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceGetPersonalDataNodeByIDRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceGetPersonalDataNodeByIDRequestMultiError) AllErrors() []error { return m }
+
+// AdminServiceGetPersonalDataNodeByIDRequestValidationError is the validation
+// error returned by AdminServiceGetPersonalDataNodeByIDRequest.Validate if
+// the designated constraints aren't met.
+type AdminServiceGetPersonalDataNodeByIDRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceGetPersonalDataNodeByIDRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceGetPersonalDataNodeByIDRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceGetPersonalDataNodeByIDRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceGetPersonalDataNodeByIDRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceGetPersonalDataNodeByIDRequestValidationError) ErrorName() string {
+	return "AdminServiceGetPersonalDataNodeByIDRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceGetPersonalDataNodeByIDRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceGetPersonalDataNodeByIDRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceGetPersonalDataNodeByIDRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceGetPersonalDataNodeByIDRequestValidationError{}
+
+// Validate checks the field values on
+// AdminServiceGetPersonalDataNodeByIDResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *AdminServiceGetPersonalDataNodeByIDResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// AdminServiceGetPersonalDataNodeByIDResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// AdminServiceGetPersonalDataNodeByIDResponseMultiError, or nil if none found.
+func (m *AdminServiceGetPersonalDataNodeByIDResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceGetPersonalDataNodeByIDResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetData()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, AdminServiceGetPersonalDataNodeByIDResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, AdminServiceGetPersonalDataNodeByIDResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return AdminServiceGetPersonalDataNodeByIDResponseValidationError{
+				field:  "Data",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return AdminServiceGetPersonalDataNodeByIDResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceGetPersonalDataNodeByIDResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceGetPersonalDataNodeByIDResponse.ValidateAll() if the designated
+// constraints aren't met.
+type AdminServiceGetPersonalDataNodeByIDResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceGetPersonalDataNodeByIDResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceGetPersonalDataNodeByIDResponseMultiError) AllErrors() []error { return m }
+
+// AdminServiceGetPersonalDataNodeByIDResponseValidationError is the validation
+// error returned by AdminServiceGetPersonalDataNodeByIDResponse.Validate if
+// the designated constraints aren't met.
+type AdminServiceGetPersonalDataNodeByIDResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceGetPersonalDataNodeByIDResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceGetPersonalDataNodeByIDResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceGetPersonalDataNodeByIDResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceGetPersonalDataNodeByIDResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceGetPersonalDataNodeByIDResponseValidationError) ErrorName() string {
+	return "AdminServiceGetPersonalDataNodeByIDResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceGetPersonalDataNodeByIDResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceGetPersonalDataNodeByIDResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceGetPersonalDataNodeByIDResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceGetPersonalDataNodeByIDResponseValidationError{}
+
+// Validate checks the field values on
+// AdminServiceSetPersonalDataNodeStatusRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *AdminServiceSetPersonalDataNodeStatusRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// AdminServiceSetPersonalDataNodeStatusRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// AdminServiceSetPersonalDataNodeStatusRequestMultiError, or nil if none found.
+func (m *AdminServiceSetPersonalDataNodeStatusRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceSetPersonalDataNodeStatusRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	// no validation rules for Id
+
+	// no validation rules for Status
+
+	if len(errors) > 0 {
+		return AdminServiceSetPersonalDataNodeStatusRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceSetPersonalDataNodeStatusRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceSetPersonalDataNodeStatusRequest.ValidateAll() if the
+// designated constraints aren't met.
+type AdminServiceSetPersonalDataNodeStatusRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceSetPersonalDataNodeStatusRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceSetPersonalDataNodeStatusRequestMultiError) AllErrors() []error { return m }
+
+// AdminServiceSetPersonalDataNodeStatusRequestValidationError is the
+// validation error returned by
+// AdminServiceSetPersonalDataNodeStatusRequest.Validate if the designated
+// constraints aren't met.
+type AdminServiceSetPersonalDataNodeStatusRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceSetPersonalDataNodeStatusRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceSetPersonalDataNodeStatusRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceSetPersonalDataNodeStatusRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceSetPersonalDataNodeStatusRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceSetPersonalDataNodeStatusRequestValidationError) ErrorName() string {
+	return "AdminServiceSetPersonalDataNodeStatusRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceSetPersonalDataNodeStatusRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceSetPersonalDataNodeStatusRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceSetPersonalDataNodeStatusRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceSetPersonalDataNodeStatusRequestValidationError{}
+
+// Validate checks the field values on
+// AdminServiceSetPersonalDataNodeStatusResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *AdminServiceSetPersonalDataNodeStatusResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// AdminServiceSetPersonalDataNodeStatusResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// AdminServiceSetPersonalDataNodeStatusResponseMultiError, or nil if none found.
+func (m *AdminServiceSetPersonalDataNodeStatusResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceSetPersonalDataNodeStatusResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Success
+
+	if len(errors) > 0 {
+		return AdminServiceSetPersonalDataNodeStatusResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceSetPersonalDataNodeStatusResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceSetPersonalDataNodeStatusResponse.ValidateAll() if the
+// designated constraints aren't met.
+type AdminServiceSetPersonalDataNodeStatusResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceSetPersonalDataNodeStatusResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceSetPersonalDataNodeStatusResponseMultiError) AllErrors() []error { return m }
+
+// AdminServiceSetPersonalDataNodeStatusResponseValidationError is the
+// validation error returned by
+// AdminServiceSetPersonalDataNodeStatusResponse.Validate if the designated
+// constraints aren't met.
+type AdminServiceSetPersonalDataNodeStatusResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceSetPersonalDataNodeStatusResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceSetPersonalDataNodeStatusResponseValidationError) Reason() string {
+	return e.reason
+}
+
+// Cause function returns cause value.
+func (e AdminServiceSetPersonalDataNodeStatusResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceSetPersonalDataNodeStatusResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceSetPersonalDataNodeStatusResponseValidationError) ErrorName() string {
+	return "AdminServiceSetPersonalDataNodeStatusResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceSetPersonalDataNodeStatusResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceSetPersonalDataNodeStatusResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceSetPersonalDataNodeStatusResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceSetPersonalDataNodeStatusResponseValidationError{}
+
+// Validate checks the field values on AdminServiceGetNetworkNodesListRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *AdminServiceGetNetworkNodesListRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// AdminServiceGetNetworkNodesListRequest with the rules defined in the proto
+// definition for this message. If any rules are violated, the result is a
+// list of violation errors wrapped in
+// AdminServiceGetNetworkNodesListRequestMultiError, or nil if none found.
+func (m *AdminServiceGetNetworkNodesListRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceGetNetworkNodesListRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	if m.OnlyMy != nil {
+		// no validation rules for OnlyMy
+	}
+
+	if m.Pagination != nil {
+
+		if all {
+			switch v := interface{}(m.GetPagination()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, AdminServiceGetNetworkNodesListRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, AdminServiceGetNetworkNodesListRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetPagination()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return AdminServiceGetNetworkNodesListRequestValidationError{
+					field:  "Pagination",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return AdminServiceGetNetworkNodesListRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceGetNetworkNodesListRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceGetNetworkNodesListRequest.ValidateAll() if the designated
+// constraints aren't met.
+type AdminServiceGetNetworkNodesListRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceGetNetworkNodesListRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceGetNetworkNodesListRequestMultiError) AllErrors() []error { return m }
+
+// AdminServiceGetNetworkNodesListRequestValidationError is the validation
+// error returned by AdminServiceGetNetworkNodesListRequest.Validate if the
+// designated constraints aren't met.
+type AdminServiceGetNetworkNodesListRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceGetNetworkNodesListRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceGetNetworkNodesListRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceGetNetworkNodesListRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceGetNetworkNodesListRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceGetNetworkNodesListRequestValidationError) ErrorName() string {
+	return "AdminServiceGetNetworkNodesListRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceGetNetworkNodesListRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceGetNetworkNodesListRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceGetNetworkNodesListRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceGetNetworkNodesListRequestValidationError{}
+
+// Validate checks the field values on AdminServiceGetNetworkNodesListResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *AdminServiceGetNetworkNodesListResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// AdminServiceGetNetworkNodesListResponse with the rules defined in the proto
+// definition for this message. If any rules are violated, the result is a
+// list of violation errors wrapped in
+// AdminServiceGetNetworkNodesListResponseMultiError, or nil if none found.
+func (m *AdminServiceGetNetworkNodesListResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceGetNetworkNodesListResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetData() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, AdminServiceGetNetworkNodesListResponseValidationError{
+						field:  fmt.Sprintf("Data[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, AdminServiceGetNetworkNodesListResponseValidationError{
+						field:  fmt.Sprintf("Data[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return AdminServiceGetNetworkNodesListResponseValidationError{
+					field:  fmt.Sprintf("Data[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return AdminServiceGetNetworkNodesListResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceGetNetworkNodesListResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceGetNetworkNodesListResponse.ValidateAll() if the designated
+// constraints aren't met.
+type AdminServiceGetNetworkNodesListResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceGetNetworkNodesListResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceGetNetworkNodesListResponseMultiError) AllErrors() []error { return m }
+
+// AdminServiceGetNetworkNodesListResponseValidationError is the validation
+// error returned by AdminServiceGetNetworkNodesListResponse.Validate if the
+// designated constraints aren't met.
+type AdminServiceGetNetworkNodesListResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceGetNetworkNodesListResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceGetNetworkNodesListResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceGetNetworkNodesListResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceGetNetworkNodesListResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceGetNetworkNodesListResponseValidationError) ErrorName() string {
+	return "AdminServiceGetNetworkNodesListResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceGetNetworkNodesListResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceGetNetworkNodesListResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceGetNetworkNodesListResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceGetNetworkNodesListResponseValidationError{}
+
+// Validate checks the field values on AdminServiceGetNetworkNodeByIDRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *AdminServiceGetNetworkNodeByIDRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on AdminServiceGetNetworkNodeByIDRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// AdminServiceGetNetworkNodeByIDRequestMultiError, or nil if none found.
+func (m *AdminServiceGetNetworkNodeByIDRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceGetNetworkNodeByIDRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	// no validation rules for Id
+
+	if len(errors) > 0 {
+		return AdminServiceGetNetworkNodeByIDRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceGetNetworkNodeByIDRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceGetNetworkNodeByIDRequest.ValidateAll() if the designated
+// constraints aren't met.
+type AdminServiceGetNetworkNodeByIDRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceGetNetworkNodeByIDRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceGetNetworkNodeByIDRequestMultiError) AllErrors() []error { return m }
+
+// AdminServiceGetNetworkNodeByIDRequestValidationError is the validation error
+// returned by AdminServiceGetNetworkNodeByIDRequest.Validate if the
+// designated constraints aren't met.
+type AdminServiceGetNetworkNodeByIDRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceGetNetworkNodeByIDRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceGetNetworkNodeByIDRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceGetNetworkNodeByIDRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceGetNetworkNodeByIDRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceGetNetworkNodeByIDRequestValidationError) ErrorName() string {
+	return "AdminServiceGetNetworkNodeByIDRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceGetNetworkNodeByIDRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceGetNetworkNodeByIDRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceGetNetworkNodeByIDRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceGetNetworkNodeByIDRequestValidationError{}
+
+// Validate checks the field values on AdminServiceGetNetworkNodeByIDResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *AdminServiceGetNetworkNodeByIDResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// AdminServiceGetNetworkNodeByIDResponse with the rules defined in the proto
+// definition for this message. If any rules are violated, the result is a
+// list of violation errors wrapped in
+// AdminServiceGetNetworkNodeByIDResponseMultiError, or nil if none found.
+func (m *AdminServiceGetNetworkNodeByIDResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceGetNetworkNodeByIDResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetData()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, AdminServiceGetNetworkNodeByIDResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, AdminServiceGetNetworkNodeByIDResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return AdminServiceGetNetworkNodeByIDResponseValidationError{
+				field:  "Data",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return AdminServiceGetNetworkNodeByIDResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceGetNetworkNodeByIDResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceGetNetworkNodeByIDResponse.ValidateAll() if the designated
+// constraints aren't met.
+type AdminServiceGetNetworkNodeByIDResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceGetNetworkNodeByIDResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceGetNetworkNodeByIDResponseMultiError) AllErrors() []error { return m }
+
+// AdminServiceGetNetworkNodeByIDResponseValidationError is the validation
+// error returned by AdminServiceGetNetworkNodeByIDResponse.Validate if the
+// designated constraints aren't met.
+type AdminServiceGetNetworkNodeByIDResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceGetNetworkNodeByIDResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceGetNetworkNodeByIDResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceGetNetworkNodeByIDResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceGetNetworkNodeByIDResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceGetNetworkNodeByIDResponseValidationError) ErrorName() string {
+	return "AdminServiceGetNetworkNodeByIDResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceGetNetworkNodeByIDResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceGetNetworkNodeByIDResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceGetNetworkNodeByIDResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceGetNetworkNodeByIDResponseValidationError{}
+
+// Validate checks the field values on AdminServiceSetNetworkNodeStatusRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *AdminServiceSetNetworkNodeStatusRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// AdminServiceSetNetworkNodeStatusRequest with the rules defined in the proto
+// definition for this message. If any rules are violated, the result is a
+// list of violation errors wrapped in
+// AdminServiceSetNetworkNodeStatusRequestMultiError, or nil if none found.
+func (m *AdminServiceSetNetworkNodeStatusRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceSetNetworkNodeStatusRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	// no validation rules for Id
+
+	// no validation rules for Status
+
+	if len(errors) > 0 {
+		return AdminServiceSetNetworkNodeStatusRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceSetNetworkNodeStatusRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceSetNetworkNodeStatusRequest.ValidateAll() if the designated
+// constraints aren't met.
+type AdminServiceSetNetworkNodeStatusRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceSetNetworkNodeStatusRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceSetNetworkNodeStatusRequestMultiError) AllErrors() []error { return m }
+
+// AdminServiceSetNetworkNodeStatusRequestValidationError is the validation
+// error returned by AdminServiceSetNetworkNodeStatusRequest.Validate if the
+// designated constraints aren't met.
+type AdminServiceSetNetworkNodeStatusRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceSetNetworkNodeStatusRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceSetNetworkNodeStatusRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceSetNetworkNodeStatusRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceSetNetworkNodeStatusRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceSetNetworkNodeStatusRequestValidationError) ErrorName() string {
+	return "AdminServiceSetNetworkNodeStatusRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceSetNetworkNodeStatusRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceSetNetworkNodeStatusRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceSetNetworkNodeStatusRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceSetNetworkNodeStatusRequestValidationError{}
+
+// Validate checks the field values on AdminServiceSetNetworkNodeStatusResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *AdminServiceSetNetworkNodeStatusResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// AdminServiceSetNetworkNodeStatusResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// AdminServiceSetNetworkNodeStatusResponseMultiError, or nil if none found.
+func (m *AdminServiceSetNetworkNodeStatusResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceSetNetworkNodeStatusResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Success
+
+	if len(errors) > 0 {
+		return AdminServiceSetNetworkNodeStatusResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceSetNetworkNodeStatusResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceSetNetworkNodeStatusResponse.ValidateAll() if the designated
+// constraints aren't met.
+type AdminServiceSetNetworkNodeStatusResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceSetNetworkNodeStatusResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceSetNetworkNodeStatusResponseMultiError) AllErrors() []error { return m }
+
+// AdminServiceSetNetworkNodeStatusResponseValidationError is the validation
+// error returned by AdminServiceSetNetworkNodeStatusResponse.Validate if the
+// designated constraints aren't met.
+type AdminServiceSetNetworkNodeStatusResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceSetNetworkNodeStatusResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceSetNetworkNodeStatusResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceSetNetworkNodeStatusResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceSetNetworkNodeStatusResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceSetNetworkNodeStatusResponseValidationError) ErrorName() string {
+	return "AdminServiceSetNetworkNodeStatusResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceSetNetworkNodeStatusResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceSetNetworkNodeStatusResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceSetNetworkNodeStatusResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceSetNetworkNodeStatusResponseValidationError{}
+
+// Validate checks the field values on AdminServiceGetNetworkWardensListRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *AdminServiceGetNetworkWardensListRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// AdminServiceGetNetworkWardensListRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// AdminServiceGetNetworkWardensListRequestMultiError, or nil if none found.
+func (m *AdminServiceGetNetworkWardensListRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceGetNetworkWardensListRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	if m.Pagination != nil {
+
+		if all {
+			switch v := interface{}(m.GetPagination()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, AdminServiceGetNetworkWardensListRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, AdminServiceGetNetworkWardensListRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetPagination()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return AdminServiceGetNetworkWardensListRequestValidationError{
+					field:  "Pagination",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return AdminServiceGetNetworkWardensListRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceGetNetworkWardensListRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceGetNetworkWardensListRequest.ValidateAll() if the designated
+// constraints aren't met.
+type AdminServiceGetNetworkWardensListRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceGetNetworkWardensListRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceGetNetworkWardensListRequestMultiError) AllErrors() []error { return m }
+
+// AdminServiceGetNetworkWardensListRequestValidationError is the validation
+// error returned by AdminServiceGetNetworkWardensListRequest.Validate if the
+// designated constraints aren't met.
+type AdminServiceGetNetworkWardensListRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceGetNetworkWardensListRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceGetNetworkWardensListRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceGetNetworkWardensListRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceGetNetworkWardensListRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceGetNetworkWardensListRequestValidationError) ErrorName() string {
+	return "AdminServiceGetNetworkWardensListRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceGetNetworkWardensListRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceGetNetworkWardensListRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceGetNetworkWardensListRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceGetNetworkWardensListRequestValidationError{}
+
+// Validate checks the field values on
+// AdminServiceGetNetworkWardensListResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *AdminServiceGetNetworkWardensListResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// AdminServiceGetNetworkWardensListResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// AdminServiceGetNetworkWardensListResponseMultiError, or nil if none found.
+func (m *AdminServiceGetNetworkWardensListResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceGetNetworkWardensListResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetData() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, AdminServiceGetNetworkWardensListResponseValidationError{
+						field:  fmt.Sprintf("Data[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, AdminServiceGetNetworkWardensListResponseValidationError{
+						field:  fmt.Sprintf("Data[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return AdminServiceGetNetworkWardensListResponseValidationError{
+					field:  fmt.Sprintf("Data[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return AdminServiceGetNetworkWardensListResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceGetNetworkWardensListResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceGetNetworkWardensListResponse.ValidateAll() if the designated
+// constraints aren't met.
+type AdminServiceGetNetworkWardensListResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceGetNetworkWardensListResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceGetNetworkWardensListResponseMultiError) AllErrors() []error { return m }
+
+// AdminServiceGetNetworkWardensListResponseValidationError is the validation
+// error returned by AdminServiceGetNetworkWardensListResponse.Validate if the
+// designated constraints aren't met.
+type AdminServiceGetNetworkWardensListResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceGetNetworkWardensListResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceGetNetworkWardensListResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceGetNetworkWardensListResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceGetNetworkWardensListResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceGetNetworkWardensListResponseValidationError) ErrorName() string {
+	return "AdminServiceGetNetworkWardensListResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceGetNetworkWardensListResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceGetNetworkWardensListResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceGetNetworkWardensListResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceGetNetworkWardensListResponseValidationError{}
+
+// Validate checks the field values on AdminServiceGetNetworkWardenByIDRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *AdminServiceGetNetworkWardenByIDRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// AdminServiceGetNetworkWardenByIDRequest with the rules defined in the proto
+// definition for this message. If any rules are violated, the result is a
+// list of violation errors wrapped in
+// AdminServiceGetNetworkWardenByIDRequestMultiError, or nil if none found.
+func (m *AdminServiceGetNetworkWardenByIDRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceGetNetworkWardenByIDRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	// no validation rules for Id
+
+	if len(errors) > 0 {
+		return AdminServiceGetNetworkWardenByIDRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceGetNetworkWardenByIDRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceGetNetworkWardenByIDRequest.ValidateAll() if the designated
+// constraints aren't met.
+type AdminServiceGetNetworkWardenByIDRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceGetNetworkWardenByIDRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceGetNetworkWardenByIDRequestMultiError) AllErrors() []error { return m }
+
+// AdminServiceGetNetworkWardenByIDRequestValidationError is the validation
+// error returned by AdminServiceGetNetworkWardenByIDRequest.Validate if the
+// designated constraints aren't met.
+type AdminServiceGetNetworkWardenByIDRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceGetNetworkWardenByIDRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceGetNetworkWardenByIDRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceGetNetworkWardenByIDRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceGetNetworkWardenByIDRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceGetNetworkWardenByIDRequestValidationError) ErrorName() string {
+	return "AdminServiceGetNetworkWardenByIDRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceGetNetworkWardenByIDRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceGetNetworkWardenByIDRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceGetNetworkWardenByIDRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceGetNetworkWardenByIDRequestValidationError{}
+
+// Validate checks the field values on AdminServiceGetNetworkWardenByIDResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *AdminServiceGetNetworkWardenByIDResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// AdminServiceGetNetworkWardenByIDResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// AdminServiceGetNetworkWardenByIDResponseMultiError, or nil if none found.
+func (m *AdminServiceGetNetworkWardenByIDResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *AdminServiceGetNetworkWardenByIDResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetData()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, AdminServiceGetNetworkWardenByIDResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, AdminServiceGetNetworkWardenByIDResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return AdminServiceGetNetworkWardenByIDResponseValidationError{
+				field:  "Data",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return AdminServiceGetNetworkWardenByIDResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// AdminServiceGetNetworkWardenByIDResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// AdminServiceGetNetworkWardenByIDResponse.ValidateAll() if the designated
+// constraints aren't met.
+type AdminServiceGetNetworkWardenByIDResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m AdminServiceGetNetworkWardenByIDResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m AdminServiceGetNetworkWardenByIDResponseMultiError) AllErrors() []error { return m }
+
+// AdminServiceGetNetworkWardenByIDResponseValidationError is the validation
+// error returned by AdminServiceGetNetworkWardenByIDResponse.Validate if the
+// designated constraints aren't met.
+type AdminServiceGetNetworkWardenByIDResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e AdminServiceGetNetworkWardenByIDResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e AdminServiceGetNetworkWardenByIDResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e AdminServiceGetNetworkWardenByIDResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e AdminServiceGetNetworkWardenByIDResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e AdminServiceGetNetworkWardenByIDResponseValidationError) ErrorName() string {
+	return "AdminServiceGetNetworkWardenByIDResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e AdminServiceGetNetworkWardenByIDResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sAdminServiceGetNetworkWardenByIDResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = AdminServiceGetNetworkWardenByIDResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = AdminServiceGetNetworkWardenByIDResponseValidationError{}
