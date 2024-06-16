@@ -4,4 +4,148 @@ package networkwarden.v1;
 
 option go_package = "github.com/ecumenos-social/schemas/proto/gen/networkwarden/v1";
 
-service AdminService {}
+import "common/v1/pagination.proto";
+import "networkwarden/v1/network_node.proto";
+import "networkwarden/v1/network_warden.proto";
+import "networkwarden/v1/personal_data_node.proto";
+
+message AdminServiceLoginAdminRequest {
+  string remote_mac_address = 1;
+  string email = 2;
+  string phone_number = 3;
+  string password = 4;
+}
+
+message AdminServiceLoginAdminResponse {
+  string token = 1;
+  string refresh_token = 2;
+}
+
+message AdminServiceRefreshAdminTokenRequest {
+  string remote_mac_address = 1;
+  string refresh_token = 2;
+}
+
+message AdminServiceRefreshAdminTokenResponse {
+  string token = 1;
+  string refresh_token = 2;
+}
+
+message AdminServiceLogoutAdminRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+}
+
+message AdminServiceLogoutAdminResponse {
+  bool success = 1;
+}
+
+message AdminServiceChangeAdminPasswordRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  string password = 3;
+  string new_password = 4;
+}
+
+message AdminServiceChangeAdminPasswordResponse {
+  bool success = 1;
+}
+
+message AdminServiceGetPersonalDataNodesListRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  optional bool only_my = 3;
+  optional common.v1.Pagination pagination = 4;
+}
+
+message AdminServiceGetPersonalDataNodesListResponse {
+  repeated networkwarden.v1.PersonalDataNode data = 1;
+}
+
+message AdminServiceGetPersonalDataNodeByIDRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  string id = 3;
+}
+
+message AdminServiceGetPersonalDataNodeByIDResponse {
+  networkwarden.v1.PersonalDataNode data = 1;
+}
+
+message AdminServiceSetPersonalDataNodeStatusRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  string id = 3;
+  networkwarden.v1.PersonalDataNode.Status status = 4;
+}
+
+message AdminServiceSetPersonalDataNodeStatusResponse {
+  bool success = 1;
+}
+
+message AdminServiceGetNetworkNodesListRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  optional bool only_my = 3;
+  optional common.v1.Pagination pagination = 4;
+}
+
+message AdminServiceGetNetworkNodesListResponse {
+  repeated networkwarden.v1.NetworkNode data = 1;
+}
+
+message AdminServiceGetNetworkNodeByIDRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  string id = 3;
+}
+
+message AdminServiceGetNetworkNodeByIDResponse {
+  networkwarden.v1.NetworkNode data = 1;
+}
+
+message AdminServiceSetNetworkNodeStatusRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  string id = 3;
+  networkwarden.v1.NetworkNode.Status status = 4;
+}
+
+message AdminServiceSetNetworkNodeStatusResponse {
+  bool success = 1;
+}
+
+message AdminServiceGetNetworkWardensListRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  optional common.v1.Pagination pagination = 3;
+}
+
+message AdminServiceGetNetworkWardensListResponse {
+  repeated networkwarden.v1.NetworkWarden data = 1;
+}
+
+message AdminServiceGetNetworkWardenByIDRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  string id = 3;
+}
+
+message AdminServiceGetNetworkWardenByIDResponse {
+  networkwarden.v1.NetworkWarden data = 1;
+}
+
+service AdminService {
+  rpc LoginAdmin(AdminServiceLoginAdminRequest) returns (AdminServiceLoginAdminResponse);
+  rpc RefreshAdminToken(AdminServiceRefreshAdminTokenRequest) returns (AdminServiceRefreshAdminTokenResponse);
+  rpc LogoutAdmin(AdminServiceLogoutAdminRequest) returns (AdminServiceLogoutAdminResponse);
+  rpc ChangeAdminPassword(AdminServiceChangeAdminPasswordRequest) returns (AdminServiceChangeAdminPasswordResponse);
+  rpc GetPersonalDataNodesList(AdminServiceGetPersonalDataNodesListRequest) returns (AdminServiceGetPersonalDataNodesListResponse);
+  rpc GetPersonalDataNodeByID(AdminServiceGetPersonalDataNodeByIDRequest) returns (AdminServiceGetPersonalDataNodeByIDResponse);
+  rpc SetPersonalDataNodeStatus(AdminServiceSetPersonalDataNodeStatusRequest) returns (AdminServiceSetPersonalDataNodeStatusResponse);
+  rpc GetNetworkNodesList(AdminServiceGetNetworkNodesListRequest) returns (AdminServiceGetNetworkNodesListResponse);
+  rpc GetNetworkNodeByID(AdminServiceGetNetworkNodeByIDRequest) returns (AdminServiceGetNetworkNodeByIDResponse);
+  rpc SetNetworkNodeStatus(AdminServiceSetNetworkNodeStatusRequest) returns (AdminServiceSetNetworkNodeStatusResponse);
+  rpc GetNetworkWardensList(AdminServiceGetNetworkWardensListRequest) returns (AdminServiceGetNetworkWardensListResponse);
+  rpc GetNetworkWardenByID(AdminServiceGetNetworkWardenByIDRequest) returns (AdminServiceGetNetworkWardenByIDResponse);
+}
