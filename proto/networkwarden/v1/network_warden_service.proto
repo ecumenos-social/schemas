@@ -259,15 +259,17 @@ message NetworkWardenServiceGetNetworkWardensListResponse {
 }
 
 message NetworkWardenServiceRegisterNetworkWardenRequest {
-  string id = 1;
-  string name = 5;
-  string description = 6;
-  string address_suffix = 7;
-  uint64 pdn_capacity = 8;
-  uint64 nn_capacity = 9;
-  string url = 10;
-  string version = 13;
-  common.v1.RateLimit rate_limit = 14;
+  string name = 1;
+  string description = 2;
+  string label = 3;
+  uint64 pdn_capacity = 4;
+  uint64 nn_capacity = 5;
+  common.v1.Geolocation location = 6;
+  bool is_open = 7;
+  int64 id_gen_node = 8;
+  string url = 9;
+  string version = 10;
+  common.v1.RateLimit rate_limit = 11;
 }
 
 message NetworkWardenServiceRegisterNetworkWardenResponse {
