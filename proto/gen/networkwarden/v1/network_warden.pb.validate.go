@@ -69,11 +69,44 @@ func (m *NetworkWarden) validate(all bool) error {
 
 	// no validation rules for Description
 
-	// no validation rules for AddressSuffix
+	// no validation rules for Label
+
+	// no validation rules for Address
 
 	// no validation rules for PdnCapacity
 
 	// no validation rules for NnCapacity
+
+	if all {
+		switch v := interface{}(m.GetLocation()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, NetworkWardenValidationError{
+					field:  "Location",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, NetworkWardenValidationError{
+					field:  "Location",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetLocation()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return NetworkWardenValidationError{
+				field:  "Location",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	// no validation rules for IsOpen
 
 	// no validation rules for Url
 
