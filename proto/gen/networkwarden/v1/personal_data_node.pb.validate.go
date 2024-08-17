@@ -110,6 +110,8 @@ func (m *PersonalDataNode) validate(all bool) error {
 
 	// no validation rules for IsOpen
 
+	// no validation rules for IsInviteCodeRequired
+
 	// no validation rules for OwnerHolderId
 
 	// no validation rules for Url

@@ -188,10 +188,11 @@ message NetworkWardenServiceInitiatePersonalDataNodeRequest {
   string api_key = 1;
   int64 accounts_capacity = 2;
   bool is_open = 3;
-  string version = 4;
-  common.v1.RateLimit rate_limit = 5;
-  common.v1.RateLimit crawl_rate_limit = 6;
-  int64 id_gen_node = 7;
+  bool is_invite_code_required = 4;
+  string version = 5;
+  common.v1.RateLimit rate_limit = 6;
+  common.v1.RateLimit crawl_rate_limit = 7;
+  int64 id_gen_node = 8;
 }
 
 message NetworkWardenServiceInitiatePersonalDataNodeResponse {
@@ -239,10 +240,11 @@ message NetworkWardenServiceInitiateNetworkNodeRequest {
   string api_key = 1;
   int64 accounts_capacity = 2;
   bool is_open = 3;
-  string version = 4;
-  common.v1.RateLimit rate_limit = 5;
-  common.v1.RateLimit crawl_rate_limit = 6;
-  int64 id_gen_node = 7;
+  bool is_invite_code_required = 4;
+  string version = 5;
+  common.v1.RateLimit rate_limit = 6;
+  common.v1.RateLimit crawl_rate_limit = 7;
+  int64 id_gen_node = 8;
 }
 
 message NetworkWardenServiceInitiateNetworkNodeResponse {

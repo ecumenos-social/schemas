@@ -3636,6 +3636,8 @@ func (m *NetworkWardenServiceInitiatePersonalDataNodeRequest) validate(all bool)
 
 	// no validation rules for IsOpen
 
+	// no validation rules for IsInviteCodeRequired
+
 	// no validation rules for Version
 
 	if all {
@@ -4742,6 +4744,8 @@ func (m *NetworkWardenServiceInitiateNetworkNodeRequest) validate(all bool) erro
 	// no validation rules for AccountsCapacity
 
 	// no validation rules for IsOpen
+
+	// no validation rules for IsInviteCodeRequired
 
 	// no validation rules for Version
 

@@ -26,10 +26,11 @@ message NetworkNode {
   bool alive = 9;
   optional string last_pinged_at = 10;
   bool is_open = 11;
-  string owner_holder_id = 12;
-  string url = 13;
-  string version = 14;
-  common.v1.RateLimit rate_limit = 15;
-  common.v1.RateLimit crawl_rate_limit = 16;
-  Status status = 17;
+  bool is_invite_code_required = 12;
+  string owner_holder_id = 13;
+  string url = 14;
+  string version = 15;
+  common.v1.RateLimit rate_limit = 16;
+  common.v1.RateLimit crawl_rate_limit = 17;
+  Status status = 18;
 }
