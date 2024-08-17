@@ -28,11 +28,12 @@ message PersonalDataNode {
   bool alive = 11;
   string last_pinged_at = 12;
   bool is_open = 13;
-  string owner_holder_id = 14;
-  string url = 15;
-  string version = 16;
-  common.v1.RateLimit rate_limit = 17;
-  common.v1.RateLimit crawl_rate_limit = 18;
-  int64 id_gen_node = 19;
-  Status status = 20;
+  bool is_invite_code_required = 14;
+  string owner_holder_id = 15;
+  string url = 16;
+  string version = 17;
+  common.v1.RateLimit rate_limit = 18;
+  common.v1.RateLimit crawl_rate_limit = 19;
+  int64 id_gen_node = 20;
+  Status status = 21;
 }
