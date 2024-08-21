@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+package networknode.v1;
+
+option go_package = "github.com/ecumenos-social/schemas/proto/gen/networknode/v1";
+
+import "common/v1/geolocation.proto";
+
+message Publication {
+  enum Type {
+    TYPE_UNKNOWN_UNSPECIFIED = 0;
+    TYPE_POST = 1;
+    TYPE_ALBUM = 2;
+    TYPE_VIDEO = 3;
+    TYPE_SHORT_VIDEO = 4;
+    TYPE_QPOST = 5;
+    TYPE_POLL = 6;
+    TYPE_EVENT = 7;
+    TYPE_OFFERING = 8;
+  }
+  enum OfferingUnit {
+    OFFERING_UNIT_UNKNOWN_UNSPECIFIED = 0;
+    OFFERING_UNIT_UNIT = 1;
+    OFFERING_UNIT_MINUTE = 2;
+    OFFERING_UNIT_KILOGRAM = 3;
+    OFFERING_UNIT_POUND = 4;
+  }
+  enum OfferingType {
+    OFFERING_TYPE_UNKNOWN_UNSPECIFIED = 0;
+    OFFERING_TYPE_SERVICE = 1;
+    OFFERING_TYPE_COMMODITY = 2;
+  }
+  message PollOption {
+    string id = 1;
+    string option_name = 2;
+    int64 poll_id = 3;
+    int64 votes_count = 4;
+    string created_at = 5;
+    optional string last_modified_at = 6;
+  }
+
+  string id = 1;
+  string created_at = 2;
+  optional string last_modified_at = 3;
+  optional string title_language = 4;
+  int64 account_id = 5;
+  optional int64 group_id = 6;
+  Type type = 7;
+  optional string title = 8;
+  optional string text_context = 9;
+  optional string text_content_language = 10;
+  optional string language = 11;
+  optional double offering_price = 12;
+  optional OfferingUnit offering_unit = 13;
+  optional string offering_original_currency = 14;
+  optional double offering_discount_in_percentage = 15;
+  optional double offering_discount_in_amount = 16;
+  optional string offering_discount_expired_at = 17;
+  optional OfferingType offering_type = 18;
+  optional string video_url = 19;
+  optional string short_video_url = 20;
+  repeated string tags = 21;
+  repeated int64 mentioned_publications = 22;
+  repeated int64 mentioned_accounts = 23;
+  repeated int64 mentioned_groups = 24;
+  repeated int64 mentioned_channels = 25;
+  repeated PollOption poll_options = 26;
+  optional bool is_poll_anonymous = 27;
+  optional common.v1.Geolocation location = 28;
+  optional string event_scheduled_at = 29;
+}

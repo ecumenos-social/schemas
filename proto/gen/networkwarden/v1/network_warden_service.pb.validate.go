@@ -2995,6 +2995,8 @@ func (m *NetworkWardenServiceGetPersonalDataNodesListResponse) validate(all bool
 
 	}
 
+	// no validation rules for Total
+
 	if len(errors) > 0 {
 		return NetworkWardenServiceGetPersonalDataNodesListResponseMultiError(errors)
 	}
@@ -4117,6 +4119,8 @@ func (m *NetworkWardenServiceGetNetworkNodesListResponse) validate(all bool) err
 
 	}
 
+	// no validation rules for Total
+
 	if len(errors) > 0 {
 		return NetworkWardenServiceGetNetworkNodesListResponseMultiError(errors)
 	}
@@ -5214,6 +5218,8 @@ func (m *NetworkWardenServiceGetNetworkWardensListResponse) validate(all bool) e
 		}
 
 	}
+
+	// no validation rules for Total
 
 	if len(errors) > 0 {
 		return NetworkWardenServiceGetNetworkWardensListResponseMultiError(errors)

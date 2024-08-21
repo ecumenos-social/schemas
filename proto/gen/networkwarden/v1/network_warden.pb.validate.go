@@ -61,8 +61,6 @@ func (m *NetworkWarden) validate(all bool) error {
 
 	// no validation rules for CreatedAt
 
-	// no validation rules for LastModifiedAt
-
 	// no validation rules for IdGenNode
 
 	// no validation rules for Name
@@ -141,6 +139,10 @@ func (m *NetworkWarden) validate(all bool) error {
 				cause:  err,
 			}
 		}
+	}
+
+	if m.LastModifiedAt != nil {
+		// no validation rules for LastModifiedAt
 	}
 
 	if m.LastPingedAt != nil {

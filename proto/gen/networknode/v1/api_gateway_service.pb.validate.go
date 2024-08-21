@@ -34,3 +34,2307 @@ var (
 	_ = anypb.Any{}
 	_ = sort.Sort
 )
+
+// Validate checks the field values on ApiGatewayServiceGetGroupsRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ApiGatewayServiceGetGroupsRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ApiGatewayServiceGetGroupsRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ApiGatewayServiceGetGroupsRequestMultiError, or nil if none found.
+func (m *ApiGatewayServiceGetGroupsRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ApiGatewayServiceGetGroupsRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	if m.Pagination != nil {
+
+		if all {
+			switch v := interface{}(m.GetPagination()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ApiGatewayServiceGetGroupsRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ApiGatewayServiceGetGroupsRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetPagination()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ApiGatewayServiceGetGroupsRequestValidationError{
+					field:  "Pagination",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if m.Query != nil {
+		// no validation rules for Query
+	}
+
+	if m.MemberedOnly != nil {
+		// no validation rules for MemberedOnly
+	}
+
+	if len(errors) > 0 {
+		return ApiGatewayServiceGetGroupsRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ApiGatewayServiceGetGroupsRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ApiGatewayServiceGetGroupsRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetGroupsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApiGatewayServiceGetGroupsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApiGatewayServiceGetGroupsRequestMultiError) AllErrors() []error { return m }
+
+// ApiGatewayServiceGetGroupsRequestValidationError is the validation error
+// returned by ApiGatewayServiceGetGroupsRequest.Validate if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetGroupsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ApiGatewayServiceGetGroupsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ApiGatewayServiceGetGroupsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ApiGatewayServiceGetGroupsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ApiGatewayServiceGetGroupsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ApiGatewayServiceGetGroupsRequestValidationError) ErrorName() string {
+	return "ApiGatewayServiceGetGroupsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ApiGatewayServiceGetGroupsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sApiGatewayServiceGetGroupsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ApiGatewayServiceGetGroupsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ApiGatewayServiceGetGroupsRequestValidationError{}
+
+// Validate checks the field values on ApiGatewayServiceGetGroupsResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ApiGatewayServiceGetGroupsResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ApiGatewayServiceGetGroupsResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ApiGatewayServiceGetGroupsResponseMultiError, or nil if none found.
+func (m *ApiGatewayServiceGetGroupsResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ApiGatewayServiceGetGroupsResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetData() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ApiGatewayServiceGetGroupsResponseValidationError{
+						field:  fmt.Sprintf("Data[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ApiGatewayServiceGetGroupsResponseValidationError{
+						field:  fmt.Sprintf("Data[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ApiGatewayServiceGetGroupsResponseValidationError{
+					field:  fmt.Sprintf("Data[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for Total
+
+	if len(errors) > 0 {
+		return ApiGatewayServiceGetGroupsResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ApiGatewayServiceGetGroupsResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ApiGatewayServiceGetGroupsResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetGroupsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApiGatewayServiceGetGroupsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApiGatewayServiceGetGroupsResponseMultiError) AllErrors() []error { return m }
+
+// ApiGatewayServiceGetGroupsResponseValidationError is the validation error
+// returned by ApiGatewayServiceGetGroupsResponse.Validate if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetGroupsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ApiGatewayServiceGetGroupsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ApiGatewayServiceGetGroupsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ApiGatewayServiceGetGroupsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ApiGatewayServiceGetGroupsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ApiGatewayServiceGetGroupsResponseValidationError) ErrorName() string {
+	return "ApiGatewayServiceGetGroupsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ApiGatewayServiceGetGroupsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sApiGatewayServiceGetGroupsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ApiGatewayServiceGetGroupsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ApiGatewayServiceGetGroupsResponseValidationError{}
+
+// Validate checks the field values on ApiGatewayServiceGetGroupByIDRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *ApiGatewayServiceGetGroupByIDRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ApiGatewayServiceGetGroupByIDRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ApiGatewayServiceGetGroupByIDRequestMultiError, or nil if none found.
+func (m *ApiGatewayServiceGetGroupByIDRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ApiGatewayServiceGetGroupByIDRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	// no validation rules for Id
+
+	if len(errors) > 0 {
+		return ApiGatewayServiceGetGroupByIDRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ApiGatewayServiceGetGroupByIDRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ApiGatewayServiceGetGroupByIDRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetGroupByIDRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApiGatewayServiceGetGroupByIDRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApiGatewayServiceGetGroupByIDRequestMultiError) AllErrors() []error { return m }
+
+// ApiGatewayServiceGetGroupByIDRequestValidationError is the validation error
+// returned by ApiGatewayServiceGetGroupByIDRequest.Validate if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetGroupByIDRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ApiGatewayServiceGetGroupByIDRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ApiGatewayServiceGetGroupByIDRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ApiGatewayServiceGetGroupByIDRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ApiGatewayServiceGetGroupByIDRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ApiGatewayServiceGetGroupByIDRequestValidationError) ErrorName() string {
+	return "ApiGatewayServiceGetGroupByIDRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ApiGatewayServiceGetGroupByIDRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sApiGatewayServiceGetGroupByIDRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ApiGatewayServiceGetGroupByIDRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ApiGatewayServiceGetGroupByIDRequestValidationError{}
+
+// Validate checks the field values on ApiGatewayServiceGetGroupByIDResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *ApiGatewayServiceGetGroupByIDResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ApiGatewayServiceGetGroupByIDResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ApiGatewayServiceGetGroupByIDResponseMultiError, or nil if none found.
+func (m *ApiGatewayServiceGetGroupByIDResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ApiGatewayServiceGetGroupByIDResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetData()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ApiGatewayServiceGetGroupByIDResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ApiGatewayServiceGetGroupByIDResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ApiGatewayServiceGetGroupByIDResponseValidationError{
+				field:  "Data",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return ApiGatewayServiceGetGroupByIDResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ApiGatewayServiceGetGroupByIDResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// ApiGatewayServiceGetGroupByIDResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetGroupByIDResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApiGatewayServiceGetGroupByIDResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApiGatewayServiceGetGroupByIDResponseMultiError) AllErrors() []error { return m }
+
+// ApiGatewayServiceGetGroupByIDResponseValidationError is the validation error
+// returned by ApiGatewayServiceGetGroupByIDResponse.Validate if the
+// designated constraints aren't met.
+type ApiGatewayServiceGetGroupByIDResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ApiGatewayServiceGetGroupByIDResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ApiGatewayServiceGetGroupByIDResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ApiGatewayServiceGetGroupByIDResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ApiGatewayServiceGetGroupByIDResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ApiGatewayServiceGetGroupByIDResponseValidationError) ErrorName() string {
+	return "ApiGatewayServiceGetGroupByIDResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ApiGatewayServiceGetGroupByIDResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sApiGatewayServiceGetGroupByIDResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ApiGatewayServiceGetGroupByIDResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ApiGatewayServiceGetGroupByIDResponseValidationError{}
+
+// Validate checks the field values on
+// ApiGatewayServiceGetGroupPublicationsRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ApiGatewayServiceGetGroupPublicationsRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ApiGatewayServiceGetGroupPublicationsRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// ApiGatewayServiceGetGroupPublicationsRequestMultiError, or nil if none found.
+func (m *ApiGatewayServiceGetGroupPublicationsRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ApiGatewayServiceGetGroupPublicationsRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	if m.Pagination != nil {
+
+		if all {
+			switch v := interface{}(m.GetPagination()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ApiGatewayServiceGetGroupPublicationsRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ApiGatewayServiceGetGroupPublicationsRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetPagination()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ApiGatewayServiceGetGroupPublicationsRequestValidationError{
+					field:  "Pagination",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if m.Query != nil {
+		// no validation rules for Query
+	}
+
+	if len(errors) > 0 {
+		return ApiGatewayServiceGetGroupPublicationsRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ApiGatewayServiceGetGroupPublicationsRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ApiGatewayServiceGetGroupPublicationsRequest.ValidateAll() if the
+// designated constraints aren't met.
+type ApiGatewayServiceGetGroupPublicationsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApiGatewayServiceGetGroupPublicationsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApiGatewayServiceGetGroupPublicationsRequestMultiError) AllErrors() []error { return m }
+
+// ApiGatewayServiceGetGroupPublicationsRequestValidationError is the
+// validation error returned by
+// ApiGatewayServiceGetGroupPublicationsRequest.Validate if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetGroupPublicationsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ApiGatewayServiceGetGroupPublicationsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ApiGatewayServiceGetGroupPublicationsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ApiGatewayServiceGetGroupPublicationsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ApiGatewayServiceGetGroupPublicationsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ApiGatewayServiceGetGroupPublicationsRequestValidationError) ErrorName() string {
+	return "ApiGatewayServiceGetGroupPublicationsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ApiGatewayServiceGetGroupPublicationsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sApiGatewayServiceGetGroupPublicationsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ApiGatewayServiceGetGroupPublicationsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ApiGatewayServiceGetGroupPublicationsRequestValidationError{}
+
+// Validate checks the field values on
+// ApiGatewayServiceGetGroupPublicationsResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ApiGatewayServiceGetGroupPublicationsResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ApiGatewayServiceGetGroupPublicationsResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// ApiGatewayServiceGetGroupPublicationsResponseMultiError, or nil if none found.
+func (m *ApiGatewayServiceGetGroupPublicationsResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ApiGatewayServiceGetGroupPublicationsResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetData()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ApiGatewayServiceGetGroupPublicationsResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ApiGatewayServiceGetGroupPublicationsResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ApiGatewayServiceGetGroupPublicationsResponseValidationError{
+				field:  "Data",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	// no validation rules for Total
+
+	if len(errors) > 0 {
+		return ApiGatewayServiceGetGroupPublicationsResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ApiGatewayServiceGetGroupPublicationsResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// ApiGatewayServiceGetGroupPublicationsResponse.ValidateAll() if the
+// designated constraints aren't met.
+type ApiGatewayServiceGetGroupPublicationsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApiGatewayServiceGetGroupPublicationsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApiGatewayServiceGetGroupPublicationsResponseMultiError) AllErrors() []error { return m }
+
+// ApiGatewayServiceGetGroupPublicationsResponseValidationError is the
+// validation error returned by
+// ApiGatewayServiceGetGroupPublicationsResponse.Validate if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetGroupPublicationsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ApiGatewayServiceGetGroupPublicationsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ApiGatewayServiceGetGroupPublicationsResponseValidationError) Reason() string {
+	return e.reason
+}
+
+// Cause function returns cause value.
+func (e ApiGatewayServiceGetGroupPublicationsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ApiGatewayServiceGetGroupPublicationsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ApiGatewayServiceGetGroupPublicationsResponseValidationError) ErrorName() string {
+	return "ApiGatewayServiceGetGroupPublicationsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ApiGatewayServiceGetGroupPublicationsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sApiGatewayServiceGetGroupPublicationsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ApiGatewayServiceGetGroupPublicationsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ApiGatewayServiceGetGroupPublicationsResponseValidationError{}
+
+// Validate checks the field values on ApiGatewayServiceGetChannelsRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ApiGatewayServiceGetChannelsRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ApiGatewayServiceGetChannelsRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ApiGatewayServiceGetChannelsRequestMultiError, or nil if none found.
+func (m *ApiGatewayServiceGetChannelsRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ApiGatewayServiceGetChannelsRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	if m.Pagination != nil {
+
+		if all {
+			switch v := interface{}(m.GetPagination()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ApiGatewayServiceGetChannelsRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ApiGatewayServiceGetChannelsRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetPagination()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ApiGatewayServiceGetChannelsRequestValidationError{
+					field:  "Pagination",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if m.Query != nil {
+		// no validation rules for Query
+	}
+
+	if m.MemberedOnly != nil {
+		// no validation rules for MemberedOnly
+	}
+
+	if len(errors) > 0 {
+		return ApiGatewayServiceGetChannelsRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ApiGatewayServiceGetChannelsRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// ApiGatewayServiceGetChannelsRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetChannelsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApiGatewayServiceGetChannelsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApiGatewayServiceGetChannelsRequestMultiError) AllErrors() []error { return m }
+
+// ApiGatewayServiceGetChannelsRequestValidationError is the validation error
+// returned by ApiGatewayServiceGetChannelsRequest.Validate if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetChannelsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ApiGatewayServiceGetChannelsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ApiGatewayServiceGetChannelsRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ApiGatewayServiceGetChannelsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ApiGatewayServiceGetChannelsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ApiGatewayServiceGetChannelsRequestValidationError) ErrorName() string {
+	return "ApiGatewayServiceGetChannelsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ApiGatewayServiceGetChannelsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sApiGatewayServiceGetChannelsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ApiGatewayServiceGetChannelsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ApiGatewayServiceGetChannelsRequestValidationError{}
+
+// Validate checks the field values on ApiGatewayServiceGetChannelsResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *ApiGatewayServiceGetChannelsResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ApiGatewayServiceGetChannelsResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// ApiGatewayServiceGetChannelsResponseMultiError, or nil if none found.
+func (m *ApiGatewayServiceGetChannelsResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ApiGatewayServiceGetChannelsResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetData() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ApiGatewayServiceGetChannelsResponseValidationError{
+						field:  fmt.Sprintf("Data[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ApiGatewayServiceGetChannelsResponseValidationError{
+						field:  fmt.Sprintf("Data[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ApiGatewayServiceGetChannelsResponseValidationError{
+					field:  fmt.Sprintf("Data[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	// no validation rules for Total
+
+	if len(errors) > 0 {
+		return ApiGatewayServiceGetChannelsResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ApiGatewayServiceGetChannelsResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ApiGatewayServiceGetChannelsResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetChannelsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApiGatewayServiceGetChannelsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApiGatewayServiceGetChannelsResponseMultiError) AllErrors() []error { return m }
+
+// ApiGatewayServiceGetChannelsResponseValidationError is the validation error
+// returned by ApiGatewayServiceGetChannelsResponse.Validate if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetChannelsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ApiGatewayServiceGetChannelsResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ApiGatewayServiceGetChannelsResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ApiGatewayServiceGetChannelsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ApiGatewayServiceGetChannelsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ApiGatewayServiceGetChannelsResponseValidationError) ErrorName() string {
+	return "ApiGatewayServiceGetChannelsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ApiGatewayServiceGetChannelsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sApiGatewayServiceGetChannelsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ApiGatewayServiceGetChannelsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ApiGatewayServiceGetChannelsResponseValidationError{}
+
+// Validate checks the field values on ApiGatewayServiceGetChannelByIDRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *ApiGatewayServiceGetChannelByIDRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ApiGatewayServiceGetChannelByIDRequest with the rules defined in the proto
+// definition for this message. If any rules are violated, the result is a
+// list of violation errors wrapped in
+// ApiGatewayServiceGetChannelByIDRequestMultiError, or nil if none found.
+func (m *ApiGatewayServiceGetChannelByIDRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ApiGatewayServiceGetChannelByIDRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	// no validation rules for Id
+
+	if len(errors) > 0 {
+		return ApiGatewayServiceGetChannelByIDRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ApiGatewayServiceGetChannelByIDRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ApiGatewayServiceGetChannelByIDRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetChannelByIDRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApiGatewayServiceGetChannelByIDRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApiGatewayServiceGetChannelByIDRequestMultiError) AllErrors() []error { return m }
+
+// ApiGatewayServiceGetChannelByIDRequestValidationError is the validation
+// error returned by ApiGatewayServiceGetChannelByIDRequest.Validate if the
+// designated constraints aren't met.
+type ApiGatewayServiceGetChannelByIDRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ApiGatewayServiceGetChannelByIDRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ApiGatewayServiceGetChannelByIDRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ApiGatewayServiceGetChannelByIDRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ApiGatewayServiceGetChannelByIDRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ApiGatewayServiceGetChannelByIDRequestValidationError) ErrorName() string {
+	return "ApiGatewayServiceGetChannelByIDRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ApiGatewayServiceGetChannelByIDRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sApiGatewayServiceGetChannelByIDRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ApiGatewayServiceGetChannelByIDRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ApiGatewayServiceGetChannelByIDRequestValidationError{}
+
+// Validate checks the field values on ApiGatewayServiceGetChannelByIDResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *ApiGatewayServiceGetChannelByIDResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ApiGatewayServiceGetChannelByIDResponse with the rules defined in the proto
+// definition for this message. If any rules are violated, the result is a
+// list of violation errors wrapped in
+// ApiGatewayServiceGetChannelByIDResponseMultiError, or nil if none found.
+func (m *ApiGatewayServiceGetChannelByIDResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ApiGatewayServiceGetChannelByIDResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetData()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ApiGatewayServiceGetChannelByIDResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ApiGatewayServiceGetChannelByIDResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ApiGatewayServiceGetChannelByIDResponseValidationError{
+				field:  "Data",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return ApiGatewayServiceGetChannelByIDResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ApiGatewayServiceGetChannelByIDResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// ApiGatewayServiceGetChannelByIDResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetChannelByIDResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApiGatewayServiceGetChannelByIDResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApiGatewayServiceGetChannelByIDResponseMultiError) AllErrors() []error { return m }
+
+// ApiGatewayServiceGetChannelByIDResponseValidationError is the validation
+// error returned by ApiGatewayServiceGetChannelByIDResponse.Validate if the
+// designated constraints aren't met.
+type ApiGatewayServiceGetChannelByIDResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ApiGatewayServiceGetChannelByIDResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ApiGatewayServiceGetChannelByIDResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ApiGatewayServiceGetChannelByIDResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ApiGatewayServiceGetChannelByIDResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ApiGatewayServiceGetChannelByIDResponseValidationError) ErrorName() string {
+	return "ApiGatewayServiceGetChannelByIDResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ApiGatewayServiceGetChannelByIDResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sApiGatewayServiceGetChannelByIDResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ApiGatewayServiceGetChannelByIDResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ApiGatewayServiceGetChannelByIDResponseValidationError{}
+
+// Validate checks the field values on
+// ApiGatewayServiceGetChannelPublicationsRequest with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ApiGatewayServiceGetChannelPublicationsRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ApiGatewayServiceGetChannelPublicationsRequest with the rules defined in
+// the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in
+// ApiGatewayServiceGetChannelPublicationsRequestMultiError, or nil if none found.
+func (m *ApiGatewayServiceGetChannelPublicationsRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ApiGatewayServiceGetChannelPublicationsRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	if m.Pagination != nil {
+
+		if all {
+			switch v := interface{}(m.GetPagination()).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, ApiGatewayServiceGetChannelPublicationsRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, ApiGatewayServiceGetChannelPublicationsRequestValidationError{
+						field:  "Pagination",
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(m.GetPagination()).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return ApiGatewayServiceGetChannelPublicationsRequestValidationError{
+					field:  "Pagination",
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if m.Query != nil {
+		// no validation rules for Query
+	}
+
+	if len(errors) > 0 {
+		return ApiGatewayServiceGetChannelPublicationsRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ApiGatewayServiceGetChannelPublicationsRequestMultiError is an error
+// wrapping multiple validation errors returned by
+// ApiGatewayServiceGetChannelPublicationsRequest.ValidateAll() if the
+// designated constraints aren't met.
+type ApiGatewayServiceGetChannelPublicationsRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApiGatewayServiceGetChannelPublicationsRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApiGatewayServiceGetChannelPublicationsRequestMultiError) AllErrors() []error { return m }
+
+// ApiGatewayServiceGetChannelPublicationsRequestValidationError is the
+// validation error returned by
+// ApiGatewayServiceGetChannelPublicationsRequest.Validate if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetChannelPublicationsRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ApiGatewayServiceGetChannelPublicationsRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ApiGatewayServiceGetChannelPublicationsRequestValidationError) Reason() string {
+	return e.reason
+}
+
+// Cause function returns cause value.
+func (e ApiGatewayServiceGetChannelPublicationsRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ApiGatewayServiceGetChannelPublicationsRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ApiGatewayServiceGetChannelPublicationsRequestValidationError) ErrorName() string {
+	return "ApiGatewayServiceGetChannelPublicationsRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ApiGatewayServiceGetChannelPublicationsRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sApiGatewayServiceGetChannelPublicationsRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ApiGatewayServiceGetChannelPublicationsRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ApiGatewayServiceGetChannelPublicationsRequestValidationError{}
+
+// Validate checks the field values on
+// ApiGatewayServiceGetChannelPublicationsResponse with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ApiGatewayServiceGetChannelPublicationsResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ApiGatewayServiceGetChannelPublicationsResponse with the rules defined in
+// the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in
+// ApiGatewayServiceGetChannelPublicationsResponseMultiError, or nil if none found.
+func (m *ApiGatewayServiceGetChannelPublicationsResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ApiGatewayServiceGetChannelPublicationsResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetData()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ApiGatewayServiceGetChannelPublicationsResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ApiGatewayServiceGetChannelPublicationsResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ApiGatewayServiceGetChannelPublicationsResponseValidationError{
+				field:  "Data",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	// no validation rules for Total
+
+	if len(errors) > 0 {
+		return ApiGatewayServiceGetChannelPublicationsResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ApiGatewayServiceGetChannelPublicationsResponseMultiError is an error
+// wrapping multiple validation errors returned by
+// ApiGatewayServiceGetChannelPublicationsResponse.ValidateAll() if the
+// designated constraints aren't met.
+type ApiGatewayServiceGetChannelPublicationsResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApiGatewayServiceGetChannelPublicationsResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApiGatewayServiceGetChannelPublicationsResponseMultiError) AllErrors() []error { return m }
+
+// ApiGatewayServiceGetChannelPublicationsResponseValidationError is the
+// validation error returned by
+// ApiGatewayServiceGetChannelPublicationsResponse.Validate if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetChannelPublicationsResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ApiGatewayServiceGetChannelPublicationsResponseValidationError) Field() string {
+	return e.field
+}
+
+// Reason function returns reason value.
+func (e ApiGatewayServiceGetChannelPublicationsResponseValidationError) Reason() string {
+	return e.reason
+}
+
+// Cause function returns cause value.
+func (e ApiGatewayServiceGetChannelPublicationsResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ApiGatewayServiceGetChannelPublicationsResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ApiGatewayServiceGetChannelPublicationsResponseValidationError) ErrorName() string {
+	return "ApiGatewayServiceGetChannelPublicationsResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ApiGatewayServiceGetChannelPublicationsResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sApiGatewayServiceGetChannelPublicationsResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ApiGatewayServiceGetChannelPublicationsResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ApiGatewayServiceGetChannelPublicationsResponseValidationError{}
+
+// Validate checks the field values on
+// ApiGatewayServiceGetPublicationByIDRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ApiGatewayServiceGetPublicationByIDRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ApiGatewayServiceGetPublicationByIDRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// ApiGatewayServiceGetPublicationByIDRequestMultiError, or nil if none found.
+func (m *ApiGatewayServiceGetPublicationByIDRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ApiGatewayServiceGetPublicationByIDRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	// no validation rules for Id
+
+	if len(errors) > 0 {
+		return ApiGatewayServiceGetPublicationByIDRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ApiGatewayServiceGetPublicationByIDRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// ApiGatewayServiceGetPublicationByIDRequest.ValidateAll() if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetPublicationByIDRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApiGatewayServiceGetPublicationByIDRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApiGatewayServiceGetPublicationByIDRequestMultiError) AllErrors() []error { return m }
+
+// ApiGatewayServiceGetPublicationByIDRequestValidationError is the validation
+// error returned by ApiGatewayServiceGetPublicationByIDRequest.Validate if
+// the designated constraints aren't met.
+type ApiGatewayServiceGetPublicationByIDRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ApiGatewayServiceGetPublicationByIDRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ApiGatewayServiceGetPublicationByIDRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ApiGatewayServiceGetPublicationByIDRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ApiGatewayServiceGetPublicationByIDRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ApiGatewayServiceGetPublicationByIDRequestValidationError) ErrorName() string {
+	return "ApiGatewayServiceGetPublicationByIDRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ApiGatewayServiceGetPublicationByIDRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sApiGatewayServiceGetPublicationByIDRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ApiGatewayServiceGetPublicationByIDRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ApiGatewayServiceGetPublicationByIDRequestValidationError{}
+
+// Validate checks the field values on
+// ApiGatewayServiceGetPublicationByIDResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ApiGatewayServiceGetPublicationByIDResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// ApiGatewayServiceGetPublicationByIDResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// ApiGatewayServiceGetPublicationByIDResponseMultiError, or nil if none found.
+func (m *ApiGatewayServiceGetPublicationByIDResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ApiGatewayServiceGetPublicationByIDResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetData()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ApiGatewayServiceGetPublicationByIDResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ApiGatewayServiceGetPublicationByIDResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ApiGatewayServiceGetPublicationByIDResponseValidationError{
+				field:  "Data",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	// no validation rules for Total
+
+	if len(errors) > 0 {
+		return ApiGatewayServiceGetPublicationByIDResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ApiGatewayServiceGetPublicationByIDResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// ApiGatewayServiceGetPublicationByIDResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetPublicationByIDResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApiGatewayServiceGetPublicationByIDResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApiGatewayServiceGetPublicationByIDResponseMultiError) AllErrors() []error { return m }
+
+// ApiGatewayServiceGetPublicationByIDResponseValidationError is the validation
+// error returned by ApiGatewayServiceGetPublicationByIDResponse.Validate if
+// the designated constraints aren't met.
+type ApiGatewayServiceGetPublicationByIDResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ApiGatewayServiceGetPublicationByIDResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ApiGatewayServiceGetPublicationByIDResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ApiGatewayServiceGetPublicationByIDResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ApiGatewayServiceGetPublicationByIDResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ApiGatewayServiceGetPublicationByIDResponseValidationError) ErrorName() string {
+	return "ApiGatewayServiceGetPublicationByIDResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ApiGatewayServiceGetPublicationByIDResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sApiGatewayServiceGetPublicationByIDResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ApiGatewayServiceGetPublicationByIDResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ApiGatewayServiceGetPublicationByIDResponseValidationError{}
+
+// Validate checks the field values on Cursor with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *Cursor) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on Cursor with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in CursorMultiError, or nil if none found.
+func (m *Cursor) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *Cursor) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for CreatedAt
+
+	// no validation rules for Id
+
+	if len(errors) > 0 {
+		return CursorMultiError(errors)
+	}
+
+	return nil
+}
+
+// CursorMultiError is an error wrapping multiple validation errors returned by
+// Cursor.ValidateAll() if the designated constraints aren't met.
+type CursorMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CursorMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CursorMultiError) AllErrors() []error { return m }
+
+// CursorValidationError is the validation error returned by Cursor.Validate if
+// the designated constraints aren't met.
+type CursorValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CursorValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CursorValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CursorValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CursorValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CursorValidationError) ErrorName() string { return "CursorValidationError" }
+
+// Error satisfies the builtin error interface
+func (e CursorValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCursor.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CursorValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CursorValidationError{}
+
+// Validate checks the field values on ApiGatewayServiceGetFeedRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *ApiGatewayServiceGetFeedRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ApiGatewayServiceGetFeedRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// ApiGatewayServiceGetFeedRequestMultiError, or nil if none found.
+func (m *ApiGatewayServiceGetFeedRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ApiGatewayServiceGetFeedRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for RemoteMacAddress
+
+	// no validation rules for Token
+
+	if all {
+		switch v := interface{}(m.GetCursor()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ApiGatewayServiceGetFeedRequestValidationError{
+					field:  "Cursor",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ApiGatewayServiceGetFeedRequestValidationError{
+					field:  "Cursor",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetCursor()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ApiGatewayServiceGetFeedRequestValidationError{
+				field:  "Cursor",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return ApiGatewayServiceGetFeedRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// ApiGatewayServiceGetFeedRequestMultiError is an error wrapping multiple
+// validation errors returned by ApiGatewayServiceGetFeedRequest.ValidateAll()
+// if the designated constraints aren't met.
+type ApiGatewayServiceGetFeedRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApiGatewayServiceGetFeedRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApiGatewayServiceGetFeedRequestMultiError) AllErrors() []error { return m }
+
+// ApiGatewayServiceGetFeedRequestValidationError is the validation error
+// returned by ApiGatewayServiceGetFeedRequest.Validate if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetFeedRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ApiGatewayServiceGetFeedRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ApiGatewayServiceGetFeedRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ApiGatewayServiceGetFeedRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ApiGatewayServiceGetFeedRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ApiGatewayServiceGetFeedRequestValidationError) ErrorName() string {
+	return "ApiGatewayServiceGetFeedRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ApiGatewayServiceGetFeedRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sApiGatewayServiceGetFeedRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ApiGatewayServiceGetFeedRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ApiGatewayServiceGetFeedRequestValidationError{}
+
+// Validate checks the field values on ApiGatewayServiceGetFeedResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *ApiGatewayServiceGetFeedResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ApiGatewayServiceGetFeedResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// ApiGatewayServiceGetFeedResponseMultiError, or nil if none found.
+func (m *ApiGatewayServiceGetFeedResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ApiGatewayServiceGetFeedResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetData()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ApiGatewayServiceGetFeedResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ApiGatewayServiceGetFeedResponseValidationError{
+					field:  "Data",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetData()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ApiGatewayServiceGetFeedResponseValidationError{
+				field:  "Data",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if all {
+		switch v := interface{}(m.GetNextCursor()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, ApiGatewayServiceGetFeedResponseValidationError{
+					field:  "NextCursor",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, ApiGatewayServiceGetFeedResponseValidationError{
+					field:  "NextCursor",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetNextCursor()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return ApiGatewayServiceGetFeedResponseValidationError{
+				field:  "NextCursor",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return ApiGatewayServiceGetFeedResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// ApiGatewayServiceGetFeedResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// ApiGatewayServiceGetFeedResponse.ValidateAll() if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetFeedResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ApiGatewayServiceGetFeedResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ApiGatewayServiceGetFeedResponseMultiError) AllErrors() []error { return m }
+
+// ApiGatewayServiceGetFeedResponseValidationError is the validation error
+// returned by ApiGatewayServiceGetFeedResponse.Validate if the designated
+// constraints aren't met.
+type ApiGatewayServiceGetFeedResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ApiGatewayServiceGetFeedResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ApiGatewayServiceGetFeedResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ApiGatewayServiceGetFeedResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ApiGatewayServiceGetFeedResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ApiGatewayServiceGetFeedResponseValidationError) ErrorName() string {
+	return "ApiGatewayServiceGetFeedResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e ApiGatewayServiceGetFeedResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sApiGatewayServiceGetFeedResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ApiGatewayServiceGetFeedResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ApiGatewayServiceGetFeedResponseValidationError{}
