@@ -1,0 +1,188 @@
+syntax = "proto3";
+
+package networknode.v1;
+
+option go_package = "github.com/ecumenos-social/schemas/proto/gen/networknode/v1";
+
+import "common/v1/pagination.proto";
+import "networknode/v1/channel.proto";
+import "networknode/v1/group.proto";
+import "networknode/v1/publication.proto";
+
+message CoreServiceGetGroupsRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  optional common.v1.Pagination pagination = 3;
+  optional string query = 4;
+  optional bool membered_only = 5;
+}
+
+message CoreServiceGetGroupsResponse {
+  repeated networknode.v1.Group data = 1;
+  int64 total = 2;
+}
+
+message CoreServiceGetGroupByIDRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  int64 id = 3;
+}
+
+message CoreServiceGetGroupByIDResponse {
+  networknode.v1.Group data = 1;
+}
+
+message CoreServiceGetGroupPublicationsRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  optional common.v1.Pagination pagination = 3;
+  optional string query = 4;
+}
+
+message CoreServiceGetGroupPublicationsResponse {
+  networknode.v1.Publication data = 1;
+  int64 total = 2;
+}
+
+message CoreServiceGetChannelsRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  optional common.v1.Pagination pagination = 3;
+  optional string query = 4;
+  optional bool membered_only = 5;
+}
+
+message CoreServiceGetChannelsResponse {
+  repeated networknode.v1.Channel data = 1;
+  int64 total = 2;
+}
+
+message CoreServiceGetChannelByIDRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  int64 id = 3;
+}
+
+message CoreServiceGetChannelByIDResponse {
+  networknode.v1.Channel data = 1;
+}
+
+message CoreServiceGetChannelPublicationsRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  optional common.v1.Pagination pagination = 3;
+  optional string query = 4;
+}
+
+message CoreServiceGetChannelPublicationsResponse {
+  networknode.v1.Publication data = 1;
+  int64 total = 2;
+}
+
+message CoreServiceGetPublicationByIDRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  int64 id = 3;
+}
+
+message CoreServiceGetPublicationByIDResponse {
+  networknode.v1.Publication data = 1;
+  int64 total = 2;
+}
+
+message Cursor {
+  string created_at = 1;
+  int64 id = 2;
+}
+
+message CoreServiceGetFeedRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  Cursor cursor = 3;
+}
+
+message CoreServiceGetFeedResponse {
+  networknode.v1.Publication data = 1;
+  Cursor next_cursor = 2;
+}
+
+message CoreServiceRegisterGroupRequest {
+}
+
+message CoreServiceRegisterGroupResponse {
+}
+
+message CoreServiceModifyGroupRequest {
+}
+
+message CoreServiceModifyGroupResponse {
+}
+
+message CoreServiceJoinGroupRequest {
+}
+
+message CoreServiceJoinGroupResponse {
+}
+
+message CoreServiceRequestJoinGroupRequest {
+}
+
+message CoreServiceRequestJoinGroupResponse {
+}
+
+message CoreServiceRegisterChannelRequest {
+}
+
+message CoreServiceRegisterChannelResponse {
+}
+
+message CoreServiceModifyChannelRequest {
+}
+
+message CoreServiceModifyChannelResponse {
+}
+
+message CoreServiceFollowChannelRequest {
+}
+
+message CoreServiceFollowChannelResponse {
+}
+
+message CoreServiceRequestFollowChannelRequest {
+}
+
+message CoreServiceRequestFollowChannelResponse {
+}
+
+message CoreServiceInviteToChannelRequest {
+}
+
+message CoreServiceInviteToChannelResponse {
+}
+
+message CoreServiceReactOnPublicationRequest {
+}
+
+message CoreServiceReactOnPublicationResponse {
+}
+
+service CoreService {
+  rpc GetGroups(CoreServiceGetGroupsRequest) returns (CoreServiceGetGroupsResponse);
+  rpc GetGroupByID(CoreServiceGetGroupByIDRequest) returns (CoreServiceGetGroupByIDResponse);
+  rpc GetGroupPublications(CoreServiceGetGroupPublicationsRequest) returns (CoreServiceGetGroupPublicationsResponse);
+  rpc GetChannels(CoreServiceGetChannelsRequest) returns (CoreServiceGetChannelsResponse);
+  rpc GetChannelByID(CoreServiceGetChannelByIDRequest) returns (CoreServiceGetChannelByIDResponse);
+  rpc GetChannelPublications(CoreServiceGetChannelPublicationsRequest) returns (CoreServiceGetChannelPublicationsResponse);
+  rpc GetPublicationByID(CoreServiceGetPublicationByIDRequest) returns (CoreServiceGetPublicationByIDResponse);
+  rpc GetFeed(CoreServiceGetFeedRequest) returns (CoreServiceGetFeedResponse);
+  rpc RegisterGroup(CoreServiceRegisterGroupRequest) returns (CoreServiceRegisterGroupResponse);
+  rpc ModifyGroup(CoreServiceModifyGroupRequest) returns (CoreServiceModifyGroupResponse);
+  rpc JoinGroup(CoreServiceJoinGroupRequest) returns (CoreServiceJoinGroupResponse);
+  rpc RequestJoinGroup(CoreServiceRequestJoinGroupRequest) returns (CoreServiceRequestJoinGroupResponse);
+  rpc RegisterChannel(CoreServiceRegisterChannelRequest) returns (CoreServiceRegisterChannelResponse);
+  rpc ModifyChannel(CoreServiceModifyChannelRequest) returns (CoreServiceModifyChannelResponse);
+  rpc FollowChannel(CoreServiceFollowChannelRequest) returns (CoreServiceFollowChannelResponse);
+  rpc RequestFollowChannel(CoreServiceRequestFollowChannelRequest) returns (CoreServiceRequestFollowChannelResponse);
+  rpc InviteToChannel(CoreServiceInviteToChannelRequest) returns (CoreServiceInviteToChannelResponse);
+  rpc ReactOnPublication(CoreServiceReactOnPublicationRequest) returns (CoreServiceReactOnPublicationResponse);
+}
