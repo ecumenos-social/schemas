@@ -10,6 +10,7 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
+	sync "sync"
 )
 
 const (
@@ -19,37 +20,979 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type IngressServiceRegisterGroupRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceRegisterGroupRequest) Reset() {
+	*x = IngressServiceRegisterGroupRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceRegisterGroupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceRegisterGroupRequest) ProtoMessage() {}
+
+func (x *IngressServiceRegisterGroupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceRegisterGroupRequest.ProtoReflect.Descriptor instead.
+func (*IngressServiceRegisterGroupRequest) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{0}
+}
+
+type IngressServiceRegisterGroupResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceRegisterGroupResponse) Reset() {
+	*x = IngressServiceRegisterGroupResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceRegisterGroupResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceRegisterGroupResponse) ProtoMessage() {}
+
+func (x *IngressServiceRegisterGroupResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceRegisterGroupResponse.ProtoReflect.Descriptor instead.
+func (*IngressServiceRegisterGroupResponse) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{1}
+}
+
+type IngressServiceModifyGroupRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceModifyGroupRequest) Reset() {
+	*x = IngressServiceModifyGroupRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceModifyGroupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceModifyGroupRequest) ProtoMessage() {}
+
+func (x *IngressServiceModifyGroupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceModifyGroupRequest.ProtoReflect.Descriptor instead.
+func (*IngressServiceModifyGroupRequest) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{2}
+}
+
+type IngressServiceModifyGroupResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceModifyGroupResponse) Reset() {
+	*x = IngressServiceModifyGroupResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceModifyGroupResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceModifyGroupResponse) ProtoMessage() {}
+
+func (x *IngressServiceModifyGroupResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceModifyGroupResponse.ProtoReflect.Descriptor instead.
+func (*IngressServiceModifyGroupResponse) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{3}
+}
+
+type IngressServiceJoinGroupRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceJoinGroupRequest) Reset() {
+	*x = IngressServiceJoinGroupRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceJoinGroupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceJoinGroupRequest) ProtoMessage() {}
+
+func (x *IngressServiceJoinGroupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceJoinGroupRequest.ProtoReflect.Descriptor instead.
+func (*IngressServiceJoinGroupRequest) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{4}
+}
+
+type IngressServiceJoinGroupResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceJoinGroupResponse) Reset() {
+	*x = IngressServiceJoinGroupResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceJoinGroupResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceJoinGroupResponse) ProtoMessage() {}
+
+func (x *IngressServiceJoinGroupResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceJoinGroupResponse.ProtoReflect.Descriptor instead.
+func (*IngressServiceJoinGroupResponse) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{5}
+}
+
+type IngressServiceRequestJoinGroupRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceRequestJoinGroupRequest) Reset() {
+	*x = IngressServiceRequestJoinGroupRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceRequestJoinGroupRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceRequestJoinGroupRequest) ProtoMessage() {}
+
+func (x *IngressServiceRequestJoinGroupRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceRequestJoinGroupRequest.ProtoReflect.Descriptor instead.
+func (*IngressServiceRequestJoinGroupRequest) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{6}
+}
+
+type IngressServiceRequestJoinGroupResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceRequestJoinGroupResponse) Reset() {
+	*x = IngressServiceRequestJoinGroupResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceRequestJoinGroupResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceRequestJoinGroupResponse) ProtoMessage() {}
+
+func (x *IngressServiceRequestJoinGroupResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceRequestJoinGroupResponse.ProtoReflect.Descriptor instead.
+func (*IngressServiceRequestJoinGroupResponse) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{7}
+}
+
+type IngressServiceRegisterChannelRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceRegisterChannelRequest) Reset() {
+	*x = IngressServiceRegisterChannelRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceRegisterChannelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceRegisterChannelRequest) ProtoMessage() {}
+
+func (x *IngressServiceRegisterChannelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceRegisterChannelRequest.ProtoReflect.Descriptor instead.
+func (*IngressServiceRegisterChannelRequest) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{8}
+}
+
+type IngressServiceRegisterChannelResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceRegisterChannelResponse) Reset() {
+	*x = IngressServiceRegisterChannelResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceRegisterChannelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceRegisterChannelResponse) ProtoMessage() {}
+
+func (x *IngressServiceRegisterChannelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceRegisterChannelResponse.ProtoReflect.Descriptor instead.
+func (*IngressServiceRegisterChannelResponse) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{9}
+}
+
+type IngressServiceModifyChannelRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceModifyChannelRequest) Reset() {
+	*x = IngressServiceModifyChannelRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceModifyChannelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceModifyChannelRequest) ProtoMessage() {}
+
+func (x *IngressServiceModifyChannelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceModifyChannelRequest.ProtoReflect.Descriptor instead.
+func (*IngressServiceModifyChannelRequest) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{10}
+}
+
+type IngressServiceModifyChannelResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceModifyChannelResponse) Reset() {
+	*x = IngressServiceModifyChannelResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[11]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceModifyChannelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceModifyChannelResponse) ProtoMessage() {}
+
+func (x *IngressServiceModifyChannelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[11]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceModifyChannelResponse.ProtoReflect.Descriptor instead.
+func (*IngressServiceModifyChannelResponse) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{11}
+}
+
+type IngressServiceFollowChannelRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceFollowChannelRequest) Reset() {
+	*x = IngressServiceFollowChannelRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[12]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceFollowChannelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceFollowChannelRequest) ProtoMessage() {}
+
+func (x *IngressServiceFollowChannelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[12]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceFollowChannelRequest.ProtoReflect.Descriptor instead.
+func (*IngressServiceFollowChannelRequest) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{12}
+}
+
+type IngressServiceFollowChannelResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceFollowChannelResponse) Reset() {
+	*x = IngressServiceFollowChannelResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[13]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceFollowChannelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceFollowChannelResponse) ProtoMessage() {}
+
+func (x *IngressServiceFollowChannelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[13]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceFollowChannelResponse.ProtoReflect.Descriptor instead.
+func (*IngressServiceFollowChannelResponse) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{13}
+}
+
+type IngressServiceRequestFollowChannelRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceRequestFollowChannelRequest) Reset() {
+	*x = IngressServiceRequestFollowChannelRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[14]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceRequestFollowChannelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceRequestFollowChannelRequest) ProtoMessage() {}
+
+func (x *IngressServiceRequestFollowChannelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[14]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceRequestFollowChannelRequest.ProtoReflect.Descriptor instead.
+func (*IngressServiceRequestFollowChannelRequest) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{14}
+}
+
+type IngressServiceRequestFollowChannelResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceRequestFollowChannelResponse) Reset() {
+	*x = IngressServiceRequestFollowChannelResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[15]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceRequestFollowChannelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceRequestFollowChannelResponse) ProtoMessage() {}
+
+func (x *IngressServiceRequestFollowChannelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[15]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceRequestFollowChannelResponse.ProtoReflect.Descriptor instead.
+func (*IngressServiceRequestFollowChannelResponse) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{15}
+}
+
+type IngressServiceInviteToChannelRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceInviteToChannelRequest) Reset() {
+	*x = IngressServiceInviteToChannelRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[16]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceInviteToChannelRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceInviteToChannelRequest) ProtoMessage() {}
+
+func (x *IngressServiceInviteToChannelRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[16]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceInviteToChannelRequest.ProtoReflect.Descriptor instead.
+func (*IngressServiceInviteToChannelRequest) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{16}
+}
+
+type IngressServiceInviteToChannelResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceInviteToChannelResponse) Reset() {
+	*x = IngressServiceInviteToChannelResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[17]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceInviteToChannelResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceInviteToChannelResponse) ProtoMessage() {}
+
+func (x *IngressServiceInviteToChannelResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[17]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceInviteToChannelResponse.ProtoReflect.Descriptor instead.
+func (*IngressServiceInviteToChannelResponse) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{17}
+}
+
+type IngressServiceReactOnPublicationRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceReactOnPublicationRequest) Reset() {
+	*x = IngressServiceReactOnPublicationRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[18]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceReactOnPublicationRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceReactOnPublicationRequest) ProtoMessage() {}
+
+func (x *IngressServiceReactOnPublicationRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[18]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceReactOnPublicationRequest.ProtoReflect.Descriptor instead.
+func (*IngressServiceReactOnPublicationRequest) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{18}
+}
+
+type IngressServiceReactOnPublicationResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *IngressServiceReactOnPublicationResponse) Reset() {
+	*x = IngressServiceReactOnPublicationResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[19]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IngressServiceReactOnPublicationResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IngressServiceReactOnPublicationResponse) ProtoMessage() {}
+
+func (x *IngressServiceReactOnPublicationResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_networknode_v1_ingress_service_service_proto_msgTypes[19]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IngressServiceReactOnPublicationResponse.ProtoReflect.Descriptor instead.
+func (*IngressServiceReactOnPublicationResponse) Descriptor() ([]byte, []int) {
+	return file_networknode_v1_ingress_service_service_proto_rawDescGZIP(), []int{19}
+}
+
 var File_networknode_v1_ingress_service_service_proto protoreflect.FileDescriptor
 
 var file_networknode_v1_ingress_service_service_proto_rawDesc = []byte{
 	0x0a, 0x2c, 0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2f, 0x76, 0x31,
 	0x2f, 0x69, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x5f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
 	0x5f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0e,
-	0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x32, 0x10,
-	0x0a, 0x0e, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
-	0x42, 0xc6, 0x01, 0x0a, 0x12, 0x63, 0x6f, 0x6d, 0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b,
-	0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x42, 0x1a, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73,
-	0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x50, 0x72,
-	0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x3b, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f,
-	0x6d, 0x2f, 0x65, 0x63, 0x75, 0x6d, 0x65, 0x6e, 0x6f, 0x73, 0x2d, 0x73, 0x6f, 0x63, 0x69, 0x61,
-	0x6c, 0x2f, 0x73, 0x63, 0x68, 0x65, 0x6d, 0x61, 0x73, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f,
-	0x67, 0x65, 0x6e, 0x2f, 0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2f,
-	0x76, 0x31, 0xa2, 0x02, 0x03, 0x4e, 0x58, 0x58, 0xaa, 0x02, 0x0e, 0x4e, 0x65, 0x74, 0x77, 0x6f,
-	0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x0e, 0x4e, 0x65, 0x74, 0x77,
-	0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1a, 0x4e, 0x65, 0x74,
-	0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d,
-	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x0f, 0x4e, 0x65, 0x74, 0x77, 0x6f, 0x72,
-	0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x22, 0x24,
+	0x0a, 0x22, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x22, 0x25, 0x0a, 0x23, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x47, 0x72,
+	0x6f, 0x75, 0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x22, 0x0a, 0x20, 0x49,
+	0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x4d, 0x6f, 0x64,
+	0x69, 0x66, 0x79, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22,
+	0x23, 0x0a, 0x21, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x4d, 0x6f, 0x64, 0x69, 0x66, 0x79, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x20, 0x0a, 0x1e, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x4a, 0x6f, 0x69, 0x6e, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x21, 0x0a, 0x1f, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73,
+	0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x4a, 0x6f, 0x69, 0x6e, 0x47, 0x72, 0x6f, 0x75,
+	0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x27, 0x0a, 0x25, 0x49, 0x6e, 0x67,
+	0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x4a, 0x6f, 0x69, 0x6e, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x22, 0x28, 0x0a, 0x26, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72,
+	0x76, 0x69, 0x63, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x4a, 0x6f, 0x69, 0x6e, 0x47,
+	0x72, 0x6f, 0x75, 0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x26, 0x0a, 0x24,
+	0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x52, 0x65,
+	0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x22, 0x27, 0x0a, 0x25, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x43, 0x68,
+	0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x24, 0x0a,
+	0x22, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x4d,
+	0x6f, 0x64, 0x69, 0x66, 0x79, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x22, 0x25, 0x0a, 0x23, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x4d, 0x6f, 0x64, 0x69, 0x66, 0x79, 0x43, 0x68, 0x61, 0x6e, 0x6e,
+	0x65, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x24, 0x0a, 0x22, 0x49, 0x6e,
+	0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x46, 0x6f, 0x6c, 0x6c,
+	0x6f, 0x77, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x22, 0x25, 0x0a, 0x23, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x46, 0x6f, 0x6c, 0x6c, 0x6f, 0x77, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x2b, 0x0a, 0x29, 0x49, 0x6e, 0x67, 0x72, 0x65,
+	0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x46, 0x6f, 0x6c, 0x6c, 0x6f, 0x77, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x22, 0x2c, 0x0a, 0x2a, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x46, 0x6f, 0x6c,
+	0x6c, 0x6f, 0x77, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x22, 0x26, 0x0a, 0x24, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72,
+	0x76, 0x69, 0x63, 0x65, 0x49, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x54, 0x6f, 0x43, 0x68, 0x61, 0x6e,
+	0x6e, 0x65, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x27, 0x0a, 0x25, 0x49, 0x6e,
+	0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x49, 0x6e, 0x76, 0x69,
+	0x74, 0x65, 0x54, 0x6f, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x29, 0x0a, 0x27, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x52, 0x65, 0x61, 0x63, 0x74, 0x4f, 0x6e, 0x50, 0x75, 0x62, 0x6c,
+	0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x2a,
+	0x0a, 0x28, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x52, 0x65, 0x61, 0x63, 0x74, 0x4f, 0x6e, 0x50, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0xfe, 0x09, 0x0a, 0x0e, 0x49,
+	0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x78, 0x0a,
+	0x0d, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x12, 0x32,
+	0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x2e,
+	0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x52, 0x65,
+	0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x33, 0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65,
+	0x2e, 0x76, 0x31, 0x2e, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x72, 0x0a, 0x0b, 0x4d, 0x6f, 0x64, 0x69, 0x66,
+	0x79, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x12, 0x30, 0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b,
+	0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x4d, 0x6f, 0x64, 0x69, 0x66, 0x79, 0x47, 0x72, 0x6f, 0x75,
+	0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x31, 0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f,
+	0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73,
+	0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x4d, 0x6f, 0x64, 0x69, 0x66, 0x79, 0x47, 0x72,
+	0x6f, 0x75, 0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x6c, 0x0a, 0x09, 0x4a,
+	0x6f, 0x69, 0x6e, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x12, 0x2e, 0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f,
+	0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73,
+	0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x4a, 0x6f, 0x69, 0x6e, 0x47, 0x72, 0x6f, 0x75,
+	0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2f, 0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f,
+	0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73,
+	0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x4a, 0x6f, 0x69, 0x6e, 0x47, 0x72, 0x6f, 0x75,
+	0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x81, 0x01, 0x0a, 0x10, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x4a, 0x6f, 0x69, 0x6e, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x12, 0x35,
+	0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x2e,
+	0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x4a, 0x6f, 0x69, 0x6e, 0x47, 0x72, 0x6f, 0x75, 0x70, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x36, 0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e,
+	0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x4a, 0x6f, 0x69, 0x6e,
+	0x47, 0x72, 0x6f, 0x75, 0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x7e, 0x0a,
+	0x0f, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c,
+	0x12, 0x34, 0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76,
+	0x31, 0x2e, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x35, 0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b,
+	0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x43, 0x68,
+	0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x78, 0x0a,
+	0x0d, 0x4d, 0x6f, 0x64, 0x69, 0x66, 0x79, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x12, 0x32,
+	0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x2e,
+	0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x4d, 0x6f,
+	0x64, 0x69, 0x66, 0x79, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x33, 0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65,
+	0x2e, 0x76, 0x31, 0x2e, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x4d, 0x6f, 0x64, 0x69, 0x66, 0x79, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x78, 0x0a, 0x0d, 0x46, 0x6f, 0x6c, 0x6c, 0x6f,
+	0x77, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x12, 0x32, 0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f,
+	0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73,
+	0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x46, 0x6f, 0x6c, 0x6c, 0x6f, 0x77, 0x43, 0x68,
+	0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x33, 0x2e, 0x6e,
+	0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x49, 0x6e,
+	0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x46, 0x6f, 0x6c, 0x6c,
+	0x6f, 0x77, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x8d, 0x01, 0x0a, 0x14, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x46, 0x6f, 0x6c,
+	0x6c, 0x6f, 0x77, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x12, 0x39, 0x2e, 0x6e, 0x65, 0x74,
+	0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x49, 0x6e, 0x67, 0x72,
+	0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x46, 0x6f, 0x6c, 0x6c, 0x6f, 0x77, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x3a, 0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e,
+	0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x46, 0x6f, 0x6c, 0x6c,
+	0x6f, 0x77, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x7e, 0x0a, 0x0f, 0x49, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x54, 0x6f, 0x43, 0x68, 0x61,
+	0x6e, 0x6e, 0x65, 0x6c, 0x12, 0x34, 0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f,
+	0x64, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72,
+	0x76, 0x69, 0x63, 0x65, 0x49, 0x6e, 0x76, 0x69, 0x74, 0x65, 0x54, 0x6f, 0x43, 0x68, 0x61, 0x6e,
+	0x6e, 0x65, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x35, 0x2e, 0x6e, 0x65, 0x74,
+	0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x49, 0x6e, 0x67, 0x72,
+	0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x49, 0x6e, 0x76, 0x69, 0x74, 0x65,
+	0x54, 0x6f, 0x43, 0x68, 0x61, 0x6e, 0x6e, 0x65, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x12, 0x87, 0x01, 0x0a, 0x12, 0x52, 0x65, 0x61, 0x63, 0x74, 0x4f, 0x6e, 0x50, 0x75, 0x62,
+	0x6c, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x37, 0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f,
+	0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2e, 0x76, 0x31, 0x2e, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73,
+	0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x52, 0x65, 0x61, 0x63, 0x74, 0x4f, 0x6e, 0x50,
+	0x75, 0x62, 0x6c, 0x69, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x38, 0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2e,
+	0x76, 0x31, 0x2e, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x52, 0x65, 0x61, 0x63, 0x74, 0x4f, 0x6e, 0x50, 0x75, 0x62, 0x6c, 0x69, 0x63, 0x61, 0x74,
+	0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0xc6, 0x01, 0x0a, 0x12,
+	0x63, 0x6f, 0x6d, 0x2e, 0x6e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2e,
+	0x76, 0x31, 0x42, 0x1a, 0x49, 0x6e, 0x67, 0x72, 0x65, 0x73, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69,
+	0x63, 0x65, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01,
+	0x5a, 0x3b, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x65, 0x63, 0x75,
+	0x6d, 0x65, 0x6e, 0x6f, 0x73, 0x2d, 0x73, 0x6f, 0x63, 0x69, 0x61, 0x6c, 0x2f, 0x73, 0x63, 0x68,
+	0x65, 0x6d, 0x61, 0x73, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x67, 0x65, 0x6e, 0x2f, 0x6e,
+	0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65, 0x2f, 0x76, 0x31, 0xa2, 0x02, 0x03,
+	0x4e, 0x58, 0x58, 0xaa, 0x02, 0x0e, 0x4e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64,
+	0x65, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x0e, 0x4e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f,
+	0x64, 0x65, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x1a, 0x4e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e,
+	0x6f, 0x64, 0x65, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61,
+	0x74, 0x61, 0xea, 0x02, 0x0f, 0x4e, 0x65, 0x74, 0x77, 0x6f, 0x72, 0x6b, 0x6e, 0x6f, 0x64, 0x65,
+	0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
-var file_networknode_v1_ingress_service_service_proto_goTypes = []any{}
+var (
+	file_networknode_v1_ingress_service_service_proto_rawDescOnce sync.Once
+	file_networknode_v1_ingress_service_service_proto_rawDescData = file_networknode_v1_ingress_service_service_proto_rawDesc
+)
+
+func file_networknode_v1_ingress_service_service_proto_rawDescGZIP() []byte {
+	file_networknode_v1_ingress_service_service_proto_rawDescOnce.Do(func() {
+		file_networknode_v1_ingress_service_service_proto_rawDescData = protoimpl.X.CompressGZIP(file_networknode_v1_ingress_service_service_proto_rawDescData)
+	})
+	return file_networknode_v1_ingress_service_service_proto_rawDescData
+}
+
+var file_networknode_v1_ingress_service_service_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
+var file_networknode_v1_ingress_service_service_proto_goTypes = []any{
+	(*IngressServiceRegisterGroupRequest)(nil),         // 0: networknode.v1.IngressServiceRegisterGroupRequest
+	(*IngressServiceRegisterGroupResponse)(nil),        // 1: networknode.v1.IngressServiceRegisterGroupResponse
+	(*IngressServiceModifyGroupRequest)(nil),           // 2: networknode.v1.IngressServiceModifyGroupRequest
+	(*IngressServiceModifyGroupResponse)(nil),          // 3: networknode.v1.IngressServiceModifyGroupResponse
+	(*IngressServiceJoinGroupRequest)(nil),             // 4: networknode.v1.IngressServiceJoinGroupRequest
+	(*IngressServiceJoinGroupResponse)(nil),            // 5: networknode.v1.IngressServiceJoinGroupResponse
+	(*IngressServiceRequestJoinGroupRequest)(nil),      // 6: networknode.v1.IngressServiceRequestJoinGroupRequest
+	(*IngressServiceRequestJoinGroupResponse)(nil),     // 7: networknode.v1.IngressServiceRequestJoinGroupResponse
+	(*IngressServiceRegisterChannelRequest)(nil),       // 8: networknode.v1.IngressServiceRegisterChannelRequest
+	(*IngressServiceRegisterChannelResponse)(nil),      // 9: networknode.v1.IngressServiceRegisterChannelResponse
+	(*IngressServiceModifyChannelRequest)(nil),         // 10: networknode.v1.IngressServiceModifyChannelRequest
+	(*IngressServiceModifyChannelResponse)(nil),        // 11: networknode.v1.IngressServiceModifyChannelResponse
+	(*IngressServiceFollowChannelRequest)(nil),         // 12: networknode.v1.IngressServiceFollowChannelRequest
+	(*IngressServiceFollowChannelResponse)(nil),        // 13: networknode.v1.IngressServiceFollowChannelResponse
+	(*IngressServiceRequestFollowChannelRequest)(nil),  // 14: networknode.v1.IngressServiceRequestFollowChannelRequest
+	(*IngressServiceRequestFollowChannelResponse)(nil), // 15: networknode.v1.IngressServiceRequestFollowChannelResponse
+	(*IngressServiceInviteToChannelRequest)(nil),       // 16: networknode.v1.IngressServiceInviteToChannelRequest
+	(*IngressServiceInviteToChannelResponse)(nil),      // 17: networknode.v1.IngressServiceInviteToChannelResponse
+	(*IngressServiceReactOnPublicationRequest)(nil),    // 18: networknode.v1.IngressServiceReactOnPublicationRequest
+	(*IngressServiceReactOnPublicationResponse)(nil),   // 19: networknode.v1.IngressServiceReactOnPublicationResponse
+}
 var file_networknode_v1_ingress_service_service_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	0,  // 0: networknode.v1.IngressService.RegisterGroup:input_type -> networknode.v1.IngressServiceRegisterGroupRequest
+	2,  // 1: networknode.v1.IngressService.ModifyGroup:input_type -> networknode.v1.IngressServiceModifyGroupRequest
+	4,  // 2: networknode.v1.IngressService.JoinGroup:input_type -> networknode.v1.IngressServiceJoinGroupRequest
+	6,  // 3: networknode.v1.IngressService.RequestJoinGroup:input_type -> networknode.v1.IngressServiceRequestJoinGroupRequest
+	8,  // 4: networknode.v1.IngressService.RegisterChannel:input_type -> networknode.v1.IngressServiceRegisterChannelRequest
+	10, // 5: networknode.v1.IngressService.ModifyChannel:input_type -> networknode.v1.IngressServiceModifyChannelRequest
+	12, // 6: networknode.v1.IngressService.FollowChannel:input_type -> networknode.v1.IngressServiceFollowChannelRequest
+	14, // 7: networknode.v1.IngressService.RequestFollowChannel:input_type -> networknode.v1.IngressServiceRequestFollowChannelRequest
+	16, // 8: networknode.v1.IngressService.InviteToChannel:input_type -> networknode.v1.IngressServiceInviteToChannelRequest
+	18, // 9: networknode.v1.IngressService.ReactOnPublication:input_type -> networknode.v1.IngressServiceReactOnPublicationRequest
+	1,  // 10: networknode.v1.IngressService.RegisterGroup:output_type -> networknode.v1.IngressServiceRegisterGroupResponse
+	3,  // 11: networknode.v1.IngressService.ModifyGroup:output_type -> networknode.v1.IngressServiceModifyGroupResponse
+	5,  // 12: networknode.v1.IngressService.JoinGroup:output_type -> networknode.v1.IngressServiceJoinGroupResponse
+	7,  // 13: networknode.v1.IngressService.RequestJoinGroup:output_type -> networknode.v1.IngressServiceRequestJoinGroupResponse
+	9,  // 14: networknode.v1.IngressService.RegisterChannel:output_type -> networknode.v1.IngressServiceRegisterChannelResponse
+	11, // 15: networknode.v1.IngressService.ModifyChannel:output_type -> networknode.v1.IngressServiceModifyChannelResponse
+	13, // 16: networknode.v1.IngressService.FollowChannel:output_type -> networknode.v1.IngressServiceFollowChannelResponse
+	15, // 17: networknode.v1.IngressService.RequestFollowChannel:output_type -> networknode.v1.IngressServiceRequestFollowChannelResponse
+	17, // 18: networknode.v1.IngressService.InviteToChannel:output_type -> networknode.v1.IngressServiceInviteToChannelResponse
+	19, // 19: networknode.v1.IngressService.ReactOnPublication:output_type -> networknode.v1.IngressServiceReactOnPublicationResponse
+	10, // [10:20] is the sub-list for method output_type
+	0,  // [0:10] is the sub-list for method input_type
+	0,  // [0:0] is the sub-list for extension type_name
+	0,  // [0:0] is the sub-list for extension extendee
+	0,  // [0:0] is the sub-list for field type_name
 }
 
 func init() { file_networknode_v1_ingress_service_service_proto_init() }
@@ -57,18 +1000,261 @@ func file_networknode_v1_ingress_service_service_proto_init() {
 	if File_networknode_v1_ingress_service_service_proto != nil {
 		return
 	}
+	if !protoimpl.UnsafeEnabled {
+		file_networknode_v1_ingress_service_service_proto_msgTypes[0].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceRegisterGroupRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[1].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceRegisterGroupResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[2].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceModifyGroupRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[3].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceModifyGroupResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[4].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceJoinGroupRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[5].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceJoinGroupResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[6].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceRequestJoinGroupRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[7].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceRequestJoinGroupResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[8].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceRegisterChannelRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[9].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceRegisterChannelResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[10].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceModifyChannelRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[11].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceModifyChannelResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[12].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceFollowChannelRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[13].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceFollowChannelResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[14].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceRequestFollowChannelRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[15].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceRequestFollowChannelResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[16].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceInviteToChannelRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[17].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceInviteToChannelResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[18].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceReactOnPublicationRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_networknode_v1_ingress_service_service_proto_msgTypes[19].Exporter = func(v any, i int) any {
+			switch v := v.(*IngressServiceReactOnPublicationResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_networknode_v1_ingress_service_service_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   0,
+			NumMessages:   20,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
 		GoTypes:           file_networknode_v1_ingress_service_service_proto_goTypes,
 		DependencyIndexes: file_networknode_v1_ingress_service_service_proto_depIdxs,
+		MessageInfos:      file_networknode_v1_ingress_service_service_proto_msgTypes,
 	}.Build()
 	File_networknode_v1_ingress_service_service_proto = out.File
 	file_networknode_v1_ingress_service_service_proto_rawDesc = nil

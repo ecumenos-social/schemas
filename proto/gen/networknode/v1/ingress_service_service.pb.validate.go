@@ -34,3 +34,2104 @@ var (
 	_ = anypb.Any{}
 	_ = sort.Sort
 )
+
+// Validate checks the field values on IngressServiceRegisterGroupRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *IngressServiceRegisterGroupRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on IngressServiceRegisterGroupRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// IngressServiceRegisterGroupRequestMultiError, or nil if none found.
+func (m *IngressServiceRegisterGroupRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceRegisterGroupRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceRegisterGroupRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceRegisterGroupRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// IngressServiceRegisterGroupRequest.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceRegisterGroupRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceRegisterGroupRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceRegisterGroupRequestMultiError) AllErrors() []error { return m }
+
+// IngressServiceRegisterGroupRequestValidationError is the validation error
+// returned by IngressServiceRegisterGroupRequest.Validate if the designated
+// constraints aren't met.
+type IngressServiceRegisterGroupRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceRegisterGroupRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceRegisterGroupRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceRegisterGroupRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceRegisterGroupRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceRegisterGroupRequestValidationError) ErrorName() string {
+	return "IngressServiceRegisterGroupRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceRegisterGroupRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceRegisterGroupRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceRegisterGroupRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceRegisterGroupRequestValidationError{}
+
+// Validate checks the field values on IngressServiceRegisterGroupResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *IngressServiceRegisterGroupResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on IngressServiceRegisterGroupResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// IngressServiceRegisterGroupResponseMultiError, or nil if none found.
+func (m *IngressServiceRegisterGroupResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceRegisterGroupResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceRegisterGroupResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceRegisterGroupResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// IngressServiceRegisterGroupResponse.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceRegisterGroupResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceRegisterGroupResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceRegisterGroupResponseMultiError) AllErrors() []error { return m }
+
+// IngressServiceRegisterGroupResponseValidationError is the validation error
+// returned by IngressServiceRegisterGroupResponse.Validate if the designated
+// constraints aren't met.
+type IngressServiceRegisterGroupResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceRegisterGroupResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceRegisterGroupResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceRegisterGroupResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceRegisterGroupResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceRegisterGroupResponseValidationError) ErrorName() string {
+	return "IngressServiceRegisterGroupResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceRegisterGroupResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceRegisterGroupResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceRegisterGroupResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceRegisterGroupResponseValidationError{}
+
+// Validate checks the field values on IngressServiceModifyGroupRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *IngressServiceModifyGroupRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on IngressServiceModifyGroupRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// IngressServiceModifyGroupRequestMultiError, or nil if none found.
+func (m *IngressServiceModifyGroupRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceModifyGroupRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceModifyGroupRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceModifyGroupRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// IngressServiceModifyGroupRequest.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceModifyGroupRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceModifyGroupRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceModifyGroupRequestMultiError) AllErrors() []error { return m }
+
+// IngressServiceModifyGroupRequestValidationError is the validation error
+// returned by IngressServiceModifyGroupRequest.Validate if the designated
+// constraints aren't met.
+type IngressServiceModifyGroupRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceModifyGroupRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceModifyGroupRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceModifyGroupRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceModifyGroupRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceModifyGroupRequestValidationError) ErrorName() string {
+	return "IngressServiceModifyGroupRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceModifyGroupRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceModifyGroupRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceModifyGroupRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceModifyGroupRequestValidationError{}
+
+// Validate checks the field values on IngressServiceModifyGroupResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *IngressServiceModifyGroupResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on IngressServiceModifyGroupResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// IngressServiceModifyGroupResponseMultiError, or nil if none found.
+func (m *IngressServiceModifyGroupResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceModifyGroupResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceModifyGroupResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceModifyGroupResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// IngressServiceModifyGroupResponse.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceModifyGroupResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceModifyGroupResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceModifyGroupResponseMultiError) AllErrors() []error { return m }
+
+// IngressServiceModifyGroupResponseValidationError is the validation error
+// returned by IngressServiceModifyGroupResponse.Validate if the designated
+// constraints aren't met.
+type IngressServiceModifyGroupResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceModifyGroupResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceModifyGroupResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceModifyGroupResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceModifyGroupResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceModifyGroupResponseValidationError) ErrorName() string {
+	return "IngressServiceModifyGroupResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceModifyGroupResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceModifyGroupResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceModifyGroupResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceModifyGroupResponseValidationError{}
+
+// Validate checks the field values on IngressServiceJoinGroupRequest with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *IngressServiceJoinGroupRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on IngressServiceJoinGroupRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// IngressServiceJoinGroupRequestMultiError, or nil if none found.
+func (m *IngressServiceJoinGroupRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceJoinGroupRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceJoinGroupRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceJoinGroupRequestMultiError is an error wrapping multiple
+// validation errors returned by IngressServiceJoinGroupRequest.ValidateAll()
+// if the designated constraints aren't met.
+type IngressServiceJoinGroupRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceJoinGroupRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceJoinGroupRequestMultiError) AllErrors() []error { return m }
+
+// IngressServiceJoinGroupRequestValidationError is the validation error
+// returned by IngressServiceJoinGroupRequest.Validate if the designated
+// constraints aren't met.
+type IngressServiceJoinGroupRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceJoinGroupRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceJoinGroupRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceJoinGroupRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceJoinGroupRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceJoinGroupRequestValidationError) ErrorName() string {
+	return "IngressServiceJoinGroupRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceJoinGroupRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceJoinGroupRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceJoinGroupRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceJoinGroupRequestValidationError{}
+
+// Validate checks the field values on IngressServiceJoinGroupResponse with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *IngressServiceJoinGroupResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on IngressServiceJoinGroupResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the result is a list of violation errors wrapped in
+// IngressServiceJoinGroupResponseMultiError, or nil if none found.
+func (m *IngressServiceJoinGroupResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceJoinGroupResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceJoinGroupResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceJoinGroupResponseMultiError is an error wrapping multiple
+// validation errors returned by IngressServiceJoinGroupResponse.ValidateAll()
+// if the designated constraints aren't met.
+type IngressServiceJoinGroupResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceJoinGroupResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceJoinGroupResponseMultiError) AllErrors() []error { return m }
+
+// IngressServiceJoinGroupResponseValidationError is the validation error
+// returned by IngressServiceJoinGroupResponse.Validate if the designated
+// constraints aren't met.
+type IngressServiceJoinGroupResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceJoinGroupResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceJoinGroupResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceJoinGroupResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceJoinGroupResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceJoinGroupResponseValidationError) ErrorName() string {
+	return "IngressServiceJoinGroupResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceJoinGroupResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceJoinGroupResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceJoinGroupResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceJoinGroupResponseValidationError{}
+
+// Validate checks the field values on IngressServiceRequestJoinGroupRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *IngressServiceRequestJoinGroupRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on IngressServiceRequestJoinGroupRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// IngressServiceRequestJoinGroupRequestMultiError, or nil if none found.
+func (m *IngressServiceRequestJoinGroupRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceRequestJoinGroupRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceRequestJoinGroupRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceRequestJoinGroupRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// IngressServiceRequestJoinGroupRequest.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceRequestJoinGroupRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceRequestJoinGroupRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceRequestJoinGroupRequestMultiError) AllErrors() []error { return m }
+
+// IngressServiceRequestJoinGroupRequestValidationError is the validation error
+// returned by IngressServiceRequestJoinGroupRequest.Validate if the
+// designated constraints aren't met.
+type IngressServiceRequestJoinGroupRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceRequestJoinGroupRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceRequestJoinGroupRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceRequestJoinGroupRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceRequestJoinGroupRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceRequestJoinGroupRequestValidationError) ErrorName() string {
+	return "IngressServiceRequestJoinGroupRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceRequestJoinGroupRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceRequestJoinGroupRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceRequestJoinGroupRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceRequestJoinGroupRequestValidationError{}
+
+// Validate checks the field values on IngressServiceRequestJoinGroupResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *IngressServiceRequestJoinGroupResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// IngressServiceRequestJoinGroupResponse with the rules defined in the proto
+// definition for this message. If any rules are violated, the result is a
+// list of violation errors wrapped in
+// IngressServiceRequestJoinGroupResponseMultiError, or nil if none found.
+func (m *IngressServiceRequestJoinGroupResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceRequestJoinGroupResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceRequestJoinGroupResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceRequestJoinGroupResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// IngressServiceRequestJoinGroupResponse.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceRequestJoinGroupResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceRequestJoinGroupResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceRequestJoinGroupResponseMultiError) AllErrors() []error { return m }
+
+// IngressServiceRequestJoinGroupResponseValidationError is the validation
+// error returned by IngressServiceRequestJoinGroupResponse.Validate if the
+// designated constraints aren't met.
+type IngressServiceRequestJoinGroupResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceRequestJoinGroupResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceRequestJoinGroupResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceRequestJoinGroupResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceRequestJoinGroupResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceRequestJoinGroupResponseValidationError) ErrorName() string {
+	return "IngressServiceRequestJoinGroupResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceRequestJoinGroupResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceRequestJoinGroupResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceRequestJoinGroupResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceRequestJoinGroupResponseValidationError{}
+
+// Validate checks the field values on IngressServiceRegisterChannelRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *IngressServiceRegisterChannelRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on IngressServiceRegisterChannelRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// IngressServiceRegisterChannelRequestMultiError, or nil if none found.
+func (m *IngressServiceRegisterChannelRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceRegisterChannelRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceRegisterChannelRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceRegisterChannelRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// IngressServiceRegisterChannelRequest.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceRegisterChannelRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceRegisterChannelRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceRegisterChannelRequestMultiError) AllErrors() []error { return m }
+
+// IngressServiceRegisterChannelRequestValidationError is the validation error
+// returned by IngressServiceRegisterChannelRequest.Validate if the designated
+// constraints aren't met.
+type IngressServiceRegisterChannelRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceRegisterChannelRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceRegisterChannelRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceRegisterChannelRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceRegisterChannelRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceRegisterChannelRequestValidationError) ErrorName() string {
+	return "IngressServiceRegisterChannelRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceRegisterChannelRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceRegisterChannelRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceRegisterChannelRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceRegisterChannelRequestValidationError{}
+
+// Validate checks the field values on IngressServiceRegisterChannelResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *IngressServiceRegisterChannelResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on IngressServiceRegisterChannelResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// IngressServiceRegisterChannelResponseMultiError, or nil if none found.
+func (m *IngressServiceRegisterChannelResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceRegisterChannelResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceRegisterChannelResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceRegisterChannelResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// IngressServiceRegisterChannelResponse.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceRegisterChannelResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceRegisterChannelResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceRegisterChannelResponseMultiError) AllErrors() []error { return m }
+
+// IngressServiceRegisterChannelResponseValidationError is the validation error
+// returned by IngressServiceRegisterChannelResponse.Validate if the
+// designated constraints aren't met.
+type IngressServiceRegisterChannelResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceRegisterChannelResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceRegisterChannelResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceRegisterChannelResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceRegisterChannelResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceRegisterChannelResponseValidationError) ErrorName() string {
+	return "IngressServiceRegisterChannelResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceRegisterChannelResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceRegisterChannelResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceRegisterChannelResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceRegisterChannelResponseValidationError{}
+
+// Validate checks the field values on IngressServiceModifyChannelRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *IngressServiceModifyChannelRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on IngressServiceModifyChannelRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// IngressServiceModifyChannelRequestMultiError, or nil if none found.
+func (m *IngressServiceModifyChannelRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceModifyChannelRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceModifyChannelRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceModifyChannelRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// IngressServiceModifyChannelRequest.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceModifyChannelRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceModifyChannelRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceModifyChannelRequestMultiError) AllErrors() []error { return m }
+
+// IngressServiceModifyChannelRequestValidationError is the validation error
+// returned by IngressServiceModifyChannelRequest.Validate if the designated
+// constraints aren't met.
+type IngressServiceModifyChannelRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceModifyChannelRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceModifyChannelRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceModifyChannelRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceModifyChannelRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceModifyChannelRequestValidationError) ErrorName() string {
+	return "IngressServiceModifyChannelRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceModifyChannelRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceModifyChannelRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceModifyChannelRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceModifyChannelRequestValidationError{}
+
+// Validate checks the field values on IngressServiceModifyChannelResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *IngressServiceModifyChannelResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on IngressServiceModifyChannelResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// IngressServiceModifyChannelResponseMultiError, or nil if none found.
+func (m *IngressServiceModifyChannelResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceModifyChannelResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceModifyChannelResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceModifyChannelResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// IngressServiceModifyChannelResponse.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceModifyChannelResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceModifyChannelResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceModifyChannelResponseMultiError) AllErrors() []error { return m }
+
+// IngressServiceModifyChannelResponseValidationError is the validation error
+// returned by IngressServiceModifyChannelResponse.Validate if the designated
+// constraints aren't met.
+type IngressServiceModifyChannelResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceModifyChannelResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceModifyChannelResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceModifyChannelResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceModifyChannelResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceModifyChannelResponseValidationError) ErrorName() string {
+	return "IngressServiceModifyChannelResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceModifyChannelResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceModifyChannelResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceModifyChannelResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceModifyChannelResponseValidationError{}
+
+// Validate checks the field values on IngressServiceFollowChannelRequest with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *IngressServiceFollowChannelRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on IngressServiceFollowChannelRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// IngressServiceFollowChannelRequestMultiError, or nil if none found.
+func (m *IngressServiceFollowChannelRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceFollowChannelRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceFollowChannelRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceFollowChannelRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// IngressServiceFollowChannelRequest.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceFollowChannelRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceFollowChannelRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceFollowChannelRequestMultiError) AllErrors() []error { return m }
+
+// IngressServiceFollowChannelRequestValidationError is the validation error
+// returned by IngressServiceFollowChannelRequest.Validate if the designated
+// constraints aren't met.
+type IngressServiceFollowChannelRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceFollowChannelRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceFollowChannelRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceFollowChannelRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceFollowChannelRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceFollowChannelRequestValidationError) ErrorName() string {
+	return "IngressServiceFollowChannelRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceFollowChannelRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceFollowChannelRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceFollowChannelRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceFollowChannelRequestValidationError{}
+
+// Validate checks the field values on IngressServiceFollowChannelResponse with
+// the rules defined in the proto definition for this message. If any rules
+// are violated, the first error encountered is returned, or nil if there are
+// no violations.
+func (m *IngressServiceFollowChannelResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on IngressServiceFollowChannelResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// IngressServiceFollowChannelResponseMultiError, or nil if none found.
+func (m *IngressServiceFollowChannelResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceFollowChannelResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceFollowChannelResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceFollowChannelResponseMultiError is an error wrapping multiple
+// validation errors returned by
+// IngressServiceFollowChannelResponse.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceFollowChannelResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceFollowChannelResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceFollowChannelResponseMultiError) AllErrors() []error { return m }
+
+// IngressServiceFollowChannelResponseValidationError is the validation error
+// returned by IngressServiceFollowChannelResponse.Validate if the designated
+// constraints aren't met.
+type IngressServiceFollowChannelResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceFollowChannelResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceFollowChannelResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceFollowChannelResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceFollowChannelResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceFollowChannelResponseValidationError) ErrorName() string {
+	return "IngressServiceFollowChannelResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceFollowChannelResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceFollowChannelResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceFollowChannelResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceFollowChannelResponseValidationError{}
+
+// Validate checks the field values on
+// IngressServiceRequestFollowChannelRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *IngressServiceRequestFollowChannelRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// IngressServiceRequestFollowChannelRequest with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// IngressServiceRequestFollowChannelRequestMultiError, or nil if none found.
+func (m *IngressServiceRequestFollowChannelRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceRequestFollowChannelRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceRequestFollowChannelRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceRequestFollowChannelRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// IngressServiceRequestFollowChannelRequest.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceRequestFollowChannelRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceRequestFollowChannelRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceRequestFollowChannelRequestMultiError) AllErrors() []error { return m }
+
+// IngressServiceRequestFollowChannelRequestValidationError is the validation
+// error returned by IngressServiceRequestFollowChannelRequest.Validate if the
+// designated constraints aren't met.
+type IngressServiceRequestFollowChannelRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceRequestFollowChannelRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceRequestFollowChannelRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceRequestFollowChannelRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceRequestFollowChannelRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceRequestFollowChannelRequestValidationError) ErrorName() string {
+	return "IngressServiceRequestFollowChannelRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceRequestFollowChannelRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceRequestFollowChannelRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceRequestFollowChannelRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceRequestFollowChannelRequestValidationError{}
+
+// Validate checks the field values on
+// IngressServiceRequestFollowChannelResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *IngressServiceRequestFollowChannelResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// IngressServiceRequestFollowChannelResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// IngressServiceRequestFollowChannelResponseMultiError, or nil if none found.
+func (m *IngressServiceRequestFollowChannelResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceRequestFollowChannelResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceRequestFollowChannelResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceRequestFollowChannelResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// IngressServiceRequestFollowChannelResponse.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceRequestFollowChannelResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceRequestFollowChannelResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceRequestFollowChannelResponseMultiError) AllErrors() []error { return m }
+
+// IngressServiceRequestFollowChannelResponseValidationError is the validation
+// error returned by IngressServiceRequestFollowChannelResponse.Validate if
+// the designated constraints aren't met.
+type IngressServiceRequestFollowChannelResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceRequestFollowChannelResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceRequestFollowChannelResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceRequestFollowChannelResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceRequestFollowChannelResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceRequestFollowChannelResponseValidationError) ErrorName() string {
+	return "IngressServiceRequestFollowChannelResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceRequestFollowChannelResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceRequestFollowChannelResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceRequestFollowChannelResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceRequestFollowChannelResponseValidationError{}
+
+// Validate checks the field values on IngressServiceInviteToChannelRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *IngressServiceInviteToChannelRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on IngressServiceInviteToChannelRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// IngressServiceInviteToChannelRequestMultiError, or nil if none found.
+func (m *IngressServiceInviteToChannelRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceInviteToChannelRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceInviteToChannelRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceInviteToChannelRequestMultiError is an error wrapping multiple
+// validation errors returned by
+// IngressServiceInviteToChannelRequest.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceInviteToChannelRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceInviteToChannelRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceInviteToChannelRequestMultiError) AllErrors() []error { return m }
+
+// IngressServiceInviteToChannelRequestValidationError is the validation error
+// returned by IngressServiceInviteToChannelRequest.Validate if the designated
+// constraints aren't met.
+type IngressServiceInviteToChannelRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceInviteToChannelRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceInviteToChannelRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceInviteToChannelRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceInviteToChannelRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceInviteToChannelRequestValidationError) ErrorName() string {
+	return "IngressServiceInviteToChannelRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceInviteToChannelRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceInviteToChannelRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceInviteToChannelRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceInviteToChannelRequestValidationError{}
+
+// Validate checks the field values on IngressServiceInviteToChannelResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *IngressServiceInviteToChannelResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on IngressServiceInviteToChannelResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the result is a list of violation errors wrapped in
+// IngressServiceInviteToChannelResponseMultiError, or nil if none found.
+func (m *IngressServiceInviteToChannelResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceInviteToChannelResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceInviteToChannelResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceInviteToChannelResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// IngressServiceInviteToChannelResponse.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceInviteToChannelResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceInviteToChannelResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceInviteToChannelResponseMultiError) AllErrors() []error { return m }
+
+// IngressServiceInviteToChannelResponseValidationError is the validation error
+// returned by IngressServiceInviteToChannelResponse.Validate if the
+// designated constraints aren't met.
+type IngressServiceInviteToChannelResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceInviteToChannelResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceInviteToChannelResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceInviteToChannelResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceInviteToChannelResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceInviteToChannelResponseValidationError) ErrorName() string {
+	return "IngressServiceInviteToChannelResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceInviteToChannelResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceInviteToChannelResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceInviteToChannelResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceInviteToChannelResponseValidationError{}
+
+// Validate checks the field values on IngressServiceReactOnPublicationRequest
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *IngressServiceReactOnPublicationRequest) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// IngressServiceReactOnPublicationRequest with the rules defined in the proto
+// definition for this message. If any rules are violated, the result is a
+// list of violation errors wrapped in
+// IngressServiceReactOnPublicationRequestMultiError, or nil if none found.
+func (m *IngressServiceReactOnPublicationRequest) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceReactOnPublicationRequest) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceReactOnPublicationRequestMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceReactOnPublicationRequestMultiError is an error wrapping
+// multiple validation errors returned by
+// IngressServiceReactOnPublicationRequest.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceReactOnPublicationRequestMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceReactOnPublicationRequestMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceReactOnPublicationRequestMultiError) AllErrors() []error { return m }
+
+// IngressServiceReactOnPublicationRequestValidationError is the validation
+// error returned by IngressServiceReactOnPublicationRequest.Validate if the
+// designated constraints aren't met.
+type IngressServiceReactOnPublicationRequestValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceReactOnPublicationRequestValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceReactOnPublicationRequestValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceReactOnPublicationRequestValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceReactOnPublicationRequestValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceReactOnPublicationRequestValidationError) ErrorName() string {
+	return "IngressServiceReactOnPublicationRequestValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceReactOnPublicationRequestValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceReactOnPublicationRequest.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceReactOnPublicationRequestValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceReactOnPublicationRequestValidationError{}
+
+// Validate checks the field values on IngressServiceReactOnPublicationResponse
+// with the rules defined in the proto definition for this message. If any
+// rules are violated, the first error encountered is returned, or nil if
+// there are no violations.
+func (m *IngressServiceReactOnPublicationResponse) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on
+// IngressServiceReactOnPublicationResponse with the rules defined in the
+// proto definition for this message. If any rules are violated, the result is
+// a list of violation errors wrapped in
+// IngressServiceReactOnPublicationResponseMultiError, or nil if none found.
+func (m *IngressServiceReactOnPublicationResponse) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *IngressServiceReactOnPublicationResponse) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return IngressServiceReactOnPublicationResponseMultiError(errors)
+	}
+
+	return nil
+}
+
+// IngressServiceReactOnPublicationResponseMultiError is an error wrapping
+// multiple validation errors returned by
+// IngressServiceReactOnPublicationResponse.ValidateAll() if the designated
+// constraints aren't met.
+type IngressServiceReactOnPublicationResponseMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m IngressServiceReactOnPublicationResponseMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m IngressServiceReactOnPublicationResponseMultiError) AllErrors() []error { return m }
+
+// IngressServiceReactOnPublicationResponseValidationError is the validation
+// error returned by IngressServiceReactOnPublicationResponse.Validate if the
+// designated constraints aren't met.
+type IngressServiceReactOnPublicationResponseValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e IngressServiceReactOnPublicationResponseValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e IngressServiceReactOnPublicationResponseValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e IngressServiceReactOnPublicationResponseValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e IngressServiceReactOnPublicationResponseValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e IngressServiceReactOnPublicationResponseValidationError) ErrorName() string {
+	return "IngressServiceReactOnPublicationResponseValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e IngressServiceReactOnPublicationResponseValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sIngressServiceReactOnPublicationResponse.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = IngressServiceReactOnPublicationResponseValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = IngressServiceReactOnPublicationResponseValidationError{}
