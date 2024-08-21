@@ -156,6 +156,7 @@ message NetworkWardenServiceGetPersonalDataNodesListRequest {
 
 message NetworkWardenServiceGetPersonalDataNodesListResponse {
   repeated networkwarden.v1.PersonalDataNode data = 1;
+  int64 total = 2;
 }
 
 message NetworkWardenServiceJoinPersonalDataNodeRegistrationWaitlistRequest {
@@ -208,6 +209,7 @@ message NetworkWardenServiceGetNetworkNodesListRequest {
 
 message NetworkWardenServiceGetNetworkNodesListResponse {
   repeated networkwarden.v1.NetworkNode data = 1;
+  int64 total = 2;
 }
 
 message NetworkWardenServiceJoinNetworkNodeRegistrationWaitlistRequest {
@@ -258,6 +260,7 @@ message NetworkWardenServiceGetNetworkWardensListRequest {
 
 message NetworkWardenServiceGetNetworkWardensListResponse {
   repeated networkwarden.v1.NetworkWarden data = 1;
+  int64 total = 2;
 }
 
 message NetworkWardenServiceRegisterNetworkWardenRequest {

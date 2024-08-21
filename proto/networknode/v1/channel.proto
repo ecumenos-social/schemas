@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package networknode.v1;
+
+option go_package = "github.com/ecumenos-social/schemas/proto/gen/networknode/v1";
+
+message Channel {
+  enum Privacy {
+    PRIVACY_UNKNOWN_UNSPECIFIED = 0;
+    PRIVACY_PUBLIC = 1;
+    PRIVACY_PRIVATE = 2;
+  }
+
+  string id = 1;
+  string created_at = 2;
+  optional string last_modified_at = 3;
+  string name = 4;
+  optional string name_language = 5;
+  string description = 6;
+  optional string description_language = 7;
+  string profile_image_url = 8;
+  string header_image_url = 9;
+  bool is_anonymous = 10;
+  Privacy privacy = 11;
+  optional int64 owner_account_id = 12;
+}

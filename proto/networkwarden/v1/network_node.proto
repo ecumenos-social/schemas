@@ -17,7 +17,7 @@ message NetworkNode {
 
   string id = 1;
   string created_at = 2;
-  string last_modified_at = 3;
+  optional string last_modified_at = 3;
   string nw_id = 4;
   string name = 5;
   string domain_name = 6;

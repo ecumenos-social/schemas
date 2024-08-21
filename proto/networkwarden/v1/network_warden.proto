@@ -10,7 +10,7 @@ import "common/v1/rate_limit.proto";
 message NetworkWarden {
   string id = 1;
   string created_at = 2;
-  string last_modified_at = 3;
+  optional string last_modified_at = 3;
   int64 id_gen_node = 4;
   string name = 5;
   string description = 6;

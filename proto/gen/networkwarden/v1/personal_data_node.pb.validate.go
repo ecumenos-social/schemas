@@ -61,8 +61,6 @@ func (m *PersonalDataNode) validate(all bool) error {
 
 	// no validation rules for CreatedAt
 
-	// no validation rules for LastModifiedAt
-
 	// no validation rules for NwId
 
 	// no validation rules for Address
@@ -179,6 +177,10 @@ func (m *PersonalDataNode) validate(all bool) error {
 	// no validation rules for IdGenNode
 
 	// no validation rules for Status
+
+	if m.LastModifiedAt != nil {
+		// no validation rules for LastModifiedAt
+	}
 
 	if len(errors) > 0 {
 		return PersonalDataNodeMultiError(errors)

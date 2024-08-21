@@ -61,8 +61,6 @@ func (m *NetworkNode) validate(all bool) error {
 
 	// no validation rules for CreatedAt
 
-	// no validation rules for LastModifiedAt
-
 	// no validation rules for NwId
 
 	// no validation rules for Name
@@ -142,6 +140,10 @@ func (m *NetworkNode) validate(all bool) error {
 	}
 
 	// no validation rules for Status
+
+	if m.LastModifiedAt != nil {
+		// no validation rules for LastModifiedAt
+	}
 
 	if m.Location != nil {
 

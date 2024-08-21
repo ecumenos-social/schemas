@@ -7,7 +7,10 @@
 package v1
 
 import (
+	context "context"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -15,10 +18,29 @@ import (
 // Requires gRPC-Go v1.64.0 or later.
 const _ = grpc.SupportPackageIsVersion9
 
+const (
+	ApiGatewayService_GetGroups_FullMethodName              = "/networknode.v1.ApiGatewayService/GetGroups"
+	ApiGatewayService_GetGroupByID_FullMethodName           = "/networknode.v1.ApiGatewayService/GetGroupByID"
+	ApiGatewayService_GetGroupPublications_FullMethodName   = "/networknode.v1.ApiGatewayService/GetGroupPublications"
+	ApiGatewayService_GetChannels_FullMethodName            = "/networknode.v1.ApiGatewayService/GetChannels"
+	ApiGatewayService_GetChannelByID_FullMethodName         = "/networknode.v1.ApiGatewayService/GetChannelByID"
+	ApiGatewayService_GetChannelPublications_FullMethodName = "/networknode.v1.ApiGatewayService/GetChannelPublications"
+	ApiGatewayService_GetPublicationByID_FullMethodName     = "/networknode.v1.ApiGatewayService/GetPublicationByID"
+	ApiGatewayService_GetFeed_FullMethodName                = "/networknode.v1.ApiGatewayService/GetFeed"
+)
+
 // ApiGatewayServiceClient is the client API for ApiGatewayService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ApiGatewayServiceClient interface {
+	GetGroups(ctx context.Context, in *ApiGatewayServiceGetGroupsRequest, opts ...grpc.CallOption) (*ApiGatewayServiceGetGroupsResponse, error)
+	GetGroupByID(ctx context.Context, in *ApiGatewayServiceGetGroupByIDRequest, opts ...grpc.CallOption) (*ApiGatewayServiceGetGroupByIDResponse, error)
+	GetGroupPublications(ctx context.Context, in *ApiGatewayServiceGetGroupPublicationsRequest, opts ...grpc.CallOption) (*ApiGatewayServiceGetGroupPublicationsResponse, error)
+	GetChannels(ctx context.Context, in *ApiGatewayServiceGetChannelsRequest, opts ...grpc.CallOption) (*ApiGatewayServiceGetChannelsResponse, error)
+	GetChannelByID(ctx context.Context, in *ApiGatewayServiceGetChannelByIDRequest, opts ...grpc.CallOption) (*ApiGatewayServiceGetChannelByIDResponse, error)
+	GetChannelPublications(ctx context.Context, in *ApiGatewayServiceGetChannelPublicationsRequest, opts ...grpc.CallOption) (*ApiGatewayServiceGetChannelPublicationsResponse, error)
+	GetPublicationByID(ctx context.Context, in *ApiGatewayServiceGetPublicationByIDRequest, opts ...grpc.CallOption) (*ApiGatewayServiceGetPublicationByIDResponse, error)
+	GetFeed(ctx context.Context, in *ApiGatewayServiceGetFeedRequest, opts ...grpc.CallOption) (*ApiGatewayServiceGetFeedResponse, error)
 }
 
 type apiGatewayServiceClient struct {
@@ -29,10 +51,98 @@ func NewApiGatewayServiceClient(cc grpc.ClientConnInterface) ApiGatewayServiceCl
 	return &apiGatewayServiceClient{cc}
 }
 
+func (c *apiGatewayServiceClient) GetGroups(ctx context.Context, in *ApiGatewayServiceGetGroupsRequest, opts ...grpc.CallOption) (*ApiGatewayServiceGetGroupsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ApiGatewayServiceGetGroupsResponse)
+	err := c.cc.Invoke(ctx, ApiGatewayService_GetGroups_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *apiGatewayServiceClient) GetGroupByID(ctx context.Context, in *ApiGatewayServiceGetGroupByIDRequest, opts ...grpc.CallOption) (*ApiGatewayServiceGetGroupByIDResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ApiGatewayServiceGetGroupByIDResponse)
+	err := c.cc.Invoke(ctx, ApiGatewayService_GetGroupByID_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *apiGatewayServiceClient) GetGroupPublications(ctx context.Context, in *ApiGatewayServiceGetGroupPublicationsRequest, opts ...grpc.CallOption) (*ApiGatewayServiceGetGroupPublicationsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ApiGatewayServiceGetGroupPublicationsResponse)
+	err := c.cc.Invoke(ctx, ApiGatewayService_GetGroupPublications_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *apiGatewayServiceClient) GetChannels(ctx context.Context, in *ApiGatewayServiceGetChannelsRequest, opts ...grpc.CallOption) (*ApiGatewayServiceGetChannelsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ApiGatewayServiceGetChannelsResponse)
+	err := c.cc.Invoke(ctx, ApiGatewayService_GetChannels_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *apiGatewayServiceClient) GetChannelByID(ctx context.Context, in *ApiGatewayServiceGetChannelByIDRequest, opts ...grpc.CallOption) (*ApiGatewayServiceGetChannelByIDResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ApiGatewayServiceGetChannelByIDResponse)
+	err := c.cc.Invoke(ctx, ApiGatewayService_GetChannelByID_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *apiGatewayServiceClient) GetChannelPublications(ctx context.Context, in *ApiGatewayServiceGetChannelPublicationsRequest, opts ...grpc.CallOption) (*ApiGatewayServiceGetChannelPublicationsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ApiGatewayServiceGetChannelPublicationsResponse)
+	err := c.cc.Invoke(ctx, ApiGatewayService_GetChannelPublications_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *apiGatewayServiceClient) GetPublicationByID(ctx context.Context, in *ApiGatewayServiceGetPublicationByIDRequest, opts ...grpc.CallOption) (*ApiGatewayServiceGetPublicationByIDResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ApiGatewayServiceGetPublicationByIDResponse)
+	err := c.cc.Invoke(ctx, ApiGatewayService_GetPublicationByID_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *apiGatewayServiceClient) GetFeed(ctx context.Context, in *ApiGatewayServiceGetFeedRequest, opts ...grpc.CallOption) (*ApiGatewayServiceGetFeedResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ApiGatewayServiceGetFeedResponse)
+	err := c.cc.Invoke(ctx, ApiGatewayService_GetFeed_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ApiGatewayServiceServer is the server API for ApiGatewayService service.
 // All implementations must embed UnimplementedApiGatewayServiceServer
 // for forward compatibility.
 type ApiGatewayServiceServer interface {
+	GetGroups(context.Context, *ApiGatewayServiceGetGroupsRequest) (*ApiGatewayServiceGetGroupsResponse, error)
+	GetGroupByID(context.Context, *ApiGatewayServiceGetGroupByIDRequest) (*ApiGatewayServiceGetGroupByIDResponse, error)
+	GetGroupPublications(context.Context, *ApiGatewayServiceGetGroupPublicationsRequest) (*ApiGatewayServiceGetGroupPublicationsResponse, error)
+	GetChannels(context.Context, *ApiGatewayServiceGetChannelsRequest) (*ApiGatewayServiceGetChannelsResponse, error)
+	GetChannelByID(context.Context, *ApiGatewayServiceGetChannelByIDRequest) (*ApiGatewayServiceGetChannelByIDResponse, error)
+	GetChannelPublications(context.Context, *ApiGatewayServiceGetChannelPublicationsRequest) (*ApiGatewayServiceGetChannelPublicationsResponse, error)
+	GetPublicationByID(context.Context, *ApiGatewayServiceGetPublicationByIDRequest) (*ApiGatewayServiceGetPublicationByIDResponse, error)
+	GetFeed(context.Context, *ApiGatewayServiceGetFeedRequest) (*ApiGatewayServiceGetFeedResponse, error)
 	mustEmbedUnimplementedApiGatewayServiceServer()
 }
 
@@ -43,6 +153,30 @@ type ApiGatewayServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedApiGatewayServiceServer struct{}
 
+func (UnimplementedApiGatewayServiceServer) GetGroups(context.Context, *ApiGatewayServiceGetGroupsRequest) (*ApiGatewayServiceGetGroupsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetGroups not implemented")
+}
+func (UnimplementedApiGatewayServiceServer) GetGroupByID(context.Context, *ApiGatewayServiceGetGroupByIDRequest) (*ApiGatewayServiceGetGroupByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetGroupByID not implemented")
+}
+func (UnimplementedApiGatewayServiceServer) GetGroupPublications(context.Context, *ApiGatewayServiceGetGroupPublicationsRequest) (*ApiGatewayServiceGetGroupPublicationsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetGroupPublications not implemented")
+}
+func (UnimplementedApiGatewayServiceServer) GetChannels(context.Context, *ApiGatewayServiceGetChannelsRequest) (*ApiGatewayServiceGetChannelsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetChannels not implemented")
+}
+func (UnimplementedApiGatewayServiceServer) GetChannelByID(context.Context, *ApiGatewayServiceGetChannelByIDRequest) (*ApiGatewayServiceGetChannelByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetChannelByID not implemented")
+}
+func (UnimplementedApiGatewayServiceServer) GetChannelPublications(context.Context, *ApiGatewayServiceGetChannelPublicationsRequest) (*ApiGatewayServiceGetChannelPublicationsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetChannelPublications not implemented")
+}
+func (UnimplementedApiGatewayServiceServer) GetPublicationByID(context.Context, *ApiGatewayServiceGetPublicationByIDRequest) (*ApiGatewayServiceGetPublicationByIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPublicationByID not implemented")
+}
+func (UnimplementedApiGatewayServiceServer) GetFeed(context.Context, *ApiGatewayServiceGetFeedRequest) (*ApiGatewayServiceGetFeedResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetFeed not implemented")
+}
 func (UnimplementedApiGatewayServiceServer) mustEmbedUnimplementedApiGatewayServiceServer() {}
 func (UnimplementedApiGatewayServiceServer) testEmbeddedByValue()                           {}
 
@@ -64,13 +198,190 @@ func RegisterApiGatewayServiceServer(s grpc.ServiceRegistrar, srv ApiGatewayServ
 	s.RegisterService(&ApiGatewayService_ServiceDesc, srv)
 }
 
+func _ApiGatewayService_GetGroups_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApiGatewayServiceGetGroupsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiGatewayServiceServer).GetGroups(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ApiGatewayService_GetGroups_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiGatewayServiceServer).GetGroups(ctx, req.(*ApiGatewayServiceGetGroupsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ApiGatewayService_GetGroupByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApiGatewayServiceGetGroupByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiGatewayServiceServer).GetGroupByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ApiGatewayService_GetGroupByID_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiGatewayServiceServer).GetGroupByID(ctx, req.(*ApiGatewayServiceGetGroupByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ApiGatewayService_GetGroupPublications_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApiGatewayServiceGetGroupPublicationsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiGatewayServiceServer).GetGroupPublications(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ApiGatewayService_GetGroupPublications_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiGatewayServiceServer).GetGroupPublications(ctx, req.(*ApiGatewayServiceGetGroupPublicationsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ApiGatewayService_GetChannels_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApiGatewayServiceGetChannelsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiGatewayServiceServer).GetChannels(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ApiGatewayService_GetChannels_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiGatewayServiceServer).GetChannels(ctx, req.(*ApiGatewayServiceGetChannelsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ApiGatewayService_GetChannelByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApiGatewayServiceGetChannelByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiGatewayServiceServer).GetChannelByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ApiGatewayService_GetChannelByID_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiGatewayServiceServer).GetChannelByID(ctx, req.(*ApiGatewayServiceGetChannelByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ApiGatewayService_GetChannelPublications_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApiGatewayServiceGetChannelPublicationsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiGatewayServiceServer).GetChannelPublications(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ApiGatewayService_GetChannelPublications_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiGatewayServiceServer).GetChannelPublications(ctx, req.(*ApiGatewayServiceGetChannelPublicationsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ApiGatewayService_GetPublicationByID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApiGatewayServiceGetPublicationByIDRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiGatewayServiceServer).GetPublicationByID(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ApiGatewayService_GetPublicationByID_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiGatewayServiceServer).GetPublicationByID(ctx, req.(*ApiGatewayServiceGetPublicationByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ApiGatewayService_GetFeed_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApiGatewayServiceGetFeedRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ApiGatewayServiceServer).GetFeed(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ApiGatewayService_GetFeed_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ApiGatewayServiceServer).GetFeed(ctx, req.(*ApiGatewayServiceGetFeedRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ApiGatewayService_ServiceDesc is the grpc.ServiceDesc for ApiGatewayService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var ApiGatewayService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "networknode.v1.ApiGatewayService",
 	HandlerType: (*ApiGatewayServiceServer)(nil),
-	Methods:     []grpc.MethodDesc{},
-	Streams:     []grpc.StreamDesc{},
-	Metadata:    "networknode/v1/api_gateway_service.proto",
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GetGroups",
+			Handler:    _ApiGatewayService_GetGroups_Handler,
+		},
+		{
+			MethodName: "GetGroupByID",
+			Handler:    _ApiGatewayService_GetGroupByID_Handler,
+		},
+		{
+			MethodName: "GetGroupPublications",
+			Handler:    _ApiGatewayService_GetGroupPublications_Handler,
+		},
+		{
+			MethodName: "GetChannels",
+			Handler:    _ApiGatewayService_GetChannels_Handler,
+		},
+		{
+			MethodName: "GetChannelByID",
+			Handler:    _ApiGatewayService_GetChannelByID_Handler,
+		},
+		{
+			MethodName: "GetChannelPublications",
+			Handler:    _ApiGatewayService_GetChannelPublications_Handler,
+		},
+		{
+			MethodName: "GetPublicationByID",
+			Handler:    _ApiGatewayService_GetPublicationByID_Handler,
+		},
+		{
+			MethodName: "GetFeed",
+			Handler:    _ApiGatewayService_GetFeed_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "networknode/v1/api_gateway_service.proto",
 }
