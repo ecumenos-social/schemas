@@ -7,7 +7,10 @@
 package v1
 
 import (
+	context "context"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -15,10 +18,21 @@ import (
 // Requires gRPC-Go v1.64.0 or later.
 const _ = grpc.SupportPackageIsVersion9
 
+const (
+	AdminService_LoginAdmin_FullMethodName          = "/personaldatanode.v1.AdminService/LoginAdmin"
+	AdminService_RefreshAdminToken_FullMethodName   = "/personaldatanode.v1.AdminService/RefreshAdminToken"
+	AdminService_LogoutAdmin_FullMethodName         = "/personaldatanode.v1.AdminService/LogoutAdmin"
+	AdminService_ChangeAdminPassword_FullMethodName = "/personaldatanode.v1.AdminService/ChangeAdminPassword"
+)
+
 // AdminServiceClient is the client API for AdminService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AdminServiceClient interface {
+	LoginAdmin(ctx context.Context, in *AdminServiceLoginAdminRequest, opts ...grpc.CallOption) (*AdminServiceLoginAdminResponse, error)
+	RefreshAdminToken(ctx context.Context, in *AdminServiceRefreshAdminTokenRequest, opts ...grpc.CallOption) (*AdminServiceRefreshAdminTokenResponse, error)
+	LogoutAdmin(ctx context.Context, in *AdminServiceLogoutAdminRequest, opts ...grpc.CallOption) (*AdminServiceLogoutAdminResponse, error)
+	ChangeAdminPassword(ctx context.Context, in *AdminServiceChangeAdminPasswordRequest, opts ...grpc.CallOption) (*AdminServiceChangeAdminPasswordResponse, error)
 }
 
 type adminServiceClient struct {
@@ -29,10 +43,54 @@ func NewAdminServiceClient(cc grpc.ClientConnInterface) AdminServiceClient {
 	return &adminServiceClient{cc}
 }
 
+func (c *adminServiceClient) LoginAdmin(ctx context.Context, in *AdminServiceLoginAdminRequest, opts ...grpc.CallOption) (*AdminServiceLoginAdminResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AdminServiceLoginAdminResponse)
+	err := c.cc.Invoke(ctx, AdminService_LoginAdmin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminServiceClient) RefreshAdminToken(ctx context.Context, in *AdminServiceRefreshAdminTokenRequest, opts ...grpc.CallOption) (*AdminServiceRefreshAdminTokenResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AdminServiceRefreshAdminTokenResponse)
+	err := c.cc.Invoke(ctx, AdminService_RefreshAdminToken_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminServiceClient) LogoutAdmin(ctx context.Context, in *AdminServiceLogoutAdminRequest, opts ...grpc.CallOption) (*AdminServiceLogoutAdminResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AdminServiceLogoutAdminResponse)
+	err := c.cc.Invoke(ctx, AdminService_LogoutAdmin_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminServiceClient) ChangeAdminPassword(ctx context.Context, in *AdminServiceChangeAdminPasswordRequest, opts ...grpc.CallOption) (*AdminServiceChangeAdminPasswordResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AdminServiceChangeAdminPasswordResponse)
+	err := c.cc.Invoke(ctx, AdminService_ChangeAdminPassword_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AdminServiceServer is the server API for AdminService service.
 // All implementations must embed UnimplementedAdminServiceServer
 // for forward compatibility.
 type AdminServiceServer interface {
+	LoginAdmin(context.Context, *AdminServiceLoginAdminRequest) (*AdminServiceLoginAdminResponse, error)
+	RefreshAdminToken(context.Context, *AdminServiceRefreshAdminTokenRequest) (*AdminServiceRefreshAdminTokenResponse, error)
+	LogoutAdmin(context.Context, *AdminServiceLogoutAdminRequest) (*AdminServiceLogoutAdminResponse, error)
+	ChangeAdminPassword(context.Context, *AdminServiceChangeAdminPasswordRequest) (*AdminServiceChangeAdminPasswordResponse, error)
 	mustEmbedUnimplementedAdminServiceServer()
 }
 
@@ -43,6 +101,18 @@ type AdminServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedAdminServiceServer struct{}
 
+func (UnimplementedAdminServiceServer) LoginAdmin(context.Context, *AdminServiceLoginAdminRequest) (*AdminServiceLoginAdminResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LoginAdmin not implemented")
+}
+func (UnimplementedAdminServiceServer) RefreshAdminToken(context.Context, *AdminServiceRefreshAdminTokenRequest) (*AdminServiceRefreshAdminTokenResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RefreshAdminToken not implemented")
+}
+func (UnimplementedAdminServiceServer) LogoutAdmin(context.Context, *AdminServiceLogoutAdminRequest) (*AdminServiceLogoutAdminResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LogoutAdmin not implemented")
+}
+func (UnimplementedAdminServiceServer) ChangeAdminPassword(context.Context, *AdminServiceChangeAdminPasswordRequest) (*AdminServiceChangeAdminPasswordResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ChangeAdminPassword not implemented")
+}
 func (UnimplementedAdminServiceServer) mustEmbedUnimplementedAdminServiceServer() {}
 func (UnimplementedAdminServiceServer) testEmbeddedByValue()                      {}
 
@@ -64,13 +134,102 @@ func RegisterAdminServiceServer(s grpc.ServiceRegistrar, srv AdminServiceServer)
 	s.RegisterService(&AdminService_ServiceDesc, srv)
 }
 
+func _AdminService_LoginAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AdminServiceLoginAdminRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServiceServer).LoginAdmin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdminService_LoginAdmin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServiceServer).LoginAdmin(ctx, req.(*AdminServiceLoginAdminRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdminService_RefreshAdminToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AdminServiceRefreshAdminTokenRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServiceServer).RefreshAdminToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdminService_RefreshAdminToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServiceServer).RefreshAdminToken(ctx, req.(*AdminServiceRefreshAdminTokenRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdminService_LogoutAdmin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AdminServiceLogoutAdminRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServiceServer).LogoutAdmin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdminService_LogoutAdmin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServiceServer).LogoutAdmin(ctx, req.(*AdminServiceLogoutAdminRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AdminService_ChangeAdminPassword_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AdminServiceChangeAdminPasswordRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServiceServer).ChangeAdminPassword(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: AdminService_ChangeAdminPassword_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServiceServer).ChangeAdminPassword(ctx, req.(*AdminServiceChangeAdminPasswordRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // AdminService_ServiceDesc is the grpc.ServiceDesc for AdminService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var AdminService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "personaldatanode.v1.AdminService",
 	HandlerType: (*AdminServiceServer)(nil),
-	Methods:     []grpc.MethodDesc{},
-	Streams:     []grpc.StreamDesc{},
-	Metadata:    "personaldatanode/v1/admin_service.proto",
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "LoginAdmin",
+			Handler:    _AdminService_LoginAdmin_Handler,
+		},
+		{
+			MethodName: "RefreshAdminToken",
+			Handler:    _AdminService_RefreshAdminToken_Handler,
+		},
+		{
+			MethodName: "LogoutAdmin",
+			Handler:    _AdminService_LogoutAdmin_Handler,
+		},
+		{
+			MethodName: "ChangeAdminPassword",
+			Handler:    _AdminService_ChangeAdminPassword_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "personaldatanode/v1/admin_service.proto",
 }

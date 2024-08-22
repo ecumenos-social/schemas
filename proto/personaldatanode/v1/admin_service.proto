@@ -4,4 +4,51 @@ package personaldatanode.v1;
 
 option go_package = "github.com/ecumenos-social/schemas/proto/gen/personaldatanode/v1";
 
-service AdminService {}
+message AdminServiceLoginAdminRequest {
+  string remote_mac_address = 1;
+  string email = 2;
+  string phone_number = 3;
+  string password = 4;
+}
+
+message AdminServiceLoginAdminResponse {
+  string token = 1;
+  string refresh_token = 2;
+}
+
+message AdminServiceRefreshAdminTokenRequest {
+  string remote_mac_address = 1;
+  string refresh_token = 2;
+}
+
+message AdminServiceRefreshAdminTokenResponse {
+  string token = 1;
+  string refresh_token = 2;
+}
+
+message AdminServiceLogoutAdminRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+}
+
+message AdminServiceLogoutAdminResponse {
+  bool success = 1;
+}
+
+message AdminServiceChangeAdminPasswordRequest {
+  string remote_mac_address = 1;
+  string token = 2;
+  string password = 3;
+  string new_password = 4;
+}
+
+message AdminServiceChangeAdminPasswordResponse {
+  bool success = 1;
+}
+
+service AdminService {
+  rpc LoginAdmin(AdminServiceLoginAdminRequest) returns (AdminServiceLoginAdminResponse);
+  rpc RefreshAdminToken(AdminServiceRefreshAdminTokenRequest) returns (AdminServiceRefreshAdminTokenResponse);
+  rpc LogoutAdmin(AdminServiceLogoutAdminRequest) returns (AdminServiceLogoutAdminResponse);
+  rpc ChangeAdminPassword(AdminServiceChangeAdminPasswordRequest) returns (AdminServiceChangeAdminPasswordResponse);
+}
