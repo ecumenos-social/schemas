@@ -7,7 +7,10 @@
 package v1
 
 import (
+	context "context"
 	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -15,10 +18,21 @@ import (
 // Requires gRPC-Go v1.64.0 or later.
 const _ = grpc.SupportPackageIsVersion9
 
+const (
+	BlockchainPeerService_CreateTransaction_FullMethodName = "/networknode.v1.BlockchainPeerService/CreateTransaction"
+	BlockchainPeerService_Validate_FullMethodName          = "/networknode.v1.BlockchainPeerService/Validate"
+	BlockchainPeerService_GetBlocks_FullMethodName         = "/networknode.v1.BlockchainPeerService/GetBlocks"
+	BlockchainPeerService_GetEntities_FullMethodName       = "/networknode.v1.BlockchainPeerService/GetEntities"
+)
+
 // BlockchainPeerServiceClient is the client API for BlockchainPeerService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type BlockchainPeerServiceClient interface {
+	CreateTransaction(ctx context.Context, in *BlockchainPeerServiceCreateTransactionRequest, opts ...grpc.CallOption) (*BlockchainPeerServiceCreateTransactionResponse, error)
+	Validate(ctx context.Context, in *BlockchainPeerServiceValidateRequest, opts ...grpc.CallOption) (*BlockchainPeerServiceValidateResponse, error)
+	GetBlocks(ctx context.Context, in *BlockchainPeerServiceGetBlocksRequest, opts ...grpc.CallOption) (*BlockchainPeerServiceGetBlocksResponse, error)
+	GetEntities(ctx context.Context, in *BlockchainPeerServiceGetEntitiesRequest, opts ...grpc.CallOption) (*BlockchainPeerServiceGetEntitiesResponse, error)
 }
 
 type blockchainPeerServiceClient struct {
@@ -29,10 +43,54 @@ func NewBlockchainPeerServiceClient(cc grpc.ClientConnInterface) BlockchainPeerS
 	return &blockchainPeerServiceClient{cc}
 }
 
+func (c *blockchainPeerServiceClient) CreateTransaction(ctx context.Context, in *BlockchainPeerServiceCreateTransactionRequest, opts ...grpc.CallOption) (*BlockchainPeerServiceCreateTransactionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BlockchainPeerServiceCreateTransactionResponse)
+	err := c.cc.Invoke(ctx, BlockchainPeerService_CreateTransaction_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *blockchainPeerServiceClient) Validate(ctx context.Context, in *BlockchainPeerServiceValidateRequest, opts ...grpc.CallOption) (*BlockchainPeerServiceValidateResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BlockchainPeerServiceValidateResponse)
+	err := c.cc.Invoke(ctx, BlockchainPeerService_Validate_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *blockchainPeerServiceClient) GetBlocks(ctx context.Context, in *BlockchainPeerServiceGetBlocksRequest, opts ...grpc.CallOption) (*BlockchainPeerServiceGetBlocksResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BlockchainPeerServiceGetBlocksResponse)
+	err := c.cc.Invoke(ctx, BlockchainPeerService_GetBlocks_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *blockchainPeerServiceClient) GetEntities(ctx context.Context, in *BlockchainPeerServiceGetEntitiesRequest, opts ...grpc.CallOption) (*BlockchainPeerServiceGetEntitiesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BlockchainPeerServiceGetEntitiesResponse)
+	err := c.cc.Invoke(ctx, BlockchainPeerService_GetEntities_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // BlockchainPeerServiceServer is the server API for BlockchainPeerService service.
 // All implementations must embed UnimplementedBlockchainPeerServiceServer
 // for forward compatibility.
 type BlockchainPeerServiceServer interface {
+	CreateTransaction(context.Context, *BlockchainPeerServiceCreateTransactionRequest) (*BlockchainPeerServiceCreateTransactionResponse, error)
+	Validate(context.Context, *BlockchainPeerServiceValidateRequest) (*BlockchainPeerServiceValidateResponse, error)
+	GetBlocks(context.Context, *BlockchainPeerServiceGetBlocksRequest) (*BlockchainPeerServiceGetBlocksResponse, error)
+	GetEntities(context.Context, *BlockchainPeerServiceGetEntitiesRequest) (*BlockchainPeerServiceGetEntitiesResponse, error)
 	mustEmbedUnimplementedBlockchainPeerServiceServer()
 }
 
@@ -43,6 +101,18 @@ type BlockchainPeerServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedBlockchainPeerServiceServer struct{}
 
+func (UnimplementedBlockchainPeerServiceServer) CreateTransaction(context.Context, *BlockchainPeerServiceCreateTransactionRequest) (*BlockchainPeerServiceCreateTransactionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateTransaction not implemented")
+}
+func (UnimplementedBlockchainPeerServiceServer) Validate(context.Context, *BlockchainPeerServiceValidateRequest) (*BlockchainPeerServiceValidateResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Validate not implemented")
+}
+func (UnimplementedBlockchainPeerServiceServer) GetBlocks(context.Context, *BlockchainPeerServiceGetBlocksRequest) (*BlockchainPeerServiceGetBlocksResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetBlocks not implemented")
+}
+func (UnimplementedBlockchainPeerServiceServer) GetEntities(context.Context, *BlockchainPeerServiceGetEntitiesRequest) (*BlockchainPeerServiceGetEntitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetEntities not implemented")
+}
 func (UnimplementedBlockchainPeerServiceServer) mustEmbedUnimplementedBlockchainPeerServiceServer() {}
 func (UnimplementedBlockchainPeerServiceServer) testEmbeddedByValue()                               {}
 
@@ -64,13 +134,102 @@ func RegisterBlockchainPeerServiceServer(s grpc.ServiceRegistrar, srv Blockchain
 	s.RegisterService(&BlockchainPeerService_ServiceDesc, srv)
 }
 
+func _BlockchainPeerService_CreateTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BlockchainPeerServiceCreateTransactionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BlockchainPeerServiceServer).CreateTransaction(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BlockchainPeerService_CreateTransaction_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BlockchainPeerServiceServer).CreateTransaction(ctx, req.(*BlockchainPeerServiceCreateTransactionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BlockchainPeerService_Validate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BlockchainPeerServiceValidateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BlockchainPeerServiceServer).Validate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BlockchainPeerService_Validate_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BlockchainPeerServiceServer).Validate(ctx, req.(*BlockchainPeerServiceValidateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BlockchainPeerService_GetBlocks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BlockchainPeerServiceGetBlocksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BlockchainPeerServiceServer).GetBlocks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BlockchainPeerService_GetBlocks_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BlockchainPeerServiceServer).GetBlocks(ctx, req.(*BlockchainPeerServiceGetBlocksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BlockchainPeerService_GetEntities_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BlockchainPeerServiceGetEntitiesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BlockchainPeerServiceServer).GetEntities(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BlockchainPeerService_GetEntities_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BlockchainPeerServiceServer).GetEntities(ctx, req.(*BlockchainPeerServiceGetEntitiesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // BlockchainPeerService_ServiceDesc is the grpc.ServiceDesc for BlockchainPeerService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var BlockchainPeerService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "networknode.v1.BlockchainPeerService",
 	HandlerType: (*BlockchainPeerServiceServer)(nil),
-	Methods:     []grpc.MethodDesc{},
-	Streams:     []grpc.StreamDesc{},
-	Metadata:    "networknode/v1/blockchain_peer_service.proto",
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "CreateTransaction",
+			Handler:    _BlockchainPeerService_CreateTransaction_Handler,
+		},
+		{
+			MethodName: "Validate",
+			Handler:    _BlockchainPeerService_Validate_Handler,
+		},
+		{
+			MethodName: "GetBlocks",
+			Handler:    _BlockchainPeerService_GetBlocks_Handler,
+		},
+		{
+			MethodName: "GetEntities",
+			Handler:    _BlockchainPeerService_GetEntities_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "networknode/v1/blockchain_peer_service.proto",
 }

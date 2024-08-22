@@ -4,4 +4,51 @@ package networknode.v1;
 
 option go_package = "github.com/ecumenos-social/schemas/proto/gen/networknode/v1";
 
-service BlockchainPeerService {}
+import "common/v1/pagination.proto";
+import "networknode/v1/blockchain_block.proto";
+import "networknode/v1/blockchain_entity.proto";
+import "networknode/v1/blockchain_transaction.proto";
+
+message BlockchainPeerServiceCreateTransactionRequest {
+  networknode.v1.BlockchainTransaction data = 1;
+}
+
+message BlockchainPeerServiceCreateTransactionResponse {
+  bool success = 1;
+}
+
+message BlockchainPeerServiceValidateRequest {
+  networknode.v1.BlockchainBlock data = 1;
+}
+
+message BlockchainPeerServiceValidateResponse {
+  bool valid = 1;
+}
+
+message BlockchainPeerServiceGetBlocksRequest {
+  optional string from = 1;
+  optional string to = 2;
+  optional common.v1.Pagination pagination = 3;
+}
+
+message BlockchainPeerServiceGetBlocksResponse {
+  repeated networknode.v1.BlockchainBlock data = 1;
+  int64 total = 2;
+}
+
+message BlockchainPeerServiceGetEntitiesRequest {
+  repeated int64 ids = 1;
+  optional common.v1.Pagination pagination = 2;
+}
+
+message BlockchainPeerServiceGetEntitiesResponse {
+  repeated networknode.v1.BlockchainEntity data = 1;
+  int64 total = 2;
+}
+
+service BlockchainPeerService {
+  rpc CreateTransaction(BlockchainPeerServiceCreateTransactionRequest) returns (BlockchainPeerServiceCreateTransactionResponse);
+  rpc Validate(BlockchainPeerServiceValidateRequest) returns (BlockchainPeerServiceValidateResponse);
+  rpc GetBlocks(BlockchainPeerServiceGetBlocksRequest) returns (BlockchainPeerServiceGetBlocksResponse);
+  rpc GetEntities(BlockchainPeerServiceGetEntitiesRequest) returns (BlockchainPeerServiceGetEntitiesResponse);
+}

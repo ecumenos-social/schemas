@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package networknode.v1;
+
+option go_package = "github.com/ecumenos-social/schemas/proto/gen/networknode/v1";
+
+message BlockchainEntity {
+  enum Type {
+    TYPE_UNKNOWN_UNSPECIFIED = 0;
+    TYPE_GROUP = 1;
+    TYPE_CHANNEL = 2;
+  }
+
+  Type t = 1;
+  int64 id = 2;
+  int64 nnid = 3;
+}
