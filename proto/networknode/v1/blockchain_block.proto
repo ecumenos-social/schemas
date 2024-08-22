@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package networknode.v1;
+
+option go_package = "github.com/ecumenos-social/schemas/proto/gen/networknode/v1";
+
+import "networknode/v1/blockchain_transaction.proto";
+
+message BlockchainBlock {
+  message Header {
+    string hash = 1;
+    string parent_block_hash = 2;
+    string timestamp = 3;
+  }
+
+  Header header = 1;
+  networknode.v1.BlockchainTransaction data = 2;
+}

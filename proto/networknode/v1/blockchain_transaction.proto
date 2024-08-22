@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package networknode.v1;
+
+option go_package = "github.com/ecumenos-social/schemas/proto/gen/networknode/v1";
+
+message BlockchainTransaction {
+  enum Operation {
+    OPERATION_UNKNOWN_UNSPECIFIED = 0;
+    OPERATION_CREATE = 1;
+    OPERATION_TRANSIT = 2;
+    OPERATION_DELETE = 3;
+  }
+  enum Field {
+    FIELD_UNKNOWN_UNSPECIFIED = 0;
+    FIELD_ENTITY_ID = 1;
+    FIELD_NETWORK_NODE_ID = 2;
+  }
+
+  Operation op = 1;
+  optional Field field = 2;
+  optional string value = 3;
+  optional string identifier = 4;
+}
